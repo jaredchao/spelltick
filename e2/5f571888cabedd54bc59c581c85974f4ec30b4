@@ -1,0 +1,29 @@
+src-tauri/tauri.conf.json
+  s_3d4a31c4b54aa5::t_1841840eb80a53 22-29,36-49
+INSTALL.md
+  s_3d4a31c4b54aa5::t_f2dea26d90246f 1-137
+src-tauri/Info.plist
+  s_3d4a31c4b54aa5::t_1841840eb80a53 1-9
+CLAUDE.md
+  s_3d4a31c4b54aa5::t_c81915e2a3930c 19-21,43-44
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_0216d818ebda64 98-107
+package.json
+  s_3d4a31c4b54aa5::t_715439e00c8f26 13-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e25f571888cabedd54bc59c581c85974f4ec30b4",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
