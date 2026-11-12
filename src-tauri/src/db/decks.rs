@@ -1,6 +1,6 @@
 //! Deck management for the settings page: list, enable, delete, import.
 
-use rusqlite::{Connection, Result, params};
+use rusqlite::{Connection, OptionalExtension, Result, params};
 use serde::{Deserialize, Serialize};
 
 use super::seed::kind_of;
@@ -116,6 +116,34 @@ pub fn create_with_items(
     Ok((deck_id, inserted))
 }
 
+pub const USER_DECK_NAME: &str = "我的生词本";
+
+/// Add one word to「我的生词本」, creating the deck on first use.
+/// Returns false when the term was already in the deck.
+pub fn add_to_user_deck(conn: &mut Connection, item: &NewItem, now: i64) -> Result<bool> {
+    let tx = conn.transaction()?;
+    let existing: Option<i64> = tx
+        .query_row(
+            "SELECT id FROM decks WHERE source = 'user' ORDER BY id LIMIT 1",
+            [],
+            |r| r.get(0),
+        )
+        .optional()?;
+    let deck_id = match existing {
+        Some(id) => id,
+        None => {
+            tx.execute(
+                "INSERT INTO decks (name, source, enabled, created_at) VALUES (?1, 'user', 1, ?2)",
+                params![USER_DECK_NAME, now],
+            )?;
+            tx.last_insert_rowid()
+        }
+    };
+    let inserted = insert_items(&tx, deck_id, std::slice::from_ref(item))?;
+    tx.commit()?;
+    Ok(inserted > 0)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -195,6 +223,19 @@ mod tests {
         )
         .unwrap();
         assert_eq!(list(&c).unwrap()[0].learned, 1);
+    }
+
+    #[test]
+    fn user_deck_is_created_once() {
+        let mut c = setup();
+        assert!(add_to_user_deck(&mut c, &item("rebase"), 1).unwrap());
+        assert!(add_to_user_deck(&mut c, &item("cherry-pick"), 2).unwrap());
+        assert!(!add_to_user_deck(&mut c, &item("rebase"), 3).unwrap());
+        let decks = list(&c).unwrap();
+        let user: Vec<_> = decks.iter().filter(|d| d.source == "user").collect();
+        assert_eq!(user.len(), 1);
+        assert_eq!(user[0].name, USER_DECK_NAME);
+        assert_eq!(user[0].total, 2);
     }
 
     #[test]

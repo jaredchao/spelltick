@@ -12,6 +12,7 @@ import { Answer } from "../popup/Answer";
 import { Feedback } from "../popup/Feedback";
 import { Peek } from "../popup/Peek";
 import { SettingsApp } from "../settingsWindow/SettingsApp";
+import { AddWordApp } from "../addWord/AddWordApp";
 import { DEFAULT_SETTINGS, type Settings, type SkinChoice } from "../settings/types";
 import { SkinProvider } from "../skin/SkinContext";
 import "../styles/fonts.css";
@@ -23,13 +24,17 @@ const view = params.get("view") ?? "popup";
 const tab = params.get("tab") ?? "general";
 const settings: Settings = { ...DEFAULT_SETTINGS, skin };
 
-mockWindows("settings");
+mockWindows(view === "addword" ? "addword" : "settings");
 mockIPC((cmd) => {
   switch (cmd) {
     case "settings_get":
       return settings;
     case "shortcut_status":
       return { summonError: null, addWordError: "注册失败，可能已被其他应用占用" };
+    case "addword_pending":
+      return { term: "idempotent", needsPermission: true };
+    case "ai_key_has":
+      return true;
     case "decks_list":
       return [
         { id: 1, name: "四六级核心词", source: "builtin", enabled: true, learned: 312, total: 5751 },
@@ -70,7 +75,12 @@ function PopupPreview() {
     <div style={page}>
       <Peek shortcut={settings.summonShortcut} onOpen={() => undefined} />
       <Answer question={zh2en} input="deplo" hintLevel={2} focusToken={0} showFirstLetter dispatch={noop} />
-      <Feedback question={zh2en} outcome={wrong} onContinue={() => undefined} />
+      <Feedback
+        question={zh2en}
+        outcome={wrong}
+        explanation="-oy 结尾同 employ、destroy，记成「de + ploy」。"
+        onContinue={() => undefined}
+      />
       <Feedback question={{ item, quizType: "cloze" }} outcome={right} onContinue={() => undefined} />
     </div>
   );
@@ -92,6 +102,14 @@ function SettingsPreview() {
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <SkinProvider choice={skin}>{view === "settings" ? <SettingsPreview /> : <PopupPreview />}</SkinProvider>
+    <SkinProvider choice={skin}>
+      {view === "settings" && <SettingsPreview />}
+      {view === "addword" && (
+        <div style={{ width: 400, height: 360, border: "1px solid #888", overflow: "hidden" }}>
+          <AddWordApp settings={settings} />
+        </div>
+      )}
+      {view === "popup" && <PopupPreview />}
+    </SkinProvider>
   </React.StrictMode>,
 );

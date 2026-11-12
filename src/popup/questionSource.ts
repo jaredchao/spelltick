@@ -7,6 +7,14 @@ import { selectNext, type Candidates } from "../core/select";
 import { DAY_MS } from "../core/sm2";
 import { startOfLocalDay } from "../core/time";
 import type { QuizSettings } from "../settings/types";
+import type { AiConfig } from "../ai/client";
+import { generateExample } from "../ai/features";
+
+/** Optional AI step: turn a recently-wrong word into a fresh cloze question. */
+export interface AiQuizOptions {
+  readonly config: AiConfig;
+  readonly newClozeFromMistakes: boolean;
+}
 
 const SAMPLE_SIZE = 5;
 
@@ -17,13 +25,18 @@ const SAMPLE_SIZE = 5;
 export async function loadNextQuestion(
   quiz: QuizSettings,
   excludeItemId: number | null,
+  ai: AiQuizOptions | null = null,
 ): Promise<Question | null> {
-  const question = await loadOnce(quiz, excludeItemId);
+  const question = await loadOnce(quiz, excludeItemId, ai);
   if (question || excludeItemId === null) return question;
-  return loadOnce(quiz, null);
+  return loadOnce(quiz, null, ai);
 }
 
-async function loadOnce(quiz: QuizSettings, excludeItemId: number | null): Promise<Question | null> {
+async function loadOnce(
+  quiz: QuizSettings,
+  excludeItemId: number | null,
+  ai: AiQuizOptions | null,
+): Promise<Question | null> {
   const now = Date.now();
   try {
     const candidates = await invoke<Candidates>("quiz_candidates", {
@@ -44,6 +57,10 @@ async function loadOnce(quiz: QuizSettings, excludeItemId: number | null): Promi
       Math.random,
     );
     if (!pick) return null;
+    if (pick.source === "wrong" && pick.item.kind === "word" && ai?.newClozeFromMistakes) {
+      const example = await generateExample(ai.config, pick.item);
+      if (example) return { item: { ...pick.item, example }, quizType: "cloze" };
+    }
     return { item: pick.item, quizType: chooseQuizType(pick.item, quiz.enabledTypes, Math.random) };
   } catch (error) {
     console.error("[quiz] failed to load next question", error);

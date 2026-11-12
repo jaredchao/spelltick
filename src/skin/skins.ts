@@ -16,6 +16,7 @@ export interface SkinCopy {
   readonly continue: string;
   readonly trayNext: string;
   readonly trayToday: string;
+  readonly aiLabel: string;
 }
 
 export interface SkinLayout {

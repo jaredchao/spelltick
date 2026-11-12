@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { settingsApi } from "../settings/api";
 import type { Settings, ShortcutStatus } from "../settings/types";
 import { AboutTab } from "./AboutTab";
+import { AiSection } from "./AiSection";
 import { DecksTab } from "./DecksTab";
 import { GeneralTab } from "./GeneralTab";
 import { QuizTab } from "./QuizTab";
@@ -50,7 +51,7 @@ export function SettingsApp({ settings }: { settings: Settings }) {
         {saveError && <div className={styles.error}>{saveError}</div>}
         {tab === "general" && <GeneralTab settings={settings} update={update} />}
         {tab === "quiz" && <QuizTab settings={settings} update={update} />}
-        {tab === "decks" && <DecksTab />}
+        {tab === "decks" && <DecksTab aiSection={<AiSection settings={settings} update={update} />} />}
         {tab === "about" && <AboutTab />}
       </main>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { AddWordApp } from "./addWord/AddWordApp";
 import { PopupApp } from "./popup/PopupApp";
 import { SettingsApp } from "./settingsWindow/SettingsApp";
 import { useSettings } from "./settings/useSettings";
@@ -15,6 +16,7 @@ function Root() {
     <SkinProvider choice={settings.skin}>
       {label === "popup" && <PopupApp settings={settings} />}
       {label === "settings" && <SettingsApp settings={settings} />}
+      {label === "addword" && <AddWordApp settings={settings} />}
     </SkinProvider>
   );
 }

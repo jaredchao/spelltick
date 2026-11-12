@@ -432,3 +432,22 @@
   font-weight: 600;
   color: var(--text);
 }
+
+.aiField {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aiFieldLabel {
+  width: 72px;
+  flex: none;
+  font-family: var(--font-term);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.ok {
+  color: var(--right);
+  font-size: 13px;
+}

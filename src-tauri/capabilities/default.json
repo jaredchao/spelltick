@@ -2,6 +2,13 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "Default capability for app windows",
-  "windows": ["popup", "settings"],
-  "permissions": ["core:default", "dialog:default"]
+  "windows": ["popup", "settings", "addword"],
+  "permissions": [
+    "core:default",
+    "dialog:default",
+    {
+      "identifier": "http:default",
+      "allow": [{ "url": "https://**" }, { "url": "http://**" }]
+    }
+  ]
 }

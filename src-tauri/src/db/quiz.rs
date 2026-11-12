@@ -118,6 +118,21 @@ pub fn item_by_id(conn: &Connection, id: i64) -> Result<Option<QuizItem>> {
     conn.query_row(&sql, [id], map_item).optional()
 }
 
+/// Cache an example for an item that has none (SPEC 8: never regenerate).
+/// Returns false when the item already had an example.
+pub fn set_example_if_missing(
+    conn: &Connection,
+    item_id: i64,
+    example: &str,
+    ai: bool,
+) -> Result<bool> {
+    let changed = conn.execute(
+        "UPDATE items SET example = ?1, example_ai = ?2 WHERE id = ?3 AND example IS NULL",
+        params![example.trim(), ai, item_id],
+    )?;
+    Ok(changed > 0)
+}
+
 fn new_items(conn: &Connection, q: &CandidateQuery, kind: &str) -> Result<Vec<QuizItem>> {
     let sql = format!(
         "SELECT {ITEM_COLUMNS} {ITEM_FROM}
@@ -377,6 +392,23 @@ mod tests {
         assert_eq!(item_by_id(&c, id).unwrap().unwrap().term, "merge");
         c.execute("UPDATE decks SET enabled = 0", []).unwrap();
         assert!(item_by_id(&c, id).unwrap().is_none());
+    }
+
+    #[test]
+    fn caches_example_only_once() {
+        let c = setup();
+        let id = id_of(&c, "deploy");
+        assert!(set_example_if_missing(&c, id, "We deploy daily.", true).unwrap());
+        assert!(!set_example_if_missing(&c, id, "Another.", true).unwrap());
+        let (ex, ai): (String, bool) = c
+            .query_row(
+                "SELECT example, example_ai FROM items WHERE id = ?1",
+                [id],
+                |r| Ok((r.get(0)?, r.get(1)?)),
+            )
+            .unwrap();
+        assert_eq!(ex, "We deploy daily.");
+        assert!(ai);
     }
 
     #[test]

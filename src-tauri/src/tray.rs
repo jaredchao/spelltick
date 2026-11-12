@@ -12,6 +12,7 @@ const MENU_TODAY_LINE: &str = "status-today";
 const MENU_NEXT: &str = "next";
 const MENU_PAUSE: &str = "pause";
 const MENU_MUTE: &str = "mute";
+const MENU_ADD_WORD: &str = "add-word";
 const MENU_SETTINGS: &str = "settings";
 const MENU_QUIT: &str = "quit";
 #[cfg(debug_assertions)]
@@ -23,6 +24,7 @@ pub enum MenuAction {
     Next,
     TogglePause,
     ToggleMute,
+    AddWord,
     OpenSettings,
     Quit,
     #[cfg(debug_assertions)]
@@ -35,6 +37,7 @@ impl MenuAction {
             MENU_NEXT => Some(Self::Next),
             MENU_PAUSE => Some(Self::TogglePause),
             MENU_MUTE => Some(Self::ToggleMute),
+            MENU_ADD_WORD => Some(Self::AddWord),
             MENU_SETTINGS => Some(Self::OpenSettings),
             MENU_QUIT => Some(Self::Quit),
             #[cfg(debug_assertions)]
@@ -86,6 +89,12 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
     let next = item(MENU_NEXT, "立即来一题", true, Some(crate::shortcut::SUMMON))?;
     let pause = item(MENU_PAUSE, "暂停 1 小时", true, None)?;
     let mute = item(MENU_MUTE, "今天不再弹", true, None)?;
+    let add_word = item(
+        MENU_ADD_WORD,
+        "加入生词…",
+        true,
+        Some("CommandOrControl+Shift+A"),
+    )?;
     let settings = item(MENU_SETTINGS, "设置…", true, Some("CommandOrControl+,"))?;
     let quit = item(MENU_QUIT, "退出", true, None)?;
 
@@ -99,6 +108,7 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
             &pause,
             &mute,
             &PredefinedMenuItem::separator(app)?,
+            &add_word,
             &settings,
             &PredefinedMenuItem::separator(app)?,
             &quit,
@@ -131,6 +141,7 @@ fn handle_menu_event<R: Runtime>(app: &AppHandle<R>, event: MenuEvent) {
         Some(MenuAction::Next) => crate::popup::summon(app),
         Some(MenuAction::TogglePause) => crate::scheduler::runtime::toggle_pause(app),
         Some(MenuAction::ToggleMute) => crate::scheduler::runtime::toggle_mute(app),
+        Some(MenuAction::AddWord) => crate::add_word::trigger(app),
         Some(MenuAction::OpenSettings) => crate::settings_window::open(app),
         Some(MenuAction::Quit) => app.exit(0),
         #[cfg(debug_assertions)]

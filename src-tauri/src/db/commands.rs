@@ -37,3 +37,9 @@ pub fn quiz_item(db: State<'_, Db>, id: i64) -> Result<Option<QuizItem>, String>
     let conn = lock(&db)?;
     quiz::item_by_id(&conn, id).map_err(|e| e.to_string())
 }
+
+#[tauri::command]
+pub fn quiz_set_example(db: State<'_, Db>, item_id: i64, example: String) -> Result<bool, String> {
+    let conn = lock(&db)?;
+    quiz::set_example_if_missing(&conn, item_id, &example, true).map_err(|e| e.to_string())
+}

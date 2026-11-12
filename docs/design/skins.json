@@ -38,7 +38,8 @@
       "nextReview": "{time}后再考",
       "continue": "按任意键继续",
       "trayNext": "下一题约 {time}后",
-      "trayToday": "今日 {n} 题 · 正确率 {rate}"
+      "trayToday": "今日 {n} 题 · 正确率 {rate}",
+      "aiLabel": "AI"
     },
     "layout": {
       "titleBar": false,
@@ -88,7 +89,8 @@
       "nextReview": "next_review: +{time}",
       "continue": "press any key",
       "trayNext": "next in ~{time}",
-      "trayToday": "today {n} · acc {rate}"
+      "trayToday": "today {n} · acc {rate}",
+      "aiLabel": "# ai:"
     },
     "layout": {
       "titleBar": true,
@@ -138,7 +140,8 @@
       "nextReview": "{time}后再见",
       "continue": "按任意键继续",
       "trayNext": "下一张卡 · 约 {time}",
-      "trayToday": "今日 {n} 张 · 正确率 {rate}"
+      "trayToday": "今日 {n} 张 · 正确率 {rate}",
+      "aiLabel": "AI 小记"
     },
     "layout": {
       "titleBar": false,

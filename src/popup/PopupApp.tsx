@@ -9,6 +9,9 @@ import { usePopupEvents } from "./usePopupEvents";
 import { usePopupTimers } from "./usePopupTimers";
 import { usePopupWindow } from "./usePopupWindow";
 import type { Settings } from "../settings/types";
+import { useAiConfig } from "../ai/useAiConfig";
+import { usePopupAi } from "./usePopupAi";
+import type { AiQuizOptions } from "./questionSource";
 
 export function PopupApp({ settings }: { settings: Settings }) {
   const [state, dispatch] = useReducer(popupReducer, initialPopupState);
@@ -18,11 +21,16 @@ export function PopupApp({ settings }: { settings: Settings }) {
 
   const quizRef = useRef(settings.quiz);
   quizRef.current = settings.quiz;
+  const aiConfig = useAiConfig(settings.ai);
+  const aiRef = useRef<AiQuizOptions | null>(null);
+  aiRef.current = aiConfig
+    ? { config: aiConfig, newClozeFromMistakes: settings.ai.newClozeFromMistakes }
+    : null;
   const lastItemId = () => stateRef.current.question?.item.id ?? null;
 
   const onSummon = useCallback(async () => {
     // Only a hidden popup needs a new question; otherwise just refocus.
-    const question = stateRef.current.phase === "hidden" ? await loadNextQuestion(quizRef.current, lastItemId()) : null;
+    const question = stateRef.current.phase === "hidden" ? await loadNextQuestion(quizRef.current, lastItemId(), aiRef.current) : null;
     dispatch({ type: "summon", question });
   }, []);
 
@@ -30,7 +38,7 @@ export function PopupApp({ settings }: { settings: Settings }) {
     if (stateRef.current.phase !== "hidden") return;
     const question =
       itemId === null
-        ? await loadNextQuestion(quizRef.current, lastItemId())
+        ? await loadNextQuestion(quizRef.current, lastItemId(), aiRef.current)
         : await loadQuestionFor(quizRef.current, itemId, lastItemId());
     if (question) dispatch({ type: "peek", question });
   }, []);
@@ -40,6 +48,7 @@ export function PopupApp({ settings }: { settings: Settings }) {
   usePopupEvents(onSummon, onPeek);
   usePopupTimers(state.phase, onTimeout);
   usePopupWindow(state.phase, state.focusToken, contentRef);
+  const explanation = usePopupAi(state, settings.ai, aiConfig);
 
   // Persist each new attempt exactly once.
   const savedSeq = useRef(0);
@@ -80,6 +89,7 @@ export function PopupApp({ settings }: { settings: Settings }) {
         <Feedback
           question={question}
           outcome={state.outcome}
+          explanation={explanation}
           onContinue={() => dispatch({ type: "continue" })}
         />
       )}

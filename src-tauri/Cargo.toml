@@ -25,6 +25,9 @@ fastrand = "2"
 chrono = "0.4"
 tauri-plugin-dialog = "2"
 tauri-plugin-autostart = "2"
+tauri-plugin-http = "2"
+arboard = "3"
+keyring = { version = "3", features = ["apple-native", "windows-native"] }
 
 [profile.release]
 codegen-units = 1

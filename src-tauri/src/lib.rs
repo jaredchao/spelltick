@@ -1,9 +1,12 @@
 mod add_word;
+mod applog;
 mod db;
 mod geometry;
+mod keychain;
 mod platform;
 mod popup;
 mod scheduler;
+mod selection;
 mod settings;
 mod settings_cmd;
 mod settings_window;
@@ -35,6 +38,7 @@ pub fn run() {
         .plugin(tauri_plugin_single_instance::init(|_app, _args, _cwd| {}))
         .plugin(shortcut::plugin())
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_autostart::init(
             tauri_plugin_autostart::MacosLauncher::LaunchAgent,
             None,
@@ -62,6 +66,15 @@ pub fn run() {
             settings_cmd::progress_import,
             settings_window::settings_window_open,
             shortcut::shortcut_status,
+            db::commands::quiz_set_example,
+            keychain::commands::ai_key_get,
+            keychain::commands::ai_key_has,
+            keychain::commands::ai_key_set,
+            applog::log_write,
+            add_word::commands::addword_pending,
+            add_word::commands::addword_save,
+            add_word::commands::addword_close,
+            add_word::commands::accessibility_open_settings,
         ])
         .setup(|app| {
             // Tray-only app: no Dock icon on macOS.
@@ -77,6 +90,7 @@ pub fn run() {
             app.manage(database);
             app.manage(settings_state);
             app.manage(shortcut::ShortcutRegistry::default());
+            app.manage(add_word::AddWordState::default());
             app.manage(scheduler::runtime::SchedulerHandle::default());
             popup::create(app.handle())?;
             tray::create(app.handle())?;

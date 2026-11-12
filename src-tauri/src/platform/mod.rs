@@ -6,17 +6,29 @@ mod macos;
 #[cfg(target_os = "macos")]
 mod macos_focus;
 #[cfg(target_os = "macos")]
+mod macos_input;
+#[cfg(target_os = "macos")]
 pub use macos::{
     is_fullscreen_app_active, remember_frontmost_app, restore_previous_app,
     seconds_since_last_input,
+};
+#[cfg(target_os = "macos")]
+pub use macos_input::{
+    accessibility_trusted, open_accessibility_settings, send_copy, wait_modifiers_released,
 };
 
 #[cfg(target_os = "windows")]
 mod windows;
 #[cfg(target_os = "windows")]
+mod windows_input;
+#[cfg(target_os = "windows")]
 pub use windows::{
     is_fullscreen_app_active, remember_frontmost_app, restore_previous_app,
     seconds_since_last_input,
+};
+#[cfg(target_os = "windows")]
+pub use windows_input::{
+    accessibility_trusted, open_accessibility_settings, send_copy, wait_modifiers_released,
 };
 
 #[cfg(not(any(target_os = "macos", target_os = "windows")))]
@@ -29,11 +41,20 @@ mod fallback {
     pub fn seconds_since_last_input() -> f64 {
         f64::MAX
     }
+    pub fn accessibility_trusted(_prompt: bool) -> bool {
+        true
+    }
+    pub fn wait_modifiers_released(_max: std::time::Duration) {}
+    pub fn send_copy() -> Result<(), String> {
+        Err("unsupported platform".into())
+    }
+    pub fn open_accessibility_settings() {}
 }
 #[cfg(not(any(target_os = "macos", target_os = "windows")))]
 pub use fallback::{
-    is_fullscreen_app_active, remember_frontmost_app, restore_previous_app,
-    seconds_since_last_input,
+    accessibility_trusted, is_fullscreen_app_active, open_accessibility_settings,
+    remember_frontmost_app, restore_previous_app, seconds_since_last_input, send_copy,
+    wait_modifiers_released,
 };
 
 /// SPEC 5: exposed to the frontend as Tauri commands.
