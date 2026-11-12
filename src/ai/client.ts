@@ -1,6 +1,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { fetch } from "@tauri-apps/plugin-http";
 import { completionsUrl, type ChatMessage } from "../core/aiPrompts";
+import { thinkingOffParams } from "../core/aiThinking";
 import type { AiSettings } from "../settings/types";
 
 export const AI_TIMEOUT_MS = 10_000;
@@ -42,7 +43,41 @@ export function logAiError(context: string, error: unknown): void {
   void invoke("log_write", { level: "warn", message: `[ai] ${context}: ${message}` }).catch(() => undefined);
 }
 
-/** POST {baseUrl}/chat/completions with a 10 s timeout. Throws on any failure. */
+class HttpError extends Error {
+  constructor(
+    readonly status: number,
+    message: string,
+  ) {
+    super(message);
+  }
+}
+
+/** Endpoints that rejected the "thinking off" fields this run; not sent again. */
+const thinkingParamsRejected = new Set<string>();
+
+async function post(
+  config: AiConfig,
+  body: Readonly<Record<string, unknown>>,
+  signal: AbortSignal,
+): Promise<CompletionResponse> {
+  const res = await fetch(completionsUrl(config.baseUrl), {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${config.apiKey}` },
+    body: JSON.stringify(body),
+    signal,
+  });
+  const data = (await res.json().catch(() => ({}))) as CompletionResponse;
+  if (!res.ok) {
+    throw new HttpError(res.status, `HTTP ${res.status}${data.error?.message ? `: ${data.error.message}` : ""}`);
+  }
+  return data;
+}
+
+/**
+ * POST {baseUrl}/chat/completions with a 10 s timeout. Throws on any failure.
+ * Thinking is turned off for known providers; if the endpoint rejects those
+ * fields with a 400, the request is retried once without them.
+ */
 export async function chat(
   config: AiConfig,
   messages: readonly ChatMessage[],
@@ -50,16 +85,18 @@ export async function chat(
 ): Promise<string> {
   const controller = new AbortController();
   const timer = window.setTimeout(() => controller.abort(), AI_TIMEOUT_MS);
+  const endpoint = `${config.baseUrl}|${config.model}`;
+  const base = { model: config.model, messages, max_tokens: maxTokens, temperature: 0.7 };
+  const offParams = thinkingParamsRejected.has(endpoint) ? null : thinkingOffParams(config.baseUrl, config.model);
   try {
-    const res = await fetch(completionsUrl(config.baseUrl), {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${config.apiKey}` },
-      body: JSON.stringify({ model: config.model, messages, max_tokens: maxTokens, temperature: 0.7 }),
-      signal: controller.signal,
-    });
-    const data = (await res.json().catch(() => ({}))) as CompletionResponse;
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}${data.error?.message ? `: ${data.error.message}` : ""}`);
+    let data: CompletionResponse;
+    try {
+      data = await post(config, offParams ? { ...base, ...offParams } : base, controller.signal);
+    } catch (error) {
+      if (!(offParams && error instanceof HttpError && error.status === 400)) throw error;
+      thinkingParamsRejected.add(endpoint);
+      logAi(`thinking-off fields rejected (${error.message}); retrying without them`);
+      data = await post(config, base, controller.signal);
     }
     const choice = data.choices?.[0];
     const content = choice?.message?.content;
@@ -67,9 +104,9 @@ export async function chat(
     const reasoningChars = choice?.message?.reasoning_content?.length ?? 0;
     const reasoningTokens = data.usage?.completion_tokens_details?.reasoning_tokens ?? 0;
     logAi(
-      `model=${config.model} thinking=${reasoningChars > 0 || reasoningTokens > 0 ? "yes" : "no"}` +
-        ` reasoning_tokens=${reasoningTokens} reasoning_chars=${reasoningChars}` +
-        ` completion_tokens=${data.usage?.completion_tokens ?? "?"}`,
+      `model=${config.model} thinking_off_sent=${offParams ? "yes" : "no"}` +
+        ` thinking=${reasoningChars > 0 || reasoningTokens > 0 ? "yes" : "no"}` +
+        ` reasoning_tokens=${reasoningTokens} completion_tokens=${data.usage?.completion_tokens ?? "?"}`,
     );
     if (typeof content !== "string" || content.trim() === "") {
       const reasoning = choice?.message?.reasoning_content ? "，只有推理内容" : "";
