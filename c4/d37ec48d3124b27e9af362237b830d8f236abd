@@ -1,0 +1,87 @@
+CLAUDE.md
+  s_3d4a31c4b54aa5::t_3e708e35842a88 30
+  s_3d4a31c4b54aa5::t_1fca59ade4f763 14-29
+  s_3d4a31c4b54aa5::t_b4e82a6d82845b 11-13
+  s_3d4a31c4b54aa5::t_d79121dbff9df1 31-33
+  s_3d4a31c4b54aa5::t_d676c829bfc5a7 1-10,34-48
+package.json
+  s_3d4a31c4b54aa5::t_3af3bcb72b8ca5 1-29
+src/core/shortcut.test.ts
+  s_3d4a31c4b54aa5::t_f82d98d03048fe 1-21
+src/main.tsx
+  s_3d4a31c4b54aa5::t_9e2acfb90921d5 1-13
+src-tauri/src/platform/macos.rs
+  s_3d4a31c4b54aa5::t_4cad91b65c4c6e 1
+src-tauri/src/tray.rs
+  s_3d4a31c4b54aa5::t_2003572e4c8133 1-81
+.gitignore
+  s_3d4a31c4b54aa5::t_4b7cd74c77ef84 1-24
+index.html
+  s_3d4a31c4b54aa5::t_b2f337a401c17f 1-13
+src-tauri/Cargo.toml
+  s_3d4a31c4b54aa5::t_4d0c1bfe531adb 1-28
+src-tauri/src/main.rs
+  s_3d4a31c4b54aa5::t_202852ddce6f78 1-6
+src-tauri/src/platform/mod.rs
+  s_3d4a31c4b54aa5::t_3dd03d5ca49549 1-8
+src-tauri/capabilities/default.json
+  s_3d4a31c4b54aa5::t_1eaa7206ae1f74 1-7
+src-tauri/src/platform/windows.rs
+  s_3d4a31c4b54aa5::t_989467c48ed21f 1
+tsconfig.node.json
+  s_3d4a31c4b54aa5::t_4b7cd74c77ef84 1-10
+tsconfig.json
+  s_3d4a31c4b54aa5::t_4b7cd74c77ef84 1-25
+src-tauri/.gitignore
+  s_3d4a31c4b54aa5::t_4b7cd74c77ef84 1-7
+src-tauri/build.rs
+  s_3d4a31c4b54aa5::t_4b7cd74c77ef84 1-3
+src-tauri/tauri.conf.json
+  s_3d4a31c4b54aa5::t_3ed196f5124d4e 1-30
+src-tauri/src/lib.rs
+  s_3d4a31c4b54aa5::t_877f02032f9ed5 1-28
+src/vite-env.d.ts
+  s_3d4a31c4b54aa5::t_ef08f3a03ed12e 1
+vite.config.ts
+  s_3d4a31c4b54aa5::t_4b7cd74c77ef84 1-32
+src/core/shortcut.ts
+  s_3d4a31c4b54aa5::t_3cc60850b72230 1-29
+package-lock.json
+  s_3d4a31c4b54aa5::t_78e7b4cdadeeed 1-1547
+src-tauri/Cargo.lock
+  s_3d4a31c4b54aa5::t_b425646e00a05a 1-4949
+docs/SPEC.md
+  s_3d4a31c4b54aa5::t_c356fbad38e0fd 1-363
+docs/design/Main.dc.html
+  s_3d4a31c4b54aa5::t_66350b03beda6d 1-87
+docs/design/Paper.dc.html
+  s_3d4a31c4b54aa5::t_18dd54b97b572f 1-82
+docs/design/README.md
+  s_3d4a31c4b54aa5::t_a06aeb36f375a1 1-20
+docs/design/SettingsA.dc.html
+  s_3d4a31c4b54aa5::t_9730c024cf83bf 1-115
+docs/design/SettingsB.dc.html
+  s_3d4a31c4b54aa5::t_f9eb9b896e308b 1-113
+docs/design/SettingsC.dc.html
+  s_3d4a31c4b54aa5::t_dc9e98bb447923 1-116
+docs/design/Terminal.dc.html
+  s_3d4a31c4b54aa5::t_2182f9ff4716d9 1-85
+docs/design/skins.json
+  s_3d4a31c4b54aa5::t_39badf6245d1b3 1-143
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c4d37ec48d3124b27e9af362237b830d8f236abd",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
