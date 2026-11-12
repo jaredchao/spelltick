@@ -12,6 +12,7 @@ const MENU_TODAY_LINE: &str = "status-today";
 const MENU_NEXT: &str = "next";
 const MENU_PAUSE: &str = "pause";
 const MENU_MUTE: &str = "mute";
+const MENU_SETTINGS: &str = "settings";
 const MENU_QUIT: &str = "quit";
 #[cfg(debug_assertions)]
 const MENU_DEBUG_PEEK: &str = "debug-peek";
@@ -22,6 +23,7 @@ pub enum MenuAction {
     Next,
     TogglePause,
     ToggleMute,
+    OpenSettings,
     Quit,
     #[cfg(debug_assertions)]
     DebugPeek,
@@ -33,6 +35,7 @@ impl MenuAction {
             MENU_NEXT => Some(Self::Next),
             MENU_PAUSE => Some(Self::TogglePause),
             MENU_MUTE => Some(Self::ToggleMute),
+            MENU_SETTINGS => Some(Self::OpenSettings),
             MENU_QUIT => Some(Self::Quit),
             #[cfg(debug_assertions)]
             MENU_DEBUG_PEEK => Some(Self::DebugPeek),
@@ -83,6 +86,7 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
     let next = item(MENU_NEXT, "立即来一题", true, Some(crate::shortcut::SUMMON))?;
     let pause = item(MENU_PAUSE, "暂停 1 小时", true, None)?;
     let mute = item(MENU_MUTE, "今天不再弹", true, None)?;
+    let settings = item(MENU_SETTINGS, "设置…", true, Some("CommandOrControl+,"))?;
     let quit = item(MENU_QUIT, "退出", true, None)?;
 
     let menu = Menu::with_items(
@@ -94,6 +98,8 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
             &next,
             &pause,
             &mute,
+            &PredefinedMenuItem::separator(app)?,
+            &settings,
             &PredefinedMenuItem::separator(app)?,
             &quit,
         ],
@@ -125,6 +131,7 @@ fn handle_menu_event<R: Runtime>(app: &AppHandle<R>, event: MenuEvent) {
         Some(MenuAction::Next) => crate::popup::summon(app),
         Some(MenuAction::TogglePause) => crate::scheduler::runtime::toggle_pause(app),
         Some(MenuAction::ToggleMute) => crate::scheduler::runtime::toggle_mute(app),
+        Some(MenuAction::OpenSettings) => crate::settings_window::open(app),
         Some(MenuAction::Quit) => app.exit(0),
         #[cfg(debug_assertions)]
         Some(MenuAction::DebugPeek) => {
@@ -166,6 +173,10 @@ mod tests {
         assert_eq!(MenuAction::from_id("next"), Some(MenuAction::Next));
         assert_eq!(MenuAction::from_id("pause"), Some(MenuAction::TogglePause));
         assert_eq!(MenuAction::from_id("mute"), Some(MenuAction::ToggleMute));
+        assert_eq!(
+            MenuAction::from_id("settings"),
+            Some(MenuAction::OpenSettings)
+        );
     }
 
     #[test]

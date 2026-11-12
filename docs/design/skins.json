@@ -24,7 +24,9 @@
       "--font-term": "Inter, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
       "--radius-card": "14px",
       "--radius-control": "10px",
-      "--shadow-card": "0 12px 32px rgba(17,24,39,0.14)"
+      "--shadow-card": "0 12px 32px rgba(17,24,39,0.14)",
+      "--radius-peek": "999px",
+      "--radius-icon": "10px"
     },
     "copy": {
       "peek": "来一题？",
@@ -43,7 +45,8 @@
       "feedbackStyle": "highlight",
       "inputStyle": "box",
       "contentAlign": "start",
-      "shortcutHintsInButtons": false
+      "shortcutHintsInButtons": false,
+      "peekMarker": "dot"
     }
   },
   "terminal": {
@@ -71,7 +74,9 @@
       "--font-term": "\"JetBrains Mono\", ui-monospace, \"SF Mono\", Consolas, monospace",
       "--radius-card": "8px",
       "--radius-control": "6px",
-      "--shadow-card": "none"
+      "--shadow-card": "none",
+      "--radius-peek": "8px",
+      "--radius-icon": "4px"
     },
     "copy": {
       "peek": "spell --next",
@@ -90,7 +95,8 @@
       "feedbackStyle": "diff",
       "inputStyle": "prompt",
       "contentAlign": "start",
-      "shortcutHintsInButtons": true
+      "shortcutHintsInButtons": true,
+      "peekMarker": "chevron"
     }
   },
   "paper": {
@@ -118,7 +124,9 @@
       "--font-term": "\"Source Serif 4\", Georgia, serif",
       "--radius-card": "18px",
       "--radius-control": "12px",
-      "--shadow-card": "0 14px 34px rgba(60,45,25,0.16)"
+      "--shadow-card": "0 14px 34px rgba(60,45,25,0.16)",
+      "--radius-peek": "14px",
+      "--radius-icon": "50%"
     },
     "copy": {
       "peek": "一张新词卡",
@@ -137,7 +145,8 @@
       "feedbackStyle": "card",
       "inputStyle": "underline",
       "contentAlign": "center",
-      "shortcutHintsInButtons": false
+      "shortcutHintsInButtons": false,
+      "peekMarker": "tile"
     }
   }
 }

@@ -1,3 +1,6 @@
+/* Shared card structure. Skin differences come from CSS variables and the
+   layout switches in skins.json (titleBar, inputStyle, feedbackStyle, ...). */
+
 .card {
   display: flex;
   flex-direction: column;
@@ -9,9 +12,32 @@
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   color: var(--text);
+  font-family: var(--font-ui);
 }
 
-/* ---------- answer ---------- */
+.cardTitled {
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cardTitled .body {
+  padding: 20px;
+  gap: 16px;
+}
+
+.centered .prompt {
+  align-items: center;
+  text-align: center;
+}
+
+/* ---------- header ---------- */
 
 .header {
   display: flex;
@@ -24,18 +50,58 @@
   color: var(--text-muted);
 }
 
-.iconButton {
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.lights {
+  display: flex;
+  gap: 6px;
+}
+
+.lights span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+}
+
+.titleText {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.iconButton,
+.iconButtonSmall {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-control);
   border: 1px solid var(--border-subtle);
-  background: var(--bg-subtle);
-  color: var(--text-secondary);
+  border-radius: var(--radius-icon);
   cursor: pointer;
 }
+
+.iconButton {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+}
+
+.iconButtonSmall {
+  width: 44px;
+  height: 28px;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+/* ---------- prompt ---------- */
 
 .prompt {
   display: flex;
@@ -60,6 +126,24 @@
   color: var(--accent);
 }
 
+.cloze {
+  font-family: var(--font-term);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.clozeMeaning {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.listen {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ---------- input ---------- */
+
 .field {
   display: flex;
   flex-direction: column;
@@ -69,17 +153,53 @@
 }
 
 .input {
+  min-width: 0;
+  font-family: var(--font-term);
+  color: var(--text);
+  outline: none;
+}
+
+.input_box {
   height: 46px;
   padding: 0 14px;
   border: 2px solid var(--accent);
   border-radius: var(--radius-control);
   background: var(--bg-card);
-  font-family: var(--font-term);
   font-size: 18px;
   letter-spacing: 0.04em;
-  color: var(--text);
-  outline: none;
 }
+
+.input_underline {
+  height: 48px;
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  background: transparent;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: 0.12em;
+}
+
+.input_prompt {
+  flex: 1;
+  height: 44px;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+}
+
+.promptField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-control);
+  color: var(--accent);
+}
+
+/* ---------- buttons ---------- */
 
 .actions {
   display: flex;
@@ -97,7 +217,7 @@
 .secondary {
   flex: 1;
   border: 1px solid var(--border);
-  background: var(--bg-card);
+  background: transparent;
   color: var(--text-secondary);
 }
 
@@ -109,7 +229,33 @@
   font-weight: 600;
 }
 
+.textActions {
+  display: flex;
+  gap: 16px;
+}
+
+.textButton,
+.textButtonPrimary {
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.textButtonPrimary {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--accent);
+}
+
 /* ---------- feedback ---------- */
+
+.feedbackCard {
+  gap: 16px;
+}
 
 .titleRight,
 .titleWrong {
@@ -144,6 +290,7 @@
   font-family: var(--font-term);
   font-size: 22px;
   letter-spacing: 0.06em;
+  overflow-wrap: anywhere;
 }
 
 .spellingStrong {
@@ -157,39 +304,6 @@
   font-weight: 400;
   letter-spacing: 0;
   color: var(--text-muted);
-}
-
-.example {
-  padding: 12px 14px;
-  border-radius: var(--radius-control);
-  background: var(--bg-subtle);
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.cloze {
-  font-family: var(--font-term);
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.clozeMeaning {
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
-.listen {
-  font-size: 22px;
-  font-weight: 600;
 }
 
 .markWrong,
@@ -208,7 +322,107 @@
   color: var(--right);
 }
 
-.spelling,
-.spellingStrong {
+.diffLines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-term);
+  font-size: 16px;
+  letter-spacing: 0.04em;
   overflow-wrap: anywhere;
+}
+
+.diffMinus {
+  color: var(--wrong);
+}
+
+.diffPlus {
+  color: var(--right);
+}
+
+.cardCompare {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTermRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTerm {
+  font-family: var(--font-term);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+
+.cardMark {
+  color: var(--wrong);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.cardGiven {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.cardGivenText {
+  font-family: var(--font-term);
+  font-size: 16px;
+  color: var(--text);
+}
+
+.cardStrike {
+  color: var(--wrong);
+  text-decoration: line-through;
+}
+
+.example {
+  padding: 12px 14px;
+  border-radius: var(--radius-control);
+  background: var(--bg-subtle);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.exampleDiff {
+  padding-left: 12px;
+  border-left: 2px solid var(--border-subtle);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.exampleCard {
+  padding: 12px 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  font-family: var(--font-term);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.footer,
+.footerDiff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footerDiff {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
 }

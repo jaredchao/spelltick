@@ -2,16 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { PopupApp } from "./popup/PopupApp";
+import { SettingsApp } from "./settingsWindow/SettingsApp";
+import { useSettings } from "./settings/useSettings";
 import { SkinProvider } from "./skin/SkinContext";
+import "./styles/fonts.css";
 import "./styles/global.css";
 
 function Root() {
   const label = getCurrentWindow().label;
-  // The settings window arrives in M4.
-  if (label !== "popup") return null;
+  const settings = useSettings();
   return (
-    <SkinProvider id="native">
-      <PopupApp />
+    <SkinProvider choice={settings.skin}>
+      {label === "popup" && <PopupApp settings={settings} />}
+      {label === "settings" && <SettingsApp settings={settings} />}
     </SkinProvider>
   );
 }

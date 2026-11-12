@@ -1,0 +1,434 @@
+/* Settings window. All colors, fonts and radii come from skin tokens. */
+
+.root {
+  display: flex;
+  height: 100vh;
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.nav {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 4px;
+  width: 176px;
+  padding: 16px 12px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.navItem,
+.navOn {
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: calc(var(--radius-control) - 2px);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.navOn {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 22px;
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sectionNote {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.divider {
+  height: 1px;
+  flex: none;
+  background: var(--border-subtle);
+}
+
+.rowWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 36px;
+}
+
+.rowLabel {
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--wrong);
+  font-size: 12px;
+}
+
+.hintText {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.inlineWide {
+  display: flex;
+  gap: 24px;
+}
+
+.check,
+.checkBoxed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.checkBoxed {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--text);
+}
+
+.check input,
+.checkBoxed input,
+.deckRow input[type="checkbox"],
+.range {
+  accent-color: var(--accent);
+}
+
+.check input,
+.checkBoxed input {
+  width: 16px;
+  height: 16px;
+}
+
+.number,
+.time,
+.text {
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-control) - 2px);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.number {
+  width: 64px;
+  text-align: center;
+}
+
+.text {
+  flex: 1;
+}
+
+.number:focus,
+.time:focus,
+.text:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.segmented {
+  display: flex;
+  padding: 3px;
+  border-radius: var(--radius-control);
+  background: var(--bg-subtle);
+}
+
+.segment,
+.segmentOn {
+  height: 32px;
+  padding: 0 14px;
+  border: none;
+  border-radius: calc(var(--radius-control) - 3px);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.segmentOn {
+  background: var(--bg-card);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 2px var(--border);
+}
+
+.ratio {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ratioHead,
+.ratioEnds {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratioHead {
+  color: var(--text-secondary);
+}
+
+.ratioEnds {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.range {
+  width: 100%;
+}
+
+.typeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.button,
+.buttonPrimary,
+.buttonDanger {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-control) - 2px);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.buttonPrimary {
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+}
+
+.buttonDanger {
+  color: var(--wrong);
+}
+
+.button:disabled,
+.buttonPrimary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.kbd,
+.kbdRecording {
+  min-width: 96px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-control) - 2px);
+  background: var(--bg-subtle);
+  color: var(--text);
+  font-family: var(--font-term);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.kbdRecording {
+  border-color: var(--accent);
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
+.skinGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skinCard,
+.skinOn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.skinOn {
+  border: 2px solid var(--accent);
+  padding: 7px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.swatch {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  border-radius: calc(var(--radius-control) - 4px);
+}
+
+.swatchSplit {
+  display: flex;
+  gap: 2px;
+}
+
+.swatchCard {
+  display: flex;
+  align-items: flex-end;
+  width: 60%;
+  height: 60%;
+  padding: 6px;
+  border: 1px solid;
+}
+
+.swatchBar {
+  width: 60%;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.deckList {
+  display: flex;
+  flex-direction: column;
+}
+
+.deckRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.deckName {
+  flex: 1;
+}
+
+.deckSource {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.deckCount {
+  font-family: var(--font-term);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.deckActionSpacer {
+  width: 58px;
+}
+
+.importRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.importPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--bg-subtle);
+}
+
+.importName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+}
+
+.errorList {
+  max-height: 140px;
+  margin: 0;
+  padding-left: 18px;
+  overflow-y: auto;
+  color: var(--wrong);
+  font-size: 12px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.about p {
+  margin: 0;
+}
+
+.aboutName {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}

@@ -1,7 +1,9 @@
 //! SQLite storage. One connection guarded by a mutex; the app is single-user.
 
 pub mod commands;
+pub mod decks;
 pub mod migrations;
+pub mod progress;
 pub mod quiz;
 pub mod seed;
 

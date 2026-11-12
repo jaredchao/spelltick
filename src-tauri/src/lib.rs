@@ -1,9 +1,12 @@
+mod add_word;
 mod db;
 mod geometry;
 mod platform;
 mod popup;
 mod scheduler;
 mod settings;
+mod settings_cmd;
+mod settings_window;
 mod shortcut;
 mod skin_copy;
 mod tray;
@@ -31,6 +34,11 @@ pub fn run() {
         // Must be registered first so a second launch exits before doing anything else.
         .plugin(tauri_plugin_single_instance::init(|_app, _args, _cwd| {}))
         .plugin(shortcut::plugin())
+        .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_autostart::init(
+            tauri_plugin_autostart::MacosLauncher::LaunchAgent,
+            None,
+        ))
         .invoke_handler(tauri::generate_handler![
             popup::popup_place,
             popup::popup_show_peek,
@@ -43,6 +51,17 @@ pub fn run() {
             platform::commands::is_fullscreen_app_active,
             platform::commands::seconds_since_last_input,
             scheduler::runtime::commands::scheduler_popup_closed,
+            settings_cmd::settings_get,
+            settings_cmd::settings_set,
+            settings_cmd::decks_list,
+            settings_cmd::decks_set_enabled,
+            settings_cmd::decks_delete,
+            settings_cmd::decks_import,
+            settings_cmd::read_text_file,
+            settings_cmd::progress_export,
+            settings_cmd::progress_import,
+            settings_window::settings_window_open,
+            shortcut::shortcut_status,
         ])
         .setup(|app| {
             // Tray-only app: no Dock icon on macOS.
@@ -50,12 +69,19 @@ pub fn run() {
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);
 
             let (database, settings_state) = open_database(app)?;
+            let initial = settings_state
+                .0
+                .lock()
+                .map(|s| s.clone())
+                .unwrap_or_default();
             app.manage(database);
             app.manage(settings_state);
+            app.manage(shortcut::ShortcutRegistry::default());
             app.manage(scheduler::runtime::SchedulerHandle::default());
             popup::create(app.handle())?;
             tray::create(app.handle())?;
-            shortcut::register_defaults(app.handle());
+            shortcut::apply(app.handle(), &initial);
+            settings_cmd::apply_autostart(app.handle(), initial.autostart);
             scheduler::runtime::start(app.handle().clone());
 
             // Dev-only: `SPELL_DEBUG_PEEK=<seconds>` shows the peek once after startup.

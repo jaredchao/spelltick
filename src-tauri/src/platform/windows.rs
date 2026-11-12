@@ -17,6 +17,8 @@ use windows_sys::Win32::{
 // TODO(windows-test): verify focus returns to the previous app.
 pub fn restore_previous_app<R: Runtime>(_app: &AppHandle<R>) {}
 
+pub fn remember_frontmost_app() {}
+
 /// SPEC 5: busy, D3D fullscreen and presentation mode count as fullscreen.
 // TODO(windows-test): verify with a fullscreen video and a slideshow.
 pub fn is_fullscreen_app_active() -> bool {

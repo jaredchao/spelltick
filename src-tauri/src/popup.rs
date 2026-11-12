@@ -117,6 +117,7 @@ pub fn popup_show_peek<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
 #[tauri::command]
 pub fn popup_focus<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
     let win = window(&app)?;
+    crate::platform::remember_frontmost_app();
     win.set_focusable(true).map_err(err)?;
     win.show().map_err(err)?;
     VISIBLE.store(true, Ordering::SeqCst);

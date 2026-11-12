@@ -3,5 +3,5 @@
   "identifier": "default",
   "description": "Default capability for app windows",
   "windows": ["popup", "settings"],
-  "permissions": ["core:default"]
+  "permissions": ["core:default", "dialog:default"]
 }

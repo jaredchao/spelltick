@@ -3,7 +3,7 @@ import type { PopupEvent } from "../core/popupMachine";
 import { QUIZ_TYPE_NAMES, type Question } from "../core/question";
 import { useSkin } from "../skin/SkinContext";
 import styles from "./Card.module.css";
-import { SpeakerIcon } from "./icons";
+import { CardHeader } from "./CardHeader";
 import { QuizPrompt } from "./QuizPrompt";
 import { speak } from "./speech";
 
@@ -12,14 +12,17 @@ interface AnswerProps {
   readonly input: string;
   readonly hintLevel: number;
   readonly focusToken: number;
+  readonly showFirstLetter: boolean;
   readonly dispatch: Dispatch<PopupEvent>;
 }
 
 const isListening = (q: Question) =>
   q.quizType === "dictation" || q.quizType === "sentence_dictation";
 
-export function Answer({ question, input, hintLevel, focusToken, dispatch }: AnswerProps) {
-  const { copy } = useSkin();
+const cx = (...names: (string | false | undefined)[]) => names.filter(Boolean).join(" ");
+
+export function Answer({ question, input, hintLevel, focusToken, showFirstLetter, dispatch }: AnswerProps) {
+  const { copy, layout } = useSkin();
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Focus the field whenever the window is asked to take focus.
@@ -46,61 +49,68 @@ export function Answer({ question, input, hintLevel, focusToken, dispatch }: Ans
     }
   };
 
+  const field = (
+    <input
+      ref={inputRef}
+      className={cx(styles.input, styles[`input_${layout.inputStyle}`])}
+      value={input}
+      aria-label="输入拼写"
+      autoFocus
+      spellCheck={false}
+      autoCapitalize="off"
+      autoCorrect="off"
+      autoComplete="off"
+      onChange={(event) => dispatch({ type: "input", value: event.target.value })}
+      onKeyDown={onKeyDown}
+    />
+  );
+
+  const textButtons = layout.shortcutHintsInButtons;
+  const secondary = textButtons ? styles.textButton : styles.secondary;
+  const primary = textButtons ? styles.textButtonPrimary : styles.primary;
+
   return (
-    <div className={styles.card}>
-      <div className={styles.header}>
-        <span className={styles.meta}>
-          {question.item.deckName} · {QUIZ_TYPE_NAMES[question.quizType]}
-        </span>
-        <button
-          type="button"
-          className={styles.iconButton}
-          aria-label="播放发音"
-          tabIndex={-1}
-          onClick={() => speak(question.item.term)}
-        >
-          <SpeakerIcon />
-        </button>
-      </div>
+    <div className={cx(styles.card, layout.titleBar && styles.cardTitled)}>
+      <CardHeader
+        meta={`${question.item.deckName} · ${QUIZ_TYPE_NAMES[question.quizType]}`}
+        onSpeak={() => speak(question.item.term)}
+      />
+      <div className={cx(styles.body, layout.contentAlign === "center" && styles.centered)}>
+        <QuizPrompt question={question} hintLevel={hintLevel} showFirstLetter={showFirstLetter} />
 
-      <QuizPrompt question={question} hintLevel={hintLevel} />
+        {layout.inputStyle === "prompt" ? (
+          <label className={styles.promptField}>
+            <span aria-hidden="true">❯</span>
+            {field}
+          </label>
+        ) : (
+          <label className={styles.field}>
+            输入拼写
+            {field}
+          </label>
+        )}
 
-      <label className={styles.field}>
-        输入拼写
-        <input
-          ref={inputRef}
-          className={styles.input}
-          value={input}
-          autoFocus
-          spellCheck={false}
-          autoCapitalize="off"
-          autoCorrect="off"
-          autoComplete="off"
-          onChange={(event) => dispatch({ type: "input", value: event.target.value })}
-          onKeyDown={onKeyDown}
-        />
-      </label>
-
-      <div className={styles.actions}>
-        <button type="button" className={styles.secondary} tabIndex={-1} onClick={() => dispatch({ type: "hint" })}>
-          {copy.hint}
-        </button>
-        <button
-          type="button"
-          className={styles.secondary}
-          tabIndex={-1}
-          onClick={() => dispatch({ type: "skip", now: Date.now() })}
-        >
-          {copy.skip}
-        </button>
-        <button
-          type="button"
-          className={styles.primary}
-          tabIndex={-1}
-          onClick={() => dispatch({ type: "submit", now: Date.now() })}
-        >
-          {copy.submit}
-        </button>
+        <div className={textButtons ? styles.textActions : styles.actions}>
+          <button type="button" className={secondary} tabIndex={-1} onClick={() => dispatch({ type: "hint" })}>
+            {copy.hint}
+          </button>
+          <button
+            type="button"
+            className={secondary}
+            tabIndex={-1}
+            onClick={() => dispatch({ type: "skip", now: Date.now() })}
+          >
+            {copy.skip}
+          </button>
+          <button
+            type="button"
+            className={primary}
+            tabIndex={-1}
+            onClick={() => dispatch({ type: "submit", now: Date.now() })}
+          >
+            {copy.submit}
+          </button>
+        </div>
       </div>
     </div>
   );

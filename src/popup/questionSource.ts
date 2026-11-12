@@ -1,11 +1,12 @@
 import { invoke } from "@tauri-apps/api/core";
-import { QUIZ_DEFAULTS, wordShare } from "../core/defaults";
+import { RECENT_WRONG_DAYS, wordShare } from "../core/defaults";
 import type { Attempt, Close } from "../core/popupMachine";
 import type { Question, QuizItem } from "../core/question";
 import { chooseQuizType } from "../core/quizType";
 import { selectNext, type Candidates } from "../core/select";
 import { DAY_MS } from "../core/sm2";
 import { startOfLocalDay } from "../core/time";
+import type { QuizSettings } from "../settings/types";
 
 const SAMPLE_SIZE = 5;
 
@@ -13,20 +14,23 @@ const SAMPLE_SIZE = 5;
  * Load candidates and pick the next question, skipping the previous item
  * unless it is the only one left. Returns null when nothing can be asked.
  */
-export async function loadNextQuestion(excludeItemId: number | null): Promise<Question | null> {
-  const question = await loadOnce(excludeItemId);
+export async function loadNextQuestion(
+  quiz: QuizSettings,
+  excludeItemId: number | null,
+): Promise<Question | null> {
+  const question = await loadOnce(quiz, excludeItemId);
   if (question || excludeItemId === null) return question;
-  return loadOnce(null);
+  return loadOnce(quiz, null);
 }
 
-async function loadOnce(excludeItemId: number | null): Promise<Question | null> {
+async function loadOnce(quiz: QuizSettings, excludeItemId: number | null): Promise<Question | null> {
   const now = Date.now();
   try {
     const candidates = await invoke<Candidates>("quiz_candidates", {
       query: {
         now,
         dayStart: startOfLocalDay(now),
-        recentSince: now - QUIZ_DEFAULTS.recentWrongDays * DAY_MS,
+        recentSince: now - RECENT_WRONG_DAYS * DAY_MS,
         excludeItemId,
         sampleSize: SAMPLE_SIZE,
       },
@@ -34,13 +38,13 @@ async function loadOnce(excludeItemId: number | null): Promise<Question | null> 
     const pick = selectNext(
       candidates,
       {
-        dailyNewLimit: QUIZ_DEFAULTS.dailyNewLimit,
-        wordShare: wordShare(QUIZ_DEFAULTS.wordRatio, QUIZ_DEFAULTS.sentenceRatio),
+        dailyNewLimit: quiz.dailyNewLimit,
+        wordShare: wordShare(quiz.wordRatio, quiz.sentenceRatio),
       },
       Math.random,
     );
     if (!pick) return null;
-    return { item: pick.item, quizType: chooseQuizType(pick.item, QUIZ_DEFAULTS.enabledTypes, Math.random) };
+    return { item: pick.item, quizType: chooseQuizType(pick.item, quiz.enabledTypes, Math.random) };
   } catch (error) {
     console.error("[quiz] failed to load next question", error);
     return null;
@@ -48,14 +52,18 @@ async function loadOnce(excludeItemId: number | null): Promise<Question | null> 
 }
 
 /** Load a specific item (a peek that timed out earlier); falls back to a new pick. */
-export async function loadQuestionFor(itemId: number, excludeItemId: number | null): Promise<Question | null> {
+export async function loadQuestionFor(
+  quiz: QuizSettings,
+  itemId: number,
+  excludeItemId: number | null,
+): Promise<Question | null> {
   try {
     const item = await invoke<QuizItem | null>("quiz_item", { id: itemId });
-    if (item) return { item, quizType: chooseQuizType(item, QUIZ_DEFAULTS.enabledTypes, Math.random) };
+    if (item) return { item, quizType: chooseQuizType(item, quiz.enabledTypes, Math.random) };
   } catch (error) {
     console.error("[quiz] failed to load item", error);
   }
-  return loadNextQuestion(excludeItemId);
+  return loadNextQuestion(quiz, excludeItemId);
 }
 
 export async function reportClosed(close: Close): Promise<void> {

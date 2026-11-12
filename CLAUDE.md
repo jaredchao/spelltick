@@ -21,6 +21,7 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - 重建程序员词库：改 `scripts/programmer-deck.tsv` 后运行 `node scripts/build-programmer.mjs`；改了内置词库要把 `src-tauri/src/db/seed.rs` 里对应的 `version` 加 1
 - 开发数据库：`~/Library/Application Support/com.muluo.englishspell/spell.db`
 - 决策记录：`docs/DECISIONS.md`（规格没写清、按推荐定下来的都记在这里）
+- 视觉预览（不用启动 Tauri）：`npx vite --port 1430` 后打开 `http://localhost:1430/preview.html?skin=paper`，加 `&view=settings&tab=quiz` 看设置页
 - 调试弹窗：开发版托盘里有「调试：5 秒后弹出」；也可以用 `SPELL_DEBUG_PEEK=8 npm run tauri dev`，启动 8 秒后弹出 peek
 
 ## 目录
@@ -28,6 +29,8 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - `src/assets/fonts/`：皮肤字体 woff2
 - `src/popup/`：弹窗组件；状态机在 `src/core/popupMachine.ts`
 - `src/skin/`：读取 `docs/design/skins.json`，注入 CSS 变量
+- `src/settingsWindow/`：设置窗口四个分页；`src/settings/` 是设置类型和读写接口
+- `src-tauri/src/settings_cmd.rs`：设置、词库、导入导出命令；`src-tauri/src/scheduler/`：调度
 - `src-tauri/src/popup.rs`：弹窗窗口的显示、定位、焦点（改这里前先读文件头注释）
 - `src-tauri/src/tray.rs`：托盘图标与原生菜单
 - `src-tauri/src/platform/`：`macos.rs` / `windows.rs`

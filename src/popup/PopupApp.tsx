@@ -8,25 +8,30 @@ import { loadNextQuestion, loadQuestionFor, recordAttempt, reportClosed } from "
 import { usePopupEvents } from "./usePopupEvents";
 import { usePopupTimers } from "./usePopupTimers";
 import { usePopupWindow } from "./usePopupWindow";
+import type { Settings } from "../settings/types";
 
-export function PopupApp() {
+export function PopupApp({ settings }: { settings: Settings }) {
   const [state, dispatch] = useReducer(popupReducer, initialPopupState);
   const contentRef = useRef<HTMLDivElement>(null);
   const stateRef = useRef(state);
   stateRef.current = state;
 
+  const quizRef = useRef(settings.quiz);
+  quizRef.current = settings.quiz;
   const lastItemId = () => stateRef.current.question?.item.id ?? null;
 
   const onSummon = useCallback(async () => {
     // Only a hidden popup needs a new question; otherwise just refocus.
-    const question = stateRef.current.phase === "hidden" ? await loadNextQuestion(lastItemId()) : null;
+    const question = stateRef.current.phase === "hidden" ? await loadNextQuestion(quizRef.current, lastItemId()) : null;
     dispatch({ type: "summon", question });
   }, []);
 
   const onPeek = useCallback(async (itemId: number | null) => {
     if (stateRef.current.phase !== "hidden") return;
     const question =
-      itemId === null ? await loadNextQuestion(lastItemId()) : await loadQuestionFor(itemId, lastItemId());
+      itemId === null
+        ? await loadNextQuestion(quizRef.current, lastItemId())
+        : await loadQuestionFor(quizRef.current, itemId, lastItemId());
     if (question) dispatch({ type: "peek", question });
   }, []);
 
@@ -58,13 +63,16 @@ export function PopupApp() {
 
   return (
     <div ref={contentRef} style={{ display: "inline-block", padding: POPUP_INSET }}>
-      {phase === "peek" && <Peek onOpen={() => dispatch({ type: "clickPeek" })} />}
+      {phase === "peek" && (
+        <Peek shortcut={settings.summonShortcut} onOpen={() => dispatch({ type: "clickPeek" })} />
+      )}
       {phase === "answer" && question && (
         <Answer
           question={question}
           input={state.input}
           hintLevel={state.hintLevel}
           focusToken={state.focusToken}
+          showFirstLetter={settings.quiz.showFirstLetter}
           dispatch={dispatch}
         />
       )}
