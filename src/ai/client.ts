@@ -12,8 +12,16 @@ export interface AiConfig {
 }
 
 interface CompletionResponse {
-  readonly choices?: readonly { readonly message?: { readonly content?: string } }[];
+  readonly choices?: readonly {
+    readonly message?: { readonly content?: string | null; readonly reasoning_content?: string | null };
+    readonly finish_reason?: string;
+  }[];
   readonly error?: { readonly message?: string };
+}
+
+/** Write a diagnostic line to the local log (no secrets). */
+export function logAi(message: string): void {
+  void invoke("log_write", { level: "info", message: `[ai] ${message}` }).catch(() => undefined);
 }
 
 /** Full config when Base URL, model and a keychain key are all present. */
@@ -49,8 +57,12 @@ export async function chat(
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}${data.error?.message ? `: ${data.error.message}` : ""}`);
     }
-    const content = data.choices?.[0]?.message?.content;
-    if (typeof content !== "string") throw new Error("回复里没有内容");
+    const choice = data.choices?.[0];
+    const content = choice?.message?.content;
+    if (typeof content !== "string" || content.trim() === "") {
+      const reasoning = choice?.message?.reasoning_content ? "，只有推理内容" : "";
+      throw new Error(`回复内容为空（finish_reason=${choice?.finish_reason ?? "无"}${reasoning}）`);
+    }
     return content;
   } catch (error) {
     if (controller.signal.aborted) throw new Error("请求超时（10 秒）");

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { AiConfig } from "../ai/client";
+import { logAi } from "../ai/client";
 import { explainMistake, fillMissingExample } from "../ai/features";
 import type { PopupState } from "../core/popupMachine";
 import type { AiSettings } from "../settings/types";
@@ -28,9 +29,12 @@ export function usePopupAi(state: PopupState, ai: AiSettings, config: AiConfig |
   useEffect(() => {
     setExplanation(null);
     const { outcome, question } = state;
-    if (!config || !ai.explainMistakes || !question || !outcome || outcome.correct || state.phase !== "feedback") {
+    if (!question || !outcome || outcome.correct || state.phase !== "feedback") return;
+    if (!config || !ai.explainMistakes) {
+      logAi(`explain skipped: ${!config ? "AI not configured in popup" : "explainMistakes off"}`);
       return;
     }
+    logAi(`explain requested for "${question.item.term}"`);
     let active = true;
     setExplanation("loading");
     explainMistake(config, question.item, outcome.answer).then((text) => {
