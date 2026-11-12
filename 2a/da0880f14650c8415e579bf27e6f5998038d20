@@ -1,0 +1,47 @@
+src/settings/types.ts
+  s_3d4a31c4b54aa5::t_997601b4f72bec 39,65
+src/popup/SlotInput.module.css
+  s_3d4a31c4b54aa5::t_d64c92cbaad4fc 1-91
+src/core/slots.ts
+  s_3d4a31c4b54aa5::t_20e0427fd080c9 1-52
+src/popup/Card.module.css
+  s_3d4a31c4b54aa5::t_346cbb240972dc 2
+src/core/slots.test.ts
+  s_3d4a31c4b54aa5::t_c7a2e4883ed2be 1-47
+src/popup/SlotInput.tsx
+  s_3d4a31c4b54aa5::t_8d0b8e0dc3999d 1,24-31,68
+  s_3d4a31c4b54aa5::t_a9975125e90763 2-23,32-67,69-74
+src/popup/Answer.tsx
+  s_3d4a31c4b54aa5::t_997601b4f72bec 8-9,18,27-35,63-66,79,81-89
+src/popup/QuizPrompt.tsx
+  s_3d4a31c4b54aa5::t_997601b4f72bec 22
+src/settingsWindow/GeneralTab.tsx
+  s_3d4a31c4b54aa5::t_997601b4f72bec 130,138-142
+  s_3d4a31c4b54aa5::t_2eb93b1d521c94 143-144
+src/preview/main.tsx
+  s_3d4a31c4b54aa5::t_202c93343242cd 93-105
+src-tauri/src/settings.rs
+  s_3d4a31c4b54aa5::t_997601b4f72bec 121,134
+src/popup/sound.ts
+  s_3d4a31c4b54aa5::t_fcf3eff8c4675f 1-77
+src/popup/PopupApp.tsx
+  s_3d4a31c4b54aa5::t_997601b4f72bec 14,61-65,91
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_0896dd6a20ec6c 120-131
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2ada0880f14650c8415e579bf27e6f5998038d20",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
