@@ -1,0 +1,78 @@
+src/popup/PopupApp.tsx
+  s_3d4a31c4b54aa5::t_1f032b574bb070 7,26,28-29,48-55
+  s_3d4a31c4b54aa5::t_d225dac4cfefd8 56
+src-tauri/src/lib.rs
+  s_3d4a31c4b54aa5::t_cff345c3dada81 6,8,15-17,21-25,42-45,52-55,59
+  s_3d4a31c4b54aa5::t_23a8e920b75ee9 5
+src-tauri/src/popup.rs
+  s_3d4a31c4b54aa5::t_caf0e1b12abc5f 15-16,19-25,30,33-39,111-113,122,132,153,156-162
+src-tauri/src/settings.rs
+  s_3d4a31c4b54aa5::t_caf0e1b12abc5f 5-6,9-27,173-179
+  s_3d4a31c4b54aa5::t_685451bf7015f9 190-197
+  s_3d4a31c4b54aa5::t_cff345c3dada81 7,220-224
+  s_3d4a31c4b54aa5::t_09db6aa74d55aa 1-4,8,28-172,180-189,198-219,225-227
+src-tauri/src/scheduler/mod.rs
+  s_3d4a31c4b54aa5::t_cff345c3dada81 2
+  s_3d4a31c4b54aa5::t_23a8e920b75ee9 1
+src/core/popupMachine.ts
+  s_3d4a31c4b54aa5::t_1f032b574bb070 29-37,47,69,77,83-94,170,176-178,181
+src/popup/usePopupEvents.ts
+  s_3d4a31c4b54aa5::t_1f032b574bb070 5-13,16-19
+src-tauri/Cargo.toml
+  s_3d4a31c4b54aa5::t_a38e9535f2358f 25
+  s_3d4a31c4b54aa5::t_afde4203243d6c 24,33-39
+src-tauri/src/skin_copy.rs
+  s_3d4a31c4b54aa5::t_cff345c3dada81 38-42,64-67,89-92
+  s_3d4a31c4b54aa5::t_d84ddc43b75617 1-37,43-63,68-88,93-109
+src-tauri/src/db/commands.rs
+  s_3d4a31c4b54aa5::t_cff345c3dada81 7,34-38
+  s_3d4a31c4b54aa5::t_a2d5997c873d58 39
+src-tauri/src/scheduler/core.rs
+  s_3d4a31c4b54aa5::t_cff345c3dada81 117-121,136-141,145-148,190-193,221-223,239-241,297-300,309-313,340-344,352-355,363-366,383-386,393-396,413-420,427-438,445-452,499-511
+  s_3d4a31c4b54aa5::t_d357acbf460a7c 1-116,122-135,142-144,149-189,194-220,224-238,242-296,301-308,314-339,345-351,356-362,367-382,387-392,397-412,421-426,439-444,453-498,512-540
+src-tauri/src/platform/windows.rs
+  s_3d4a31c4b54aa5::t_d2c7f352e7aa39 4-8,11-13,19-43
+  s_3d4a31c4b54aa5::t_cff345c3dada81 9-10
+src-tauri/src/platform/mod.rs
+  s_3d4a31c4b54aa5::t_86527a5af9a848 1-2,7,12,15-38
+src-tauri/src/scheduler/runtime.rs
+  s_3d4a31c4b54aa5::t_f8ce03145ba380 1-14,16-22,24-63,68-86,92-95,100-108,113-119,127-131,133-151,156-192,206-219,233-246,256-262,276-281,288-289
+  s_3d4a31c4b54aa5::t_7f4f78ebea2a3f 23
+  s_3d4a31c4b54aa5::t_685451bf7015f9 132
+  s_3d4a31c4b54aa5::t_cff345c3dada81 15,64-67,87-91,96-99,109-112,120-126,152-155,193-205,220-232,247-255,263-275,282-287
+src/core/popupMachine.test.ts
+  s_3d4a31c4b54aa5::t_1f032b574bb070 85-111
+src/popup/questionSource.ts
+  s_3d4a31c4b54aa5::t_1f032b574bb070 3-4,50-67
+  s_3d4a31c4b54aa5::t_24758649363486 68
+src-tauri/src/tray.rs
+  s_3d4a31c4b54aa5::t_629dfa91812ccc 1,10-11,13-14,23-24,34-35,44-76,78-88,90-99,104-105,126-127,167-168,172-173
+  s_3d4a31c4b54aa5::t_cff345c3dada81 4,108-113
+  s_3d4a31c4b54aa5::t_557600090cf081 114
+src-tauri/src/db/quiz.rs
+  s_3d4a31c4b54aa5::t_cff345c3dada81 115-120,373-379
+  s_3d4a31c4b54aa5::t_985ecee83a2030 380-381
+src-tauri/src/platform/macos.rs
+  s_3d4a31c4b54aa5::t_d84afcd9fd0749 3-16,27-58,61-68,73-84,91-133,140-147,154-158,165-174
+  s_3d4a31c4b54aa5::t_cff345c3dada81 59-60,69-72,85-90,134-139,148-153,159-164
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_193069c25bcbbd 45-61
+src-tauri/Cargo.lock
+  s_3d4a31c4b54aa5::t_404cde78b2f6b3 485,488,894-897,905
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5b4da509d7faf326c89a0a1018237e90d3363bb4",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
