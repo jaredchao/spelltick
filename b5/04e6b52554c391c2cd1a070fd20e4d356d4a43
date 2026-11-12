@@ -1,0 +1,24 @@
+src/popup/usePopupAi.ts
+  s_3d4a31c4b54aa5::t_384a2da07880a9 3,32-34,37
+src/ai/client.ts
+  s_3d4a31c4b54aa5::t_384a2da07880a9 15-18,22-26,60-64
+  s_3d4a31c4b54aa5::t_3ca6314f6eeca1 65
+src/ai/features.ts
+  s_3d4a31c4b54aa5::t_384a2da07880a9 11,17-20,39-43,52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b504e6b52554c391c2cd1a070fd20e4d356d4a43",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
