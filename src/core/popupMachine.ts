@@ -1,5 +1,7 @@
 import { maxHintLevel } from "./hint";
-import type { Question } from "./question";
+import { isCorrect } from "./judge";
+import type { Question, QuizType } from "./question";
+import { nextReview, type AnswerResult, type ReviewRecord } from "./sm2";
 
 export type Phase = "hidden" | "peek" | "answer" | "feedback";
 
@@ -7,6 +9,21 @@ export interface Outcome {
   readonly correct: boolean;
   readonly answer: string;
   readonly usedHint: boolean;
+  readonly result: AnswerResult;
+  readonly review: ReviewRecord;
+  readonly answeredAt: number;
+}
+
+/** An answer to persist. `seq` changes for every new attempt. */
+export interface Attempt {
+  readonly seq: number;
+  readonly itemId: number;
+  readonly quizType: QuizType;
+  readonly answer: string;
+  readonly correct: boolean;
+  readonly usedHint: boolean;
+  readonly at: number;
+  readonly review: ReviewRecord;
 }
 
 export interface PopupState {
@@ -17,16 +34,17 @@ export interface PopupState {
   readonly outcome: Outcome | null;
   /** Bumped every time the window must (re)take focus, even within `answer`. */
   readonly focusToken: number;
+  readonly attempt: Attempt | null;
 }
 
 export type PopupEvent =
   | { readonly type: "peek"; readonly question: Question }
-  | { readonly type: "summon"; readonly question: Question }
+  | { readonly type: "summon"; readonly question: Question | null }
   | { readonly type: "clickPeek" }
   | { readonly type: "input"; readonly value: string }
   | { readonly type: "hint" }
-  | { readonly type: "submit" }
-  | { readonly type: "skip" }
+  | { readonly type: "submit"; readonly now: number }
+  | { readonly type: "skip"; readonly now: number }
   | { readonly type: "timeout" }
   | { readonly type: "continue" };
 
@@ -37,22 +55,41 @@ export const initialPopupState: PopupState = {
   hintLevel: 0,
   outcome: null,
   focusToken: 0,
+  attempt: null,
 };
-
-/**
- * Placeholder judge for M1: trim + case-insensitive.
- * M2 replaces it with the full rules in `src/core/judge.ts`.
- */
-function isCorrect(answer: string, term: string): boolean {
-  return answer.trim().toLowerCase() === term.trim().toLowerCase();
-}
 
 function startQuestion(state: PopupState, phase: Phase, question: Question): PopupState {
   return {
     ...initialPopupState,
     focusToken: state.focusToken + (phase === "answer" ? 1 : 0),
+    attempt: state.attempt,
     phase,
     question,
+  };
+}
+
+function resultOf(correct: boolean, usedHint: boolean): AnswerResult {
+  if (!correct) return "wrong";
+  return usedHint ? "hinted" : "right";
+}
+
+function makeAttempt(
+  state: PopupState,
+  question: Question,
+  answer: string,
+  correct: boolean,
+  review: ReviewRecord,
+  at: number,
+): Attempt {
+  return {
+    seq: (state.attempt?.seq ?? 0) + 1,
+    itemId: question.item.id,
+    quizType: question.quizType,
+    answer,
+    correct,
+    usedHint: state.hintLevel > 0,
+    at,
+    review,
   };
 }
 
@@ -62,7 +99,9 @@ export function popupReducer(state: PopupState, event: PopupEvent): PopupState {
       return state.phase === "hidden" ? startQuestion(state, "peek", event.question) : state;
 
     case "summon":
-      if (state.phase === "hidden") return startQuestion(state, "answer", event.question);
+      if (state.phase === "hidden") {
+        return event.question ? startQuestion(state, "answer", event.question) : state;
+      }
       if (state.phase === "peek" || state.phase === "answer") {
         return { ...state, phase: "answer", focusToken: state.focusToken + 1 };
       }
@@ -78,23 +117,37 @@ export function popupReducer(state: PopupState, event: PopupEvent): PopupState {
 
     case "hint": {
       if (state.phase !== "answer" || !state.question) return state;
-      const max = maxHintLevel(state.question.term);
+      const max = maxHintLevel(state.question.item.term);
       return { ...state, hintLevel: Math.min(state.hintLevel + 1, max) };
     }
 
     case "submit": {
-      if (state.phase !== "answer" || !state.question) return state;
+      const { question } = state;
+      if (state.phase !== "answer" || !question) return state;
       if (state.input.trim() === "") return state;
-      const outcome: Outcome = {
-        correct: isCorrect(state.input, state.question.term),
-        answer: state.input,
-        usedHint: state.hintLevel > 0,
+      const { item } = question;
+      const correct = isCorrect(state.input, item.term, item.kind);
+      const usedHint = state.hintLevel > 0;
+      const result = resultOf(correct, usedHint);
+      const review = nextReview(item.review, result, event.now);
+      return {
+        ...state,
+        phase: "feedback",
+        outcome: { correct, answer: state.input, usedHint, result, review, answeredAt: event.now },
+        attempt: makeAttempt(state, question, state.input, correct, review, event.now),
       };
-      return { ...state, phase: "feedback", outcome };
     }
 
-    case "skip":
-      return state.phase === "answer" ? { ...state, phase: "hidden" } : state;
+    case "skip": {
+      const { question } = state;
+      if (state.phase !== "answer" || !question) return state;
+      const review = nextReview(question.item.review, "skipped", event.now);
+      return {
+        ...state,
+        phase: "hidden",
+        attempt: makeAttempt(state, question, state.input, false, review, event.now),
+      };
+    }
 
     case "timeout":
       return state.phase === "peek" || state.phase === "feedback"

@@ -8,8 +8,8 @@
 //! - `popup_hide` makes it non-focusable again and hands focus back.
 
 use tauri::{
-    AppHandle, Emitter, LogicalSize, Manager, PhysicalPosition, Runtime, WebviewUrl,
-    WebviewWindow, WebviewWindowBuilder,
+    AppHandle, Emitter, LogicalSize, Manager, PhysicalPosition, Runtime, WebviewUrl, WebviewWindow,
+    WebviewWindowBuilder,
 };
 
 use crate::geometry::{self, Rect};

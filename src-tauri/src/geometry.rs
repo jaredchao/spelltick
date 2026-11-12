@@ -32,7 +32,10 @@ mod tests {
 
     #[test]
     fn places_window_in_bottom_right_with_gap() {
-        assert_eq!(bottom_right(AREA, (260, 56), 24), (1440 - 260 - 24, 900 - 56 - 24));
+        assert_eq!(
+            bottom_right(AREA, (260, 56), 24),
+            (1440 - 260 - 24, 900 - 56 - 24)
+        );
     }
 
     #[test]

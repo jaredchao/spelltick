@@ -1,9 +1,9 @@
 //! System tray icon and native menu.
 
 use tauri::{
+    AppHandle, Runtime,
     menu::{Menu, MenuEvent, MenuItem, PredefinedMenuItem},
     tray::{TrayIcon, TrayIconBuilder},
-    AppHandle, Runtime,
 };
 
 const TRAY_ID: &str = "main";

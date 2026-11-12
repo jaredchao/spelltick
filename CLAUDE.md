@@ -17,6 +17,10 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - Rust 检查：`cd src-tauri && cargo clippy --all-targets`
 - 类型检查：`npm run typecheck`
 - 打包：`npm run tauri build`
+- 重建四六级词库：`node scripts/build-ecdict.mjs`（首次会下载 ECDICT 到 `.cache/`）
+- 重建程序员词库：改 `scripts/programmer-deck.tsv` 后运行 `node scripts/build-programmer.mjs`；改了内置词库要把 `src-tauri/src/db/seed.rs` 里对应的 `version` 加 1
+- 开发数据库：`~/Library/Application Support/com.muluo.englishspell/spell.db`
+- 决策记录：`docs/DECISIONS.md`（规格没写清、按推荐定下来的都记在这里）
 - 调试弹窗：开发版托盘里有「调试：5 秒后弹出」；也可以用 `SPELL_DEBUG_PEEK=8 npm run tauri dev`，启动 8 秒后弹出 peek
 
 ## 目录

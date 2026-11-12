@@ -175,3 +175,40 @@
   font-size: 12px;
   color: var(--text-muted);
 }
+
+.cloze {
+  font-family: var(--font-term);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.clozeMeaning {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.listen {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.markWrong,
+.markRight {
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.markWrong {
+  background: var(--wrong-bg);
+  color: var(--wrong);
+}
+
+.markRight {
+  background: var(--right-bg);
+  color: var(--right);
+}
+
+.spelling,
+.spellingStrong {
+  overflow-wrap: anywhere;
+}

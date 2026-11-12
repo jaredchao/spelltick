@@ -1,10 +1,20 @@
+mod db;
 mod geometry;
 mod platform;
 mod popup;
 mod shortcut;
 mod tray;
 
-use tauri::RunEvent;
+use std::sync::Mutex;
+
+use tauri::{Manager, RunEvent};
+
+fn open_database(app: &tauri::App) -> Result<db::Db, Box<dyn std::error::Error>> {
+    let dir = app.path().app_data_dir()?;
+    std::fs::create_dir_all(&dir)?;
+    let conn = db::open(&dir.join(db::FILE_NAME), db::now_ms())?;
+    Ok(db::Db(Mutex::new(conn)))
+}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -17,12 +27,16 @@ pub fn run() {
             popup::popup_show_peek,
             popup::popup_focus,
             popup::popup_hide,
+            db::commands::quiz_candidates,
+            db::commands::quiz_record_attempt,
+            db::commands::quiz_today_stats,
         ])
         .setup(|app| {
             // Tray-only app: no Dock icon on macOS.
             #[cfg(target_os = "macos")]
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);
 
+            app.manage(open_database(app)?);
             popup::create(app.handle())?;
             tray::create(app.handle())?;
             shortcut::register_defaults(app.handle());
@@ -42,7 +56,10 @@ pub fn run() {
         .run(|_app, event| {
             // Keep running in the tray when the last window closes.
             // An explicit `app.exit(code)` carries a code and is allowed through.
-            if let RunEvent::ExitRequested { code: None, api, .. } = event {
+            if let RunEvent::ExitRequested {
+                code: None, api, ..
+            } = event
+            {
                 api.prevent_exit();
             }
         });
