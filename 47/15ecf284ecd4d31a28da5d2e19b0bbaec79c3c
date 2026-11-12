@@ -1,0 +1,25 @@
+src/core/aiThinking.ts
+  s_3d4a31c4b54aa5::t_96fa2aaee1a602 1-39
+src/core/aiThinking.test.ts
+  s_3d4a31c4b54aa5::t_ae600deae04d65 1-32
+src/ai/client.ts
+  s_3d4a31c4b54aa5::t_8fc02f95d0ee8a 4,46-80,88-90,92-99,107-109
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_9dd91c3790184b 142-150
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4715ecf284ecd4d31a28da5d2e19b0bbaec79c3c",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
