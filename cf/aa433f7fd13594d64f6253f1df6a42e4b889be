@@ -1,0 +1,144 @@
+src-tauri/src/platform/macos_focus.rs
+  s_3d4a31c4b54aa5::t_5d8c144b6d7196 1-29,37-42,45-46
+  s_3d4a31c4b54aa5::t_94c92503b5cd85 30-36,43-44
+src/settingsWindow/Settings.module.css
+  s_3d4a31c4b54aa5::t_d8bd16b2bb3ef9 1-434
+src/popup/Feedback.tsx
+  s_3d4a31c4b54aa5::t_165d6d86758e92 53
+  s_3d4a31c4b54aa5::t_b898e6b30a3dbc 6,10,19-23,26,29,44,47,49-50,54,57,64
+src-tauri/capabilities/default.json
+  s_3d4a31c4b54aa5::t_2f065714b1899e 6
+src/skin/skins.ts
+  s_3d4a31c4b54aa5::t_c85712449a444c 2,6-7,27,31,39-53,61
+src/popup/QuizPrompt.tsx
+  s_3d4a31c4b54aa5::t_aba353f75e626b 6,12-20,24,43
+src/settingsWindow/controls.tsx
+  s_3d4a31c4b54aa5::t_d0248c1fb61eef 1-137
+src/core/csv.ts
+  s_3d4a31c4b54aa5::t_7a03380dacfde7 1-71
+src/settingsWindow/AboutTab.tsx
+  s_3d4a31c4b54aa5::t_fd5367bf46bd39 1-25
+src/settingsWindow/GeneralTab.tsx
+  s_3d4a31c4b54aa5::t_1c9986436eca42 1-148
+src/settingsWindow/QuizTab.tsx
+  s_3d4a31c4b54aa5::t_5fe0bc3231bad1 1-176
+src/popup/Peek.module.css
+  s_3d4a31c4b54aa5::t_47bc9cb8629575 7,10,13,19-20,22-24,31-48,58,61
+src/settingsWindow/DecksTab.tsx
+  s_3d4a31c4b54aa5::t_5faa370b4e4f32 1-73
+src/core/deckImport.ts
+  s_3d4a31c4b54aa5::t_1e9c8a87095d12 1-95
+src-tauri/src/lib.rs
+  s_3d4a31c4b54aa5::t_e515873458a34f 1,8-9,37-41,54-64,72-76,79,83-84
+src/styles/fonts.css
+  s_3d4a31c4b54aa5::t_349e97f931a23c 1-177
+src/skin/SkinContext.tsx
+  s_3d4a31c4b54aa5::t_7d0ff29019441b 1-3,7-23
+src/assets/fonts/LICENSE-Inter.txt
+  s_3d4a31c4b54aa5::t_858872cdde7992 1-93
+src/core/accelerator.test.ts
+  s_3d4a31c4b54aa5::t_b4d3f548e7fed1 1-46
+src-tauri/src/db/decks.rs
+  s_3d4a31c4b54aa5::t_ec8288f267b54a 1-2,4-90,95-123,125-188,192-208,212-215
+  s_3d4a31c4b54aa5::t_e515873458a34f 3,91-94,124,189-191,209-211
+src-tauri/Cargo.toml
+  s_3d4a31c4b54aa5::t_ccc18268a1375d 26-27,39-41
+src/settingsWindow/SettingsApp.tsx
+  s_3d4a31c4b54aa5::t_db019b060e3bb8 1-58
+src/popup/Answer.tsx
+  s_3d4a31c4b54aa5::t_2d06a2eb509726 6,15,22-25,52-70,72-79,81-91,93-113
+src-tauri/src/platform/macos.rs
+  s_3d4a31c4b54aa5::t_e515873458a34f 3
+src-tauri/src/platform/windows.rs
+  s_3d4a31c4b54aa5::t_dadbd910a47392 20-21
+src/assets/fonts/LICENSE-SourceSerif4.txt
+  s_3d4a31c4b54aa5::t_858872cdde7992 1-93
+src-tauri/src/tray.rs
+  s_3d4a31c4b54aa5::t_e515873458a34f 15,26,38,89,102-103,134,176-179
+src-tauri/src/settings_cmd.rs
+  s_3d4a31c4b54aa5::t_93233b8a975fdc 1-6,8,10-49,52-91,97-109,115-157
+  s_3d4a31c4b54aa5::t_e515873458a34f 7,9,50-51,92-96,110-114
+src/main.tsx
+  s_3d4a31c4b54aa5::t_b0957662332617 5-6,8,13,15-17
+src/popup/CardHeader.tsx
+  s_3d4a31c4b54aa5::t_7fde0af0b04c3d 1-39
+src-tauri/src/shortcut.rs
+  s_3d4a31c4b54aa5::t_e515873458a34f 62-66,94-97
+  s_3d4a31c4b54aa5::t_2241978ae070cf 1-2,4-7,10-12,15-41,45-51,57-61,67-87,90-93,98,100-117,125-129,133-136
+src-tauri/src/platform/mod.rs
+  s_3d4a31c4b54aa5::t_dadbd910a47392 7-12,17-20,25,34-37
+src-tauri/src/add_word.rs
+  s_3d4a31c4b54aa5::t_52a495463d00f0 1-5
+src/core/deckImport.test.ts
+  s_3d4a31c4b54aa5::t_bf4436afd6d707 1-70
+src/popup/PopupApp.tsx
+  s_3d4a31c4b54aa5::t_b0957662332617 11,13,19-20,25,32-34,66-68,75
+src/assets/fonts/LICENSE-JetBrainsMono.txt
+  s_3d4a31c4b54aa5::t_858872cdde7992 1-93
+src/core/defaults.ts
+  s_3d4a31c4b54aa5::t_b0957662332617 1-2,4
+src/settingsWindow/ShortcutRecorder.tsx
+  s_3d4a31c4b54aa5::t_01a3e2f19dd48d 1-46
+src-tauri/src/db/mod.rs
+  s_3d4a31c4b54aa5::t_e515873458a34f 4,6
+src/settings/useSettings.ts
+  s_3d4a31c4b54aa5::t_3a89c51ef50199 1-24
+src-tauri/src/settings_window.rs
+  s_3d4a31c4b54aa5::t_8229e727157e39 1-33
+src-tauri/src/popup.rs
+  s_3d4a31c4b54aa5::t_dadbd910a47392 120
+src/popup/questionSource.ts
+  s_3d4a31c4b54aa5::t_b0957662332617 2,9,17-21,23,26,33,41-42,47,55-59,62,66
+src/popup/Card.module.css
+  s_3d4a31c4b54aa5::t_5ce5f32e74d137 1-3,15-21,24-40,53-81,85-90,97-105,129-146,156-162,172-203,220,232-253,256-259,293,309-317,320-325,327-351,353,356,358-361,364-368,371-373,376-379,382,384,387-393,396-427
+src/core/accelerator.ts
+  s_3d4a31c4b54aa5::t_b14ee4c77bc9f3 1-40
+src/skin/skins.test.ts
+  s_3d4a31c4b54aa5::t_4ec65a1c72264c 1-20
+docs/design/skins.json
+  s_3d4a31c4b54aa5::t_35ff84b9ee9b79 27-29,48-49,77-79,98-99,127-129,148-149
+src-tauri/src/db/progress.rs
+  s_3d4a31c4b54aa5::t_3864fb6c307a25 1-3,5-6,8-185,189-198,204-251,253-326,331-333,338-348,353-357,360-362
+  s_3d4a31c4b54aa5::t_e515873458a34f 4,7,186-188,199-203,252,327-330,334-337,349-352,358-359
+src/popup/FeedbackSpelling.tsx
+  s_3d4a31c4b54aa5::t_165d6d86758e92 29,81
+  s_3d4a31c4b54aa5::t_55635439c087a1 1-28,30-80,82-86
+src/settingsWindow/DeckImport.tsx
+  s_3d4a31c4b54aa5::t_799f833eab1bc7 1-94
+preview.html
+  s_3d4a31c4b54aa5::t_30c972130ca3cb 1-12
+src/popup/Peek.tsx
+  s_3d4a31c4b54aa5::t_bdd01e712d80cb 6-10,12-13,16-18,20
+src/settings/api.ts
+  s_3d4a31c4b54aa5::t_c0a74829d23c0f 1-23
+src/preview/main.tsx
+  s_3d4a31c4b54aa5::t_7006e5817c5ca1 1-97
+package.json
+  s_3d4a31c4b54aa5::t_ccc18268a1375d 17,23-25
+src/settings/types.ts
+  s_3d4a31c4b54aa5::t_53f3eeb8901cff 1-89
+CLAUDE.md
+  s_3d4a31c4b54aa5::t_a84c0fb38831ed 24,32-33
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_44cd307855e172 62-81
+package-lock.json
+  s_3d4a31c4b54aa5::t_cb3c1fe6fe18f2 12,18-20,64-93,661-669
+src-tauri/Cargo.lock
+  s_3d4a31c4b54aa5::t_b9b3ded8daba93 210-223,492-497,751-759,927-929,935-936,2278-2289,2345,2347-2348,2350-2353,2375,2436-2448,2472,2500-2523,2591-2605,3077-3102,3482-3493,3760,3811,3883-3938,4383,4883-4893,5128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cfaa433f7fd13594d64f6253f1df6a42e4b889be",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
