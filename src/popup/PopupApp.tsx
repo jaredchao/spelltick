@@ -4,7 +4,7 @@ import { Answer } from "./Answer";
 import { Feedback } from "./Feedback";
 import { Peek } from "./Peek";
 import { POPUP_INSET } from "./bridge";
-import { loadNextQuestion, recordAttempt } from "./questionSource";
+import { loadNextQuestion, loadQuestionFor, recordAttempt, reportClosed } from "./questionSource";
 import { usePopupEvents } from "./usePopupEvents";
 import { usePopupTimers } from "./usePopupTimers";
 import { usePopupWindow } from "./usePopupWindow";
@@ -23,9 +23,10 @@ export function PopupApp() {
     dispatch({ type: "summon", question });
   }, []);
 
-  const onPeek = useCallback(async () => {
+  const onPeek = useCallback(async (itemId: number | null) => {
     if (stateRef.current.phase !== "hidden") return;
-    const question = await loadNextQuestion(lastItemId());
+    const question =
+      itemId === null ? await loadNextQuestion(lastItemId()) : await loadQuestionFor(itemId, lastItemId());
     if (question) dispatch({ type: "peek", question });
   }, []);
 
@@ -43,6 +44,15 @@ export function PopupApp() {
     savedSeq.current = attempt.seq;
     void recordAttempt(attempt);
   }, [state.attempt]);
+
+  // Tell the scheduler when and why the popup closed, exactly once per close.
+  const reportedClose = useRef(0);
+  useEffect(() => {
+    const { lastClose } = state;
+    if (!lastClose || lastClose.seq === reportedClose.current) return;
+    reportedClose.current = lastClose.seq;
+    void reportClosed(lastClose);
+  }, [state.lastClose]);
 
   const { phase, question } = state;
 

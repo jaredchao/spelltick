@@ -112,6 +112,12 @@ fn due(conn: &Connection, q: &CandidateQuery) -> Result<Option<QuizItem>> {
         .optional()
 }
 
+/// One item from an enabled deck, with its review if any.
+pub fn item_by_id(conn: &Connection, id: i64) -> Result<Option<QuizItem>> {
+    let sql = format!("SELECT {ITEM_COLUMNS} {ITEM_FROM} WHERE i.id = ?1");
+    conn.query_row(&sql, [id], map_item).optional()
+}
+
 fn new_items(conn: &Connection, q: &CandidateQuery, kind: &str) -> Result<Vec<QuizItem>> {
     let sql = format!(
         "SELECT {ITEM_COLUMNS} {ITEM_FROM}
@@ -362,6 +368,15 @@ mod tests {
             )
             .unwrap();
         assert_eq!(created, 100);
+    }
+
+    #[test]
+    fn finds_item_by_id_only_in_enabled_decks() {
+        let c = setup();
+        let id = id_of(&c, "merge");
+        assert_eq!(item_by_id(&c, id).unwrap().unwrap().term, "merge");
+        c.execute("UPDATE decks SET enabled = 0", []).unwrap();
+        assert!(item_by_id(&c, id).unwrap().is_none());
     }
 
     #[test]

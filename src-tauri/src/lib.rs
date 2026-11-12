@@ -2,18 +2,27 @@ mod db;
 mod geometry;
 mod platform;
 mod popup;
+mod scheduler;
+mod settings;
 mod shortcut;
+mod skin_copy;
 mod tray;
 
 use std::sync::Mutex;
 
 use tauri::{Manager, RunEvent};
 
-fn open_database(app: &tauri::App) -> Result<db::Db, Box<dyn std::error::Error>> {
+fn open_database(
+    app: &tauri::App,
+) -> Result<(db::Db, settings::SettingsState), Box<dyn std::error::Error>> {
     let dir = app.path().app_data_dir()?;
     std::fs::create_dir_all(&dir)?;
     let conn = db::open(&dir.join(db::FILE_NAME), db::now_ms())?;
-    Ok(db::Db(Mutex::new(conn)))
+    let loaded = settings::load(&conn)?;
+    Ok((
+        db::Db(Mutex::new(conn)),
+        settings::SettingsState(Mutex::new(loaded)),
+    ))
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -30,16 +39,24 @@ pub fn run() {
             db::commands::quiz_candidates,
             db::commands::quiz_record_attempt,
             db::commands::quiz_today_stats,
+            db::commands::quiz_item,
+            platform::commands::is_fullscreen_app_active,
+            platform::commands::seconds_since_last_input,
+            scheduler::runtime::commands::scheduler_popup_closed,
         ])
         .setup(|app| {
             // Tray-only app: no Dock icon on macOS.
             #[cfg(target_os = "macos")]
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);
 
-            app.manage(open_database(app)?);
+            let (database, settings_state) = open_database(app)?;
+            app.manage(database);
+            app.manage(settings_state);
+            app.manage(scheduler::runtime::SchedulerHandle::default());
             popup::create(app.handle())?;
             tray::create(app.handle())?;
             shortcut::register_defaults(app.handle());
+            scheduler::runtime::start(app.handle().clone());
 
             // Dev-only: `SPELL_DEBUG_PEEK=<seconds>` shows the peek once after startup.
             #[cfg(debug_assertions)]

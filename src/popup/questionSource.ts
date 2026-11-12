@@ -1,7 +1,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { QUIZ_DEFAULTS, wordShare } from "../core/defaults";
-import type { Attempt } from "../core/popupMachine";
-import type { Question } from "../core/question";
+import type { Attempt, Close } from "../core/popupMachine";
+import type { Question, QuizItem } from "../core/question";
 import { chooseQuizType } from "../core/quizType";
 import { selectNext, type Candidates } from "../core/select";
 import { DAY_MS } from "../core/sm2";
@@ -44,6 +44,25 @@ async function loadOnce(excludeItemId: number | null): Promise<Question | null> 
   } catch (error) {
     console.error("[quiz] failed to load next question", error);
     return null;
+  }
+}
+
+/** Load a specific item (a peek that timed out earlier); falls back to a new pick. */
+export async function loadQuestionFor(itemId: number, excludeItemId: number | null): Promise<Question | null> {
+  try {
+    const item = await invoke<QuizItem | null>("quiz_item", { id: itemId });
+    if (item) return { item, quizType: chooseQuizType(item, QUIZ_DEFAULTS.enabledTypes, Math.random) };
+  } catch (error) {
+    console.error("[quiz] failed to load item", error);
+  }
+  return loadNextQuestion(excludeItemId);
+}
+
+export async function reportClosed(close: Close): Promise<void> {
+  try {
+    await invoke("scheduler_popup_closed", { reason: close.reason, itemId: close.itemId });
+  } catch (error) {
+    console.error("[quiz] failed to report close", error);
   }
 }
 

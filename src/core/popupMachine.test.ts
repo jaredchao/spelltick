@@ -82,6 +82,33 @@ describe("popupReducer: phases", () => {
   });
 });
 
+describe("popupReducer: close reasons", () => {
+  it("peek timeout closes with reason timeout and the item id", () => {
+    const s = run([{ type: "peek", question: Q }, { type: "timeout" }]);
+    expect(s.lastClose).toEqual({ seq: 1, reason: "timeout", itemId: 7 });
+  });
+
+  it("answering then continuing closes with reason done", () => {
+    const s = run([...answering("deploy"), { type: "submit", now: NOW }, { type: "continue" }]);
+    expect(s.lastClose?.reason).toBe("done");
+  });
+
+  it("skip closes with reason done", () => {
+    expect(run([...answering("x"), { type: "skip", now: NOW }]).lastClose?.reason).toBe("done");
+  });
+
+  it("feedback timeout counts as done", () => {
+    const s = run([...answering("x"), { type: "submit", now: NOW }, { type: "timeout" }]);
+    expect(s.lastClose?.reason).toBe("done");
+  });
+
+  it("close seq increases", () => {
+    const first = run([{ type: "peek", question: Q }, { type: "timeout" }]);
+    const second = run([{ type: "peek", question: Q }, { type: "timeout" }], first);
+    expect(second.lastClose?.seq).toBe(2);
+  });
+});
+
 describe("popupReducer: grading and attempts", () => {
   it("correct answer schedules one day later and records an attempt", () => {
     const s = run([...answering(" DEPLOY "), { type: "submit", now: NOW }]);

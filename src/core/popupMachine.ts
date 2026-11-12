@@ -26,6 +26,15 @@ export interface Attempt {
   readonly review: ReviewRecord;
 }
 
+export type CloseReason = "timeout" | "done";
+
+/** Why the popup last closed; `seq` changes on every close. */
+export interface Close {
+  readonly seq: number;
+  readonly reason: CloseReason;
+  readonly itemId: number | null;
+}
+
 export interface PopupState {
   readonly phase: Phase;
   readonly question: Question | null;
@@ -35,6 +44,7 @@ export interface PopupState {
   /** Bumped every time the window must (re)take focus, even within `answer`. */
   readonly focusToken: number;
   readonly attempt: Attempt | null;
+  readonly lastClose: Close | null;
 }
 
 export type PopupEvent =
@@ -56,6 +66,7 @@ export const initialPopupState: PopupState = {
   outcome: null,
   focusToken: 0,
   attempt: null,
+  lastClose: null,
 };
 
 function startQuestion(state: PopupState, phase: Phase, question: Question): PopupState {
@@ -63,8 +74,21 @@ function startQuestion(state: PopupState, phase: Phase, question: Question): Pop
     ...initialPopupState,
     focusToken: state.focusToken + (phase === "answer" ? 1 : 0),
     attempt: state.attempt,
+    lastClose: state.lastClose,
     phase,
     question,
+  };
+}
+
+function hide(state: PopupState, reason: CloseReason): PopupState {
+  return {
+    ...state,
+    phase: "hidden",
+    lastClose: {
+      seq: (state.lastClose?.seq ?? 0) + 1,
+      reason,
+      itemId: state.question?.item.id ?? null,
+    },
   };
 }
 
@@ -143,18 +167,17 @@ export function popupReducer(state: PopupState, event: PopupEvent): PopupState {
       if (state.phase !== "answer" || !question) return state;
       const review = nextReview(question.item.review, "skipped", event.now);
       return {
-        ...state,
-        phase: "hidden",
+        ...hide(state, "done"),
         attempt: makeAttempt(state, question, state.input, false, review, event.now),
       };
     }
 
     case "timeout":
-      return state.phase === "peek" || state.phase === "feedback"
-        ? { ...state, phase: "hidden" }
-        : state;
+      if (state.phase === "peek") return hide(state, "timeout");
+      if (state.phase === "feedback") return hide(state, "done");
+      return state;
 
     case "continue":
-      return state.phase === "feedback" ? { ...state, phase: "hidden" } : state;
+      return state.phase === "feedback" ? hide(state, "done") : state;
   }
 }

@@ -1,13 +1,17 @@
-//! System tray icon and native menu.
+//! System tray icon and native menu (SPEC section 10).
 
 use tauri::{
-    AppHandle, Runtime,
+    AppHandle, Manager, Runtime,
     menu::{Menu, MenuEvent, MenuItem, PredefinedMenuItem},
     tray::{TrayIcon, TrayIconBuilder},
 };
 
 const TRAY_ID: &str = "main";
+const MENU_NEXT_LINE: &str = "status-next";
+const MENU_TODAY_LINE: &str = "status-today";
 const MENU_NEXT: &str = "next";
+const MENU_PAUSE: &str = "pause";
+const MENU_MUTE: &str = "mute";
 const MENU_QUIT: &str = "quit";
 #[cfg(debug_assertions)]
 const MENU_DEBUG_PEEK: &str = "debug-peek";
@@ -16,6 +20,8 @@ const MENU_DEBUG_PEEK: &str = "debug-peek";
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MenuAction {
     Next,
+    TogglePause,
+    ToggleMute,
     Quit,
     #[cfg(debug_assertions)]
     DebugPeek,
@@ -25,6 +31,8 @@ impl MenuAction {
     pub fn from_id(id: &str) -> Option<Self> {
         match id {
             MENU_NEXT => Some(Self::Next),
+            MENU_PAUSE => Some(Self::TogglePause),
+            MENU_MUTE => Some(Self::ToggleMute),
             MENU_QUIT => Some(Self::Quit),
             #[cfg(debug_assertions)]
             MENU_DEBUG_PEEK => Some(Self::DebugPeek),
@@ -33,25 +41,76 @@ impl MenuAction {
     }
 }
 
-pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
-    let next = MenuItem::with_id(
-        app,
-        MENU_NEXT,
-        "立即来一题",
-        true,
-        Some(crate::shortcut::SUMMON),
-    )?;
-    let separator = PredefinedMenuItem::separator(app)?;
-    let quit = MenuItem::with_id(app, MENU_QUIT, "退出", true, None::<&str>)?;
+/// Text of the menu items that change at runtime.
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
+pub struct TrayLabels {
+    pub next_line: String,
+    pub today_line: String,
+    pub pause: String,
+    pub mute: String,
+}
 
-    let menu = Menu::with_items(app, &[&next, &separator, &quit])?;
+/// Handles to the dynamic menu items, kept in Tauri state.
+pub struct TrayMenu<R: Runtime> {
+    next_line: MenuItem<R>,
+    today_line: MenuItem<R>,
+    pause: MenuItem<R>,
+    mute: MenuItem<R>,
+}
+
+impl<R: Runtime> TrayMenu<R> {
+    pub fn apply(&self, labels: &TrayLabels) {
+        let pairs = [
+            (&self.next_line, &labels.next_line),
+            (&self.today_line, &labels.today_line),
+            (&self.pause, &labels.pause),
+            (&self.mute, &labels.mute),
+        ];
+        for (item, text) in pairs {
+            if let Err(e) = item.set_text(text) {
+                eprintln!("[tray] failed to update menu text: {e}");
+            }
+        }
+    }
+}
+
+pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
+    let item = |id: &str, text: &str, enabled: bool, accel: Option<&str>| {
+        MenuItem::with_id(app, id, text, enabled, accel)
+    };
+    let next_line = item(MENU_NEXT_LINE, "下一题计算中…", false, None)?;
+    let today_line = item(MENU_TODAY_LINE, "今日 0 题", false, None)?;
+    let next = item(MENU_NEXT, "立即来一题", true, Some(crate::shortcut::SUMMON))?;
+    let pause = item(MENU_PAUSE, "暂停 1 小时", true, None)?;
+    let mute = item(MENU_MUTE, "今天不再弹", true, None)?;
+    let quit = item(MENU_QUIT, "退出", true, None)?;
+
+    let menu = Menu::with_items(
+        app,
+        &[
+            &next_line,
+            &today_line,
+            &PredefinedMenuItem::separator(app)?,
+            &next,
+            &pause,
+            &mute,
+            &PredefinedMenuItem::separator(app)?,
+            &quit,
+        ],
+    )?;
 
     #[cfg(debug_assertions)]
     {
-        let debug_peek =
-            MenuItem::with_id(app, MENU_DEBUG_PEEK, "调试：5 秒后弹出", true, None::<&str>)?;
-        menu.insert(&debug_peek, 1)?;
+        let debug_peek = item(MENU_DEBUG_PEEK, "调试：5 秒后弹出", true, None)?;
+        menu.insert(&debug_peek, 6)?;
     }
+
+    app.manage(TrayMenu {
+        next_line,
+        today_line,
+        pause,
+        mute,
+    });
 
     let builder = TrayIconBuilder::with_id(TRAY_ID)
         .tooltip("英语拼写")
@@ -64,6 +123,8 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
 fn handle_menu_event<R: Runtime>(app: &AppHandle<R>, event: MenuEvent) {
     match MenuAction::from_id(event.id().as_ref()) {
         Some(MenuAction::Next) => crate::popup::summon(app),
+        Some(MenuAction::TogglePause) => crate::scheduler::runtime::toggle_pause(app),
+        Some(MenuAction::ToggleMute) => crate::scheduler::runtime::toggle_mute(app),
         Some(MenuAction::Quit) => app.exit(0),
         #[cfg(debug_assertions)]
         Some(MenuAction::DebugPeek) => {
@@ -103,10 +164,13 @@ mod tests {
     fn maps_known_ids() {
         assert_eq!(MenuAction::from_id("quit"), Some(MenuAction::Quit));
         assert_eq!(MenuAction::from_id("next"), Some(MenuAction::Next));
+        assert_eq!(MenuAction::from_id("pause"), Some(MenuAction::TogglePause));
+        assert_eq!(MenuAction::from_id("mute"), Some(MenuAction::ToggleMute));
     }
 
     #[test]
-    fn unknown_id_maps_to_none() {
+    fn status_lines_are_not_actions() {
+        assert_eq!(MenuAction::from_id("status-next"), None);
         assert_eq!(MenuAction::from_id("unknown"), None);
     }
 }

@@ -4,7 +4,7 @@ use tauri::State;
 
 use super::{
     Db,
-    quiz::{self, AttemptInput, CandidateQuery, Candidates, TodayStats},
+    quiz::{self, AttemptInput, CandidateQuery, Candidates, QuizItem, TodayStats},
 };
 
 fn lock<'a>(
@@ -30,4 +30,10 @@ pub fn quiz_record_attempt(db: State<'_, Db>, input: AttemptInput) -> Result<(),
 pub fn quiz_today_stats(db: State<'_, Db>, day_start: i64) -> Result<TodayStats, String> {
     let conn = lock(&db)?;
     quiz::today_stats(&conn, day_start).map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+pub fn quiz_item(db: State<'_, Db>, id: i64) -> Result<Option<QuizItem>, String> {
+    let conn = lock(&db)?;
+    quiz::item_by_id(&conn, id).map_err(|e| e.to_string())
 }

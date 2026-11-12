@@ -12,15 +12,30 @@ use tauri::{
     WebviewWindowBuilder,
 };
 
+use std::sync::atomic::{AtomicBool, Ordering};
+
 use crate::geometry::{self, Rect};
+
+static VISIBLE: AtomicBool = AtomicBool::new(false);
+
+/// Whether the popup is on screen (any phase). The scheduler never fires while it is.
+pub fn is_visible() -> bool {
+    VISIBLE.load(Ordering::SeqCst)
+}
 
 pub const LABEL: &str = "popup";
 
 /// Hotkey or tray "next question": the frontend decides what to do by phase.
 pub const EVENT_SUMMON: &str = "popup://summon";
-/// Debug-only trigger that shows the non-focused peek state.
-#[cfg(debug_assertions)]
+/// Scheduler (or debug) trigger that shows the non-focused peek state.
 pub const EVENT_PEEK: &str = "popup://peek";
+
+#[derive(Clone, serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+struct PeekPayload {
+    /// Ask this item again (a peek that timed out earlier), else pick a new one.
+    item_id: Option<i64>,
+}
 
 /// Distance between the card edge and the work-area edge, in logical px.
 const SCREEN_GAP: f64 = 24.0;
@@ -93,7 +108,9 @@ pub fn popup_place<R: Runtime>(
 pub fn popup_show_peek<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
     let win = window(&app)?;
     win.set_focusable(false).map_err(err)?;
-    win.show().map_err(err)
+    win.show().map_err(err)?;
+    VISIBLE.store(true, Ordering::SeqCst);
+    Ok(())
 }
 
 /// Show and take focus. Only call on explicit user action.
@@ -102,6 +119,7 @@ pub fn popup_focus<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
     let win = window(&app)?;
     win.set_focusable(true).map_err(err)?;
     win.show().map_err(err)?;
+    VISIBLE.store(true, Ordering::SeqCst);
     win.set_focus().map_err(err)
 }
 
@@ -111,6 +129,7 @@ pub fn popup_hide<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
     let win = window(&app)?;
     let had_focus = win.is_focused().unwrap_or(false);
     win.hide().map_err(err)?;
+    VISIBLE.store(false, Ordering::SeqCst);
     win.set_focusable(false).map_err(err)?;
     if had_focus {
         crate::platform::restore_previous_app(&app);
@@ -131,8 +150,13 @@ pub fn peek_after<R: Runtime>(app: &AppHandle<R>, delay: std::time::Duration) {
     let app = app.clone();
     std::thread::spawn(move || {
         std::thread::sleep(delay);
-        if let Err(e) = app.emit_to(LABEL, EVENT_PEEK, ()) {
-            eprintln!("[popup] failed to emit peek: {e}");
-        }
+        peek(&app, None);
     });
+}
+
+/// Ask the frontend to show the peek state (it loads the question first).
+pub fn peek<R: Runtime>(app: &AppHandle<R>, item_id: Option<i64>) {
+    if let Err(e) = app.emit_to(LABEL, EVENT_PEEK, PeekPayload { item_id }) {
+        eprintln!("[popup] failed to emit peek: {e}");
+    }
 }
