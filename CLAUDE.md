@@ -16,7 +16,9 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - Rust 测试：`cd src-tauri && cargo test`
 - Rust 检查：`cd src-tauri && cargo clippy --all-targets`
 - 类型检查：`npm run typecheck`
-- 打包：`npm run tauri build`
+- 打包 macOS：`npm run build:mac`（universal，同时支持 Apple 芯片和 Intel），产物在 `src-tauri/target/universal-apple-darwin/release/bundle/dmg/`
+- 打包 Windows：在 Windows 上运行 `npm run build:win`，产物在 `src-tauri/target/release/bundle/nsis/`（macOS 上无法生成 .exe）
+- 注意：正式包第一次启动会按设置开启开机自启，在开发机上试运行后记得删掉 `~/Library/LaunchAgents/英语拼写.plist`
 - 重建四六级词库：`node scripts/build-ecdict.mjs`（首次会下载 ECDICT 到 `.cache/`）
 - 重建程序员词库：改 `scripts/programmer-deck.tsv` 后运行 `node scripts/build-programmer.mjs`；改了内置词库要把 `src-tauri/src/db/seed.rs` 里对应的 `version` 加 1
 - 开发数据库：`~/Library/Application Support/com.muluo.englishspell/spell.db`
@@ -38,7 +40,8 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 
 ## 版本约束
 - React 固定 18.x（模板默认是 19，不要升级）
-- `tauri.conf.json` 的 `app.windows` 目前为空，popup 和 settings 窗口在 M1 / M4 加入
+- `tauri.conf.json` 的 `app.windows` 为空；popup 启动时创建，settings 和 addword 按需创建
+- macOS 隐藏程序坞图标靠 `src-tauri/Info.plist` 的 `LSUIElement`，运行时再设一次 Accessory
 
 ## 工作方式
 - 严格按 `docs/SPEC.md` 第 13 节的里程碑顺序推进，**一次只做一个里程碑**

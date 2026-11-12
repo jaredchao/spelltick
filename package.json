@@ -10,7 +10,9 @@
     "tauri": "tauri",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:mac": "tauri build --target universal-apple-darwin",
+    "build:win": "tauri build --bundles nsis"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",
