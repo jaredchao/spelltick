@@ -1,0 +1,177 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 380px;
+  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--text);
+}
+
+/* ---------- answer ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meaning {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.aux {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hint {
+  font-family: var(--font-term);
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.input {
+  height: 46px;
+  padding: 0 14px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-control);
+  background: var(--bg-card);
+  font-family: var(--font-term);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.secondary,
+.primary {
+  height: 44px;
+  border-radius: var(--radius-control);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.secondary {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+
+.primary {
+  flex: 1.4;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+}
+
+/* ---------- feedback ---------- */
+
+.titleRight,
+.titleWrong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.titleRight {
+  color: var(--right);
+}
+
+.titleWrong {
+  color: var(--wrong);
+}
+
+.compare {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compareLabel {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.spelling,
+.spellingStrong {
+  font-family: var(--font-term);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+}
+
+.spellingStrong {
+  font-weight: 600;
+}
+
+.phonetic {
+  margin-left: 8px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.example {
+  padding: 12px 14px;
+  border-radius: var(--radius-control);
+  background: var(--bg-subtle);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}

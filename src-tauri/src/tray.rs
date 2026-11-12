@@ -1,32 +1,57 @@
 //! System tray icon and native menu.
 
 use tauri::{
-    menu::{Menu, MenuEvent, MenuItem},
+    menu::{Menu, MenuEvent, MenuItem, PredefinedMenuItem},
     tray::{TrayIcon, TrayIconBuilder},
     AppHandle, Runtime,
 };
 
 const TRAY_ID: &str = "main";
+const MENU_NEXT: &str = "next";
 const MENU_QUIT: &str = "quit";
+#[cfg(debug_assertions)]
+const MENU_DEBUG_PEEK: &str = "debug-peek";
 
 /// Actions that can be triggered from the tray menu.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MenuAction {
+    Next,
     Quit,
+    #[cfg(debug_assertions)]
+    DebugPeek,
 }
 
 impl MenuAction {
     pub fn from_id(id: &str) -> Option<Self> {
         match id {
+            MENU_NEXT => Some(Self::Next),
             MENU_QUIT => Some(Self::Quit),
+            #[cfg(debug_assertions)]
+            MENU_DEBUG_PEEK => Some(Self::DebugPeek),
             _ => None,
         }
     }
 }
 
 pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
+    let next = MenuItem::with_id(
+        app,
+        MENU_NEXT,
+        "立即来一题",
+        true,
+        Some(crate::shortcut::SUMMON),
+    )?;
+    let separator = PredefinedMenuItem::separator(app)?;
     let quit = MenuItem::with_id(app, MENU_QUIT, "退出", true, None::<&str>)?;
-    let menu = Menu::with_items(app, &[&quit])?;
+
+    let menu = Menu::with_items(app, &[&next, &separator, &quit])?;
+
+    #[cfg(debug_assertions)]
+    {
+        let debug_peek =
+            MenuItem::with_id(app, MENU_DEBUG_PEEK, "调试：5 秒后弹出", true, None::<&str>)?;
+        menu.insert(&debug_peek, 1)?;
+    }
 
     let builder = TrayIconBuilder::with_id(TRAY_ID)
         .tooltip("英语拼写")
@@ -38,7 +63,12 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
 
 fn handle_menu_event<R: Runtime>(app: &AppHandle<R>, event: MenuEvent) {
     match MenuAction::from_id(event.id().as_ref()) {
+        Some(MenuAction::Next) => crate::popup::summon(app),
         Some(MenuAction::Quit) => app.exit(0),
+        #[cfg(debug_assertions)]
+        Some(MenuAction::DebugPeek) => {
+            crate::popup::peek_after(app, std::time::Duration::from_secs(5))
+        }
         None => {}
     }
 }
@@ -70,8 +100,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn maps_quit_id_to_quit_action() {
+    fn maps_known_ids() {
         assert_eq!(MenuAction::from_id("quit"), Some(MenuAction::Quit));
+        assert_eq!(MenuAction::from_id("next"), Some(MenuAction::Next));
     }
 
     #[test]

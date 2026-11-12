@@ -17,10 +17,14 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - Rust 检查：`cd src-tauri && cargo clippy --all-targets`
 - 类型检查：`npm run typecheck`
 - 打包：`npm run tauri build`
+- 调试弹窗：开发版托盘里有「调试：5 秒后弹出」；也可以用 `SPELL_DEBUG_PEEK=8 npm run tauri dev`，启动 8 秒后弹出 peek
 
 ## 目录
 - `src/core/`：纯函数和单元测试（`*.test.ts` 与源文件放在一起）
 - `src/assets/fonts/`：皮肤字体 woff2
+- `src/popup/`：弹窗组件；状态机在 `src/core/popupMachine.ts`
+- `src/skin/`：读取 `docs/design/skins.json`，注入 CSS 变量
+- `src-tauri/src/popup.rs`：弹窗窗口的显示、定位、焦点（改这里前先读文件头注释）
 - `src-tauri/src/tray.rs`：托盘图标与原生菜单
 - `src-tauri/src/platform/`：`macos.rs` / `windows.rs`
 - `src-tauri/icons/tray-template.png`：macOS 托盘单色占位图标（Windows 用应用图标）

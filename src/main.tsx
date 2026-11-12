@@ -1,13 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { getCurrentWindow } from "@tauri-apps/api/window";
+import { PopupApp } from "./popup/PopupApp";
+import { SkinProvider } from "./skin/SkinContext";
+import "./styles/global.css";
 
-// M0: no window loads this yet. Popup and settings views arrive in M1 / M4.
-function Placeholder() {
-  return null;
+function Root() {
+  const label = getCurrentWindow().label;
+  // The settings window arrives in M4.
+  if (label !== "popup") return null;
+  return (
+    <SkinProvider id="native">
+      <PopupApp />
+    </SkinProvider>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Placeholder />
+    <Root />
   </React.StrictMode>,
 );
