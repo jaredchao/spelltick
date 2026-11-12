@@ -451,3 +451,77 @@
   color: var(--right);
   font-size: 13px;
 }
+
+/* ---------- history ---------- */
+
+.historyBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.historyTableWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.historyTable th {
+  position: sticky;
+  top: 0;
+  padding: 8px 8px 8px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.historyTable td {
+  padding: 10px 8px 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.historyTerm {
+  font-family: var(--font-term);
+  font-size: 14px;
+  color: var(--text) !important;
+  overflow-wrap: anywhere;
+}
+
+.historyMeaning {
+  max-width: 200px;
+}
+
+.historyDeck {
+  margin-top: 2px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.historyNum {
+  font-family: var(--font-term);
+  white-space: nowrap;
+}
+
+.historyBad {
+  color: var(--wrong);
+}
+
+.historyDue {
+  color: var(--accent) !important;
+  font-weight: 600;
+}

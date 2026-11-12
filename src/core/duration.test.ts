@@ -7,8 +7,16 @@ describe("formatDuration", () => {
     expect(formatDuration(5_000)).toBe("1 分钟");
   });
 
+  it("rounds just under an hour up to 1 小时", () => {
+    expect(formatDuration(59 * 60_000 + 40_000)).toBe("1 小时");
+  });
+
   it("formats hours", () => {
     expect(formatDuration(2 * 3_600_000)).toBe("2 小时");
+  });
+
+  it("rounds just under a day up to 1 天", () => {
+    expect(formatDuration(24 * 3_600_000 - 60_000)).toBe("1 天");
   });
 
   it("formats days", () => {

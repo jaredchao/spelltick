@@ -67,6 +67,7 @@ pub fn run() {
             settings_window::settings_window_open,
             shortcut::shortcut_status,
             db::commands::quiz_set_example,
+            db::commands::history_list,
             keychain::commands::ai_key_get,
             keychain::commands::ai_key_has,
             keychain::commands::ai_key_set,

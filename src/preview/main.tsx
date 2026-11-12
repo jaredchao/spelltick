@@ -35,6 +35,22 @@ mockIPC((cmd) => {
       return { term: "idempotent", needsPermission: true };
     case "ai_key_has":
       return true;
+    case "history_list": {
+      const now = Date.now();
+      const row = (itemId: number, term: string, meaning: string, deckName: string, attempts: number, correct: number, lastAgoMin: number, lastResult: string, dueInMin: number) => ({
+        itemId, term, meaning, kind: term.includes(" ") ? "sentence" : "word", deckName, attempts, correct,
+        lastAt: now - lastAgoMin * 60_000, lastResult, dueAt: now + dueInMin * 60_000,
+      });
+      return {
+        rows: [
+          row(1, "gap", "缺口；差距", "四六级核心词", 1, 0, 3, "wrong", 7),
+          row(2, "kingdom", "王国；领域", "四六级核心词", 2, 1, 40, "right", 1440),
+          row(3, "Let's take this offline.", "这个我们会后单独聊。", "程序员 / 职场英语", 3, 2, 60 * 26, "hinted", -5),
+          row(4, "cumulative", "累积的", "四六级核心词", 1, 1, 60 * 24 * 9, "skipped", 4320),
+        ],
+        counts: { all: 4, wrong: 2, due: 1 },
+      };
+    }
     case "decks_list":
       return [
         { id: 1, name: "四六级核心词", source: "builtin", enabled: true, learned: 312, total: 5751 },
@@ -89,7 +105,7 @@ function PopupPreview() {
 function SettingsPreview() {
   React.useEffect(() => {
     const target = Array.from(document.querySelectorAll("nav button")).find(
-      (b) => b.textContent === { general: "通用", quiz: "出题", decks: "词库与 AI", about: "关于" }[tab],
+      (b) => b.textContent === { general: "通用", quiz: "出题", decks: "词库与 AI", history: "学习记录", about: "关于" }[tab],
     ) as HTMLButtonElement | undefined;
     target?.click();
   }, []);

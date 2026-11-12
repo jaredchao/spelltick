@@ -48,12 +48,12 @@ pub fn format_duration(ms: i64) -> String {
     const HOUR: i64 = 60 * MINUTE;
     const DAY: i64 = 24 * HOUR;
     let round = |v: i64, unit: i64| (v as f64 / unit as f64).round() as i64;
-    if ms < HOUR {
+    if round(ms, MINUTE) < 60 {
         format!("{} 分钟", round(ms, MINUTE).max(1))
-    } else if ms < DAY {
-        format!("{} 小时", round(ms, HOUR))
+    } else if round(ms, HOUR) < 24 {
+        format!("{} 小时", round(ms, HOUR).max(1))
     } else {
-        format!("{} 天", round(ms, DAY))
+        format!("{} 天", round(ms, DAY).max(1))
     }
 }
 
@@ -99,6 +99,8 @@ mod tests {
         assert_eq!(format_duration(10_000), "1 分钟");
         assert_eq!(format_duration(3 * 3_600_000), "3 小时");
         assert_eq!(format_duration(2 * 86_400_000), "2 天");
+        assert_eq!(format_duration(86_400_000 - 60_000), "1 天");
+        assert_eq!(format_duration(59 * 60_000 + 40_000), "1 小时");
     }
 
     #[test]

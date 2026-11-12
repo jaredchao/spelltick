@@ -2,6 +2,7 @@
 
 pub mod commands;
 pub mod decks;
+pub mod history;
 pub mod migrations;
 pub mod progress;
 pub mod quiz;

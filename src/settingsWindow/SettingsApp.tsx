@@ -1,24 +1,42 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { settingsApi } from "../settings/api";
 import type { Settings, ShortcutStatus } from "../settings/types";
 import { AboutTab } from "./AboutTab";
 import { AiSection } from "./AiSection";
 import { DecksTab } from "./DecksTab";
 import { GeneralTab } from "./GeneralTab";
+import { HistoryTab } from "./HistoryTab";
 import { QuizTab } from "./QuizTab";
 import styles from "./Settings.module.css";
 
-type Tab = "general" | "quiz" | "decks" | "about";
+type Tab = "general" | "quiz" | "decks" | "history" | "about";
 
 const TABS: readonly { id: Tab; label: string }[] = [
   { id: "general", label: "通用" },
   { id: "quiz", label: "出题" },
   { id: "decks", label: "词库与 AI" },
+  { id: "history", label: "学习记录" },
   { id: "about", label: "关于" },
 ];
 
+const EVENT_TAB = "settings://tab";
+
+function asTab(value: string | null): Tab | null {
+  return TABS.some((t) => t.id === value) ? (value as Tab) : null;
+}
+
 export function SettingsApp({ settings }: { settings: Settings }) {
-  const [tab, setTab] = useState<Tab>("general");
+  // The tray can open this window on a given tab (?tab=history or an event).
+  const [tab, setTab] = useState<Tab>(() => asTab(new URLSearchParams(location.search).get("tab")) ?? "general");
+
+  useEffect(() => {
+    const unlisten = getCurrentWebviewWindow().listen<string>(EVENT_TAB, (e) => {
+      const next = asTab(e.payload);
+      if (next) setTab(next);
+    });
+    return () => void unlisten.then((fn) => fn());
+  }, []);
   const [saveError, setSaveError] = useState<string | null>(null);
 
   // Every change is saved immediately; the change event updates all windows.
@@ -52,6 +70,7 @@ export function SettingsApp({ settings }: { settings: Settings }) {
         {tab === "general" && <GeneralTab settings={settings} update={update} />}
         {tab === "quiz" && <QuizTab settings={settings} update={update} />}
         {tab === "decks" && <DecksTab aiSection={<AiSection settings={settings} update={update} />} />}
+        {tab === "history" && <HistoryTab />}
         {tab === "about" && <AboutTab />}
       </main>
     </div>

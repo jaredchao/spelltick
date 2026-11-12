@@ -13,6 +13,7 @@ const MENU_NEXT: &str = "next";
 const MENU_PAUSE: &str = "pause";
 const MENU_MUTE: &str = "mute";
 const MENU_ADD_WORD: &str = "add-word";
+const MENU_HISTORY: &str = "history";
 const MENU_SETTINGS: &str = "settings";
 const MENU_QUIT: &str = "quit";
 #[cfg(debug_assertions)]
@@ -25,6 +26,7 @@ pub enum MenuAction {
     TogglePause,
     ToggleMute,
     AddWord,
+    OpenHistory,
     OpenSettings,
     Quit,
     #[cfg(debug_assertions)]
@@ -38,6 +40,7 @@ impl MenuAction {
             MENU_PAUSE => Some(Self::TogglePause),
             MENU_MUTE => Some(Self::ToggleMute),
             MENU_ADD_WORD => Some(Self::AddWord),
+            MENU_HISTORY => Some(Self::OpenHistory),
             MENU_SETTINGS => Some(Self::OpenSettings),
             MENU_QUIT => Some(Self::Quit),
             #[cfg(debug_assertions)]
@@ -95,6 +98,7 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
         true,
         Some("CommandOrControl+Shift+A"),
     )?;
+    let history = item(MENU_HISTORY, "学习记录…", true, None)?;
     let settings = item(MENU_SETTINGS, "设置…", true, Some("CommandOrControl+,"))?;
     let quit = item(MENU_QUIT, "退出", true, None)?;
 
@@ -109,6 +113,7 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
             &mute,
             &PredefinedMenuItem::separator(app)?,
             &add_word,
+            &history,
             &settings,
             &PredefinedMenuItem::separator(app)?,
             &quit,
@@ -142,7 +147,8 @@ fn handle_menu_event<R: Runtime>(app: &AppHandle<R>, event: MenuEvent) {
         Some(MenuAction::TogglePause) => crate::scheduler::runtime::toggle_pause(app),
         Some(MenuAction::ToggleMute) => crate::scheduler::runtime::toggle_mute(app),
         Some(MenuAction::AddWord) => crate::add_word::trigger(app),
-        Some(MenuAction::OpenSettings) => crate::settings_window::open(app),
+        Some(MenuAction::OpenHistory) => crate::settings_window::open(app, Some("history")),
+        Some(MenuAction::OpenSettings) => crate::settings_window::open(app, None),
         Some(MenuAction::Quit) => app.exit(0),
         #[cfg(debug_assertions)]
         Some(MenuAction::DebugPeek) => {

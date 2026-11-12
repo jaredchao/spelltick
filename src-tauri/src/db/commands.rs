@@ -43,3 +43,12 @@ pub fn quiz_set_example(db: State<'_, Db>, item_id: i64, example: String) -> Res
     let conn = lock(&db)?;
     quiz::set_example_if_missing(&conn, item_id, &example, true).map_err(|e| e.to_string())
 }
+
+#[tauri::command]
+pub fn history_list(
+    db: State<'_, Db>,
+    query: super::history::HistoryQuery,
+) -> Result<super::history::HistoryPage, String> {
+    let conn = lock(&db)?;
+    super::history::list(&conn, &query).map_err(|e| e.to_string())
+}
