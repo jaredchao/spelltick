@@ -1,0 +1,100 @@
+src-tauri/src/lib.rs
+  s_3d4a31c4b54aa5::t_33fd94eee75133 29-37
+  s_3d4a31c4b54aa5::t_18331601a29010 1,3-4,14-20,26,28
+src/platform.ts
+  s_3d4a31c4b54aa5::t_9ab15d437e8838 1-5
+src/popup/bridge.ts
+  s_3d4a31c4b54aa5::t_900ff379cd280c 1-21
+CLAUDE.md
+  s_3d4a31c4b54aa5::t_138677d581239c 25-27
+  s_3d4a31c4b54aa5::t_d91134cb83c509 20
+src/core/template.test.ts
+  s_3d4a31c4b54aa5::t_3c6efed48d8eab 1-18
+src/core/highlight.ts
+  s_3d4a31c4b54aa5::t_395cb0c8dccdcc 1-23
+src/skin/SkinContext.tsx
+  s_3d4a31c4b54aa5::t_6ed8660baa6e1f 1-19
+src/popup/usePopupEvents.ts
+  s_3d4a31c4b54aa5::t_7994a6ab488d4f 1-14
+src/main.tsx
+  s_3d4a31c4b54aa5::t_eff35b5cd0e8ec 3-6,8-16,21
+src/popup/PopupApp.tsx
+  s_3d4a31c4b54aa5::t_cbcf3ce0cdcdea 1-47
+src/skin/skins.ts
+  s_3d4a31c4b54aa5::t_addc86eaffdb05 1-42
+src/popup/speech.ts
+  s_3d4a31c4b54aa5::t_b353b6070de46f 1-18
+src/popup/Peek.module.css
+  s_3d4a31c4b54aa5::t_28097571b25a8b 1-40
+src/popup/Feedback.tsx
+  s_3d4a31c4b54aa5::t_d2660d8f1df893 1-24,28,30-72
+  s_3d4a31c4b54aa5::t_14877857b53ac4 25-27,29
+src-tauri/src/geometry.rs
+  s_3d4a31c4b54aa5::t_67efdf4cbf6967 1-53
+src/popup/icons.tsx
+  s_3d4a31c4b54aa5::t_6fed4ad642835b 1-38
+src-tauri/Cargo.toml
+  s_3d4a31c4b54aa5::t_fa8bb692570865 18,22
+src/core/hint.test.ts
+  s_3d4a31c4b54aa5::t_f9f02edc262b9f 1-28
+src/core/popupMachine.ts
+  s_3d4a31c4b54aa5::t_2fffc4766490c6 1-107
+src/popup/fakeQuestion.ts
+  s_3d4a31c4b54aa5::t_3d682bc30136d0 1-13
+src/popup/usePopupTimers.ts
+  s_3d4a31c4b54aa5::t_a7ac4ee23e4c79 1-16
+src/popup/Peek.tsx
+  s_3d4a31c4b54aa5::t_2b4d099cab16dd 1-17
+src/core/template.ts
+  s_3d4a31c4b54aa5::t_cbce40af844f55 1-9
+src-tauri/src/tray.rs
+  s_3d4a31c4b54aa5::t_ce0d140cbc2102 4,10,12-13,18,20-21,27,29-30,37-44,46-54,66,68-71,103,105
+src-tauri/src/platform/mod.rs
+  s_3d4a31c4b54aa5::t_ebe955fcadca8c 1-3,7-8,12-16
+src-tauri/src/platform/windows.rs
+  s_3d4a31c4b54aa5::t_25634c81fe85a3 1-8
+src-tauri/tauri.conf.json
+  s_3d4a31c4b54aa5::t_b714dfade25584 15
+src-tauri/src/platform/macos.rs
+  s_3d4a31c4b54aa5::t_2f697714b30eea 1-12
+src/popup/Card.module.css
+  s_3d4a31c4b54aa5::t_7c531e886fae80 1-177
+src/core/question.ts
+  s_3d4a31c4b54aa5::t_56301a50ce1770 5-11
+  s_3d4a31c4b54aa5::t_3f1b6485c64b68 1-4,12-21
+src/core/highlight.test.ts
+  s_3d4a31c4b54aa5::t_481a1a6da07f43 1-37
+src/popup/Answer.tsx
+  s_3d4a31c4b54aa5::t_5fa44b1b27c45d 1-103
+src-tauri/src/shortcut.rs
+  s_3d4a31c4b54aa5::t_4031f0c9f14183 1-53
+src/core/popupMachine.test.ts
+  s_3d4a31c4b54aa5::t_62a0cdb4162f53 1-126
+src/core/hint.ts
+  s_3d4a31c4b54aa5::t_dc23eb306d6a34 1-23
+src/popup/usePopupWindow.ts
+  s_3d4a31c4b54aa5::t_c6d0e5aa658751 1-59,62-68
+  s_3d4a31c4b54aa5::t_8da5a199cd1269 60-61
+src-tauri/src/popup.rs
+  s_3d4a31c4b54aa5::t_c273a2444bac85 1-138
+src/styles/global.css
+  s_3d4a31c4b54aa5::t_958c8e70aee6cc 1-35
+src-tauri/Cargo.lock
+  s_3d4a31c4b54aa5::t_33ada832267b5f 896,1251-1260,1369-1386,1942-1952,2141,3653-3683,4631-4640,4658-4680,4707-4712,4719-4724,4731-4742,4749-4754,4761-4766,4773-4778,4785-4790,4895-4917
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "57bb40e881241acd078b4a542207e0e7e72f7720",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
