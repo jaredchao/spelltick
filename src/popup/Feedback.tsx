@@ -53,7 +53,7 @@ export function Feedback({ question, outcome, explanation = null, onContinue }: 
   const title = outcome.correct ? copy.rightTitle : copy.wrongTitle;
 
   return (
-    <div className={`${styles.card} ${styles.feedbackCard}`} onClick={onContinue}>
+    <div className={`${styles.card} ${styles.feedbackCard}`}>
       <div className={outcome.correct ? styles.titleRight : styles.titleWrong}>
         {style === "highlight" && (outcome.correct ? <CheckIcon /> : <CrossIcon />)}
         {title}
@@ -81,7 +81,9 @@ export function Feedback({ question, outcome, explanation = null, onContinue }: 
 
       <div className={style === "diff" ? styles.footerDiff : styles.footer}>
         <span>{fillTemplate(copy.nextReview, { time: nextIn })}</span>
-        <span>{copy.continue}</span>
+        <button type="button" className={styles.continueButton} tabIndex={-1} onClick={onContinue}>
+          {copy.continue}
+        </button>
       </div>
     </div>
   );

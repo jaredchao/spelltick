@@ -44,7 +44,7 @@
     "layout": {
       "titleBar": false,
       "feedbackStyle": "highlight",
-      "contentAlign": "start",
+      "contentAlign": "center",
       "shortcutHintsInButtons": false,
       "peekMarker": "dot"
     }
@@ -94,7 +94,7 @@
     "layout": {
       "titleBar": true,
       "feedbackStyle": "diff",
-      "contentAlign": "start",
+      "contentAlign": "center",
       "shortcutHintsInButtons": true,
       "peekMarker": "chevron"
     }

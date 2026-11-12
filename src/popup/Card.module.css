@@ -400,3 +400,16 @@
 .aiLoading {
   color: var(--text-muted);
 }
+
+.continueButton {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.continueButton:hover {
+  color: var(--accent);
+}

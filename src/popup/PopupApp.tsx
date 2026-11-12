@@ -12,6 +12,7 @@ import type { Settings } from "../settings/types";
 import { useAiConfig } from "../ai/useAiConfig";
 import { usePopupAi } from "./usePopupAi";
 import { playFailure, playSuccess } from "./sound";
+import { useCardPointer } from "./useCardPointer";
 import type { AiQuizOptions } from "./questionSource";
 
 export function PopupApp({ settings }: { settings: Settings }) {
@@ -47,7 +48,8 @@ export function PopupApp({ settings }: { settings: Settings }) {
   const onTimeout = useCallback(() => dispatch({ type: "timeout" }), []);
 
   usePopupEvents(onSummon, onPeek);
-  usePopupTimers(state.phase, onTimeout);
+  const pointer = useCardPointer();
+  usePopupTimers(state.phase, onTimeout, pointer.hovered);
   usePopupWindow(state.phase, state.focusToken, contentRef);
   const explanation = usePopupAi(state, settings.ai, aiConfig);
 
@@ -77,7 +79,7 @@ export function PopupApp({ settings }: { settings: Settings }) {
   const { phase, question } = state;
 
   return (
-    <div ref={contentRef} style={{ display: "inline-block", padding: POPUP_INSET }}>
+    <div ref={contentRef} style={{ display: "inline-block", padding: POPUP_INSET }} {...pointer.handlers}>
       {phase === "peek" && (
         <Peek shortcut={settings.summonShortcut} onOpen={() => dispatch({ type: "clickPeek" })} />
       )}

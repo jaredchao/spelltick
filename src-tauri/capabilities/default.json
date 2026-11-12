@@ -5,6 +5,7 @@
   "windows": ["popup", "settings", "addword"],
   "permissions": [
     "core:default",
+    "core:window:allow-start-dragging",
     "dialog:default",
     {
       "identifier": "http:default",
