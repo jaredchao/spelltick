@@ -1,0 +1,111 @@
+src/core/sm2.ts
+  s_3d4a31c4b54aa5::t_a32e817afedae2 1-81
+src/core/duration.test.ts
+  s_3d4a31c4b54aa5::t_96b1bd5a85836d 1-17
+src-tauri/src/db/migrations.rs
+  s_3d4a31c4b54aa5::t_9619b24334f869 1-72,74-120,126-129
+  s_3d4a31c4b54aa5::t_063de11aae102e 73,121-125
+src-tauri/src/tray.rs
+  s_3d4a31c4b54aa5::t_063de11aae102e 4
+src/core/duration.ts
+  s_3d4a31c4b54aa5::t_c007be8d73ef0c 1-10
+src/core/testItems.ts
+  s_3d4a31c4b54aa5::t_df2e6879fe4140 1-18
+package.json
+  s_3d4a31c4b54aa5::t_0e188350778296 17
+src/core/popupMachine.ts
+  s_3d4a31c4b54aa5::t_755c41282bf912 2-4,12-26,37,42,46-47,58,65,71-95,102-104,120,125-126,128-137,141-150
+.gitignore
+  s_3d4a31c4b54aa5::t_08f34459e81da0 25-27
+src/core/popupMachine.test.ts
+  s_3d4a31c4b54aa5::t_02ed4b63337598 4-5,7-8,14-19,36-39,43,50,55-56,59,62,66,69-70,73-75,78-81,83,85-97,100-112,114-115,118-121,124-125,129,132-134
+src/popup/questionSource.ts
+  s_3d4a31c4b54aa5::t_8c45fbb8ba61b6 1-11,16,23-57
+  s_3d4a31c4b54aa5::t_ccafb0037f147d 12-15,17-22
+src/popup/Answer.tsx
+  s_3d4a31c4b54aa5::t_34c15ef87ae00c 7,18-19,30-34,39,45,53,60,66,88-93,96-101
+src-tauri/src/popup.rs
+  s_3d4a31c4b54aa5::t_063de11aae102e 11-12
+src/core/sm2.test.ts
+  s_3d4a31c4b54aa5::t_0ade6ba0a1fc9a 1-84
+src-tauri/data/cet.json
+  s_3d4a31c4b54aa5::t_4d0905a3f7b255 1
+src/core/defaults.ts
+  s_3d4a31c4b54aa5::t_e68051bd05b86e 1-15
+scripts/build-ecdict.mjs
+  s_3d4a31c4b54aa5::t_4d0905a3f7b255 86-116,118-119,123,130-136,154,164
+  s_3d4a31c4b54aa5::t_0f82dbc389636c 1-85,117,120-122,124-129,137-153,155-163,165-192
+src-tauri/src/db/seed.rs
+  s_3d4a31c4b54aa5::t_11dcf2a23ee8a7 1-2,4-149,155-158,163-167,178,189-191,195-196,200-210
+  s_3d4a31c4b54aa5::t_063de11aae102e 3,150-154,159-162,168-177,179-188,192-194,197-199
+src/popup/PopupApp.tsx
+  s_3d4a31c4b54aa5::t_fdb6860f38847d 1,7,15-30,38-45
+  s_3d4a31c4b54aa5::t_e64cf712c929e7 46
+src/popup/QuizPrompt.tsx
+  s_3d4a31c4b54aa5::t_44b1664c5b62e2 1-39
+src-tauri/src/lib.rs
+  s_3d4a31c4b54aa5::t_385a2a9ee8132e 1,8-17,30-32,39
+  s_3d4a31c4b54aa5::t_063de11aae102e 59-62
+src/core/spellingDiff.test.ts
+  s_3d4a31c4b54aa5::t_f7f3feee1bdfa2 1-37
+src-tauri/Cargo.toml
+  s_3d4a31c4b54aa5::t_4376857d5d0fcc 23
+src/core/time.ts
+  s_3d4a31c4b54aa5::t_fff71c351a3ee5 1-6
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_e25937ee160955 1-44
+src/core/quizType.ts
+  s_3d4a31c4b54aa5::t_17ca1109ec55c3 1-34
+scripts/build-programmer.mjs
+  s_3d4a31c4b54aa5::t_b403f102ec15d0 1-45
+src/core/quizType.test.ts
+  s_3d4a31c4b54aa5::t_65677780e679bd 1-47
+src-tauri/src/geometry.rs
+  s_3d4a31c4b54aa5::t_063de11aae102e 35-38
+src/core/judge.test.ts
+  s_3d4a31c4b54aa5::t_557fa3e0a30805 1-40
+src-tauri/src/db/quiz.rs
+  s_3d4a31c4b54aa5::t_063de11aae102e 4,66-67,111-112,134-137,208-213,220-223,235-244,249-250,254-260,316-323,333-336,348-355,358-362,378-396
+  s_3d4a31c4b54aa5::t_0ab15e6e18a18b 1-3,5-65,68-110,113-133,138-207,214-219,224-234,245-248,251-253,261-315,324-332,337-347,356-357,363-377,397-398
+src-tauri/src/db/mod.rs
+  s_3d4a31c4b54aa5::t_83102c1092ebf9 1-30
+CLAUDE.md
+  s_3d4a31c4b54aa5::t_b48777c884061f 20-23
+src/core/select.test.ts
+  s_3d4a31c4b54aa5::t_b7d5e3d8f303b9 1-58
+src/core/select.ts
+  s_3d4a31c4b54aa5::t_31a958a227bba1 1-51
+src/popup/Card.module.css
+  s_3d4a31c4b54aa5::t_6203c9700babd1 178-214
+src/core/spellingDiff.ts
+  s_3d4a31c4b54aa5::t_50bbb7f5808955 1-55
+src/core/question.ts
+  s_3d4a31c4b54aa5::t_ba243a9d5751ac 1-2,7-8,16-19,24-33
+src/core/judge.ts
+  s_3d4a31c4b54aa5::t_80139273d9e89c 1-16
+src-tauri/src/db/commands.rs
+  s_3d4a31c4b54aa5::t_063de11aae102e 7,10-14
+  s_3d4a31c4b54aa5::t_6de8482c03feb1 1-6,8-9,15-33
+src/popup/Feedback.tsx
+  s_3d4a31c4b54aa5::t_f61ad8dccac434 2,6,18-31,36-37,51-52,61,64-66,71-72,74,77,79,86
+package-lock.json
+  s_3d4a31c4b54aa5::t_70d72f9c2305fb 12,797-805
+src-tauri/Cargo.lock
+  s_3d4a31c4b54aa5::t_79305d3269640d 804,819,892,969-980,1029-1034,1475-1483,1490-1498,2058-2068,2963-2976,4283-4288
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6aa97a997a706ac6cffd12d8edc63eabcf0811a6",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
