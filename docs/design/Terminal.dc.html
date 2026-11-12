@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>B 终端代码风</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#7EE787}a:hover{color:#A5F0AC}
+input:focus{outline:none}
+</style>
+</helmet>
+<div style="width: 1240px; height: 540px; box-sizing: border-box; padding: 56px; background: #0B0D10; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace; color: #E6EDF3; display: flex; gap: 48px; align-items: flex-start">
+
+<div style="display: flex; flex-direction: column; gap: 14px; width: 260px">
+<div style="font-size: 12px; color: #8B949E">// 收起 · 不抢焦点</div>
+<button style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; min-height: 48px; background: #14171C; border: 1px solid #262B33; border-radius: 8px; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer; text-align: left">
+<span style="color: {{accent}}">❯</span>
+<span style="flex: 1">spell --next</span>
+<span style="font-size: 11px; color: #8B949E; border: 1px solid #30363D; border-radius: 4px; padding: 2px 6px">⌘⇧E</span>
+</button>
+<div style="font-size: 12px; color: #8B949E; line-height: 1.6">timeout 30s → hide</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px; width: 380px">
+<div style="font-size: 12px; color: #8B949E">// 答题</div>
+<div style="background: #14171C; border: 1px solid #262B33; border-radius: 8px; overflow: hidden">
+<div style="display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid #262B33">
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #30363D"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #30363D"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #30363D"></span>
+<span style="flex: 1; text-align: center; font-size: 11px; color: #8B949E">dev-words · zh→en</span>
+<button aria-label="播放发音" style="width: 44px; height: 28px; border: 1px solid #30363D; border-radius: 4px; background: transparent; color: #8B949E; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path></svg>
+</button>
+</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 16px; font-size: 14px">
+<div style="color: #8B949E">$ define <span style="color: #E6EDF3">"部署；展开"</span></div>
+<div style="font-size: 12px; color: #8B949E">→ v. | len=6 | d _ _ _ _ _</div>
+<label style="display: flex; align-items: center; gap: 10px; border: 1px solid {{accent}}; border-radius: 6px; padding: 0 12px; height: 46px; color: {{accent}}">❯
+<input value="deplo" readonly aria-label="输入拼写" style="flex: 1; height: 44px; border: none; background: transparent; font-family: inherit; font-size: 17px; color: #E6EDF3; letter-spacing: 0.04em">
+</label>
+<div style="display: flex; gap: 16px; font-size: 12px; color: #8B949E">
+<button style="min-height: 44px; background: transparent; border: none; padding: 0; font-family: inherit; font-size: 12px; color: #8B949E; cursor: pointer">[Tab] 提示</button>
+<button style="min-height: 44px; background: transparent; border: none; padding: 0; font-family: inherit; font-size: 12px; color: #8B949E; cursor: pointer">[Esc] 跳过</button>
+<button style="min-height: 44px; margin-left: auto; background: transparent; border: none; padding: 0; font-family: inherit; font-size: 12px; font-weight: 700; color: {{accent}}; cursor: pointer">[↵] 提交</button>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px; width: 380px">
+<div style="font-size: 12px; color: #8B949E">// 反馈 · 拼错时</div>
+<div style="background: #14171C; border: 1px solid #262B33; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px; font-size: 14px">
+<div style="color: #FF7B72; font-weight: 700">✗ FAIL  1 diff</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 16px; letter-spacing: 0.04em">
+<div><span style="color: #FF7B72">- </span>depl<span style="background: #3D1F1F; color: #FF7B72">yo</span></div>
+<div><span style="color: #7EE787">+ </span>depl<span style="background: #1B3A24; color: #7EE787">oy</span>  <span style="font-size: 12px; color: #8B949E; letter-spacing: 0">/dɪˈplɔɪ/</span></div>
+</div>
+<div style="font-size: 13px; line-height: 1.6; color: #C9D1D9; border-left: 2px solid #30363D; padding-left: 12px">We deploy to production every Friday.</div>
+<div style="font-size: 12px; line-height: 1.7; color: #C9D1D9"><span style="color: #D2A8FF"># ai:</span> -oy 结尾同 employ / destroy，记成 de + ploy</div>
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #8B949E; border-top: 1px solid #262B33; padding-top: 12px">
+<span>next_review: +10m</span>
+<span>press any key</span>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#7EE787","options":["#7EE787","#79C0FF","#FFA657","#D2A8FF"]},"$preview":{"width":1240,"height":540}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#7EE787' };
+}
+}
+</script>
+</body>
+</html>

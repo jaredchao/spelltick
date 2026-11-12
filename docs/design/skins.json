@@ -1,0 +1,143 @@
+{
+  "native": {
+    "name": "原生极简",
+    "scheme": "light",
+    "tokens": {
+      "--bg-backdrop": "#E9EBEF",
+      "--bg-card": "#FFFFFF",
+      "--bg-subtle": "#F9FAFB",
+      "--bg-sidebar": "#F7F8FA",
+      "--border": "#D9DCE1",
+      "--border-subtle": "#ECEEF1",
+      "--text": "#111827",
+      "--text-secondary": "#374151",
+      "--text-muted": "#4B5563",
+      "--accent": "#2563EB",
+      "--accent-contrast": "#FFFFFF",
+      "--accent-soft": "#2563EB1A",
+      "--wrong": "#B42318",
+      "--wrong-bg": "#FDE2E1",
+      "--right": "#067647",
+      "--right-bg": "#DCFCE7",
+      "--ai-badge": "#6D28D9",
+      "--font-ui": "Inter, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+      "--font-term": "Inter, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+      "--radius-card": "14px",
+      "--radius-control": "10px",
+      "--shadow-card": "0 12px 32px rgba(17,24,39,0.14)"
+    },
+    "copy": {
+      "peek": "来一题？",
+      "submit": "提交 ↵",
+      "hint": "提示",
+      "skip": "跳过",
+      "wrongTitle": "差一点",
+      "rightTitle": "答对了",
+      "nextReview": "{time}后再考",
+      "continue": "按任意键继续",
+      "trayNext": "下一题约 {time}后",
+      "trayToday": "今日 {n} 题 · 正确率 {rate}"
+    },
+    "layout": {
+      "titleBar": false,
+      "feedbackStyle": "highlight",
+      "inputStyle": "box",
+      "contentAlign": "start",
+      "shortcutHintsInButtons": false
+    }
+  },
+  "terminal": {
+    "name": "终端代码",
+    "scheme": "dark",
+    "tokens": {
+      "--bg-backdrop": "#0B0D10",
+      "--bg-card": "#14171C",
+      "--bg-subtle": "#1C2128",
+      "--bg-sidebar": "#14171C",
+      "--border": "#262B33",
+      "--border-subtle": "#30363D",
+      "--text": "#E6EDF3",
+      "--text-secondary": "#C9D1D9",
+      "--text-muted": "#8B949E",
+      "--accent": "#7EE787",
+      "--accent-contrast": "#0B0D10",
+      "--accent-soft": "#1C2128",
+      "--wrong": "#FF7B72",
+      "--wrong-bg": "#3D1F1F",
+      "--right": "#7EE787",
+      "--right-bg": "#1B3A24",
+      "--ai-badge": "#D2A8FF",
+      "--font-ui": "\"JetBrains Mono\", ui-monospace, \"SF Mono\", Consolas, \"PingFang SC\", \"Microsoft YaHei\", monospace",
+      "--font-term": "\"JetBrains Mono\", ui-monospace, \"SF Mono\", Consolas, monospace",
+      "--radius-card": "8px",
+      "--radius-control": "6px",
+      "--shadow-card": "none"
+    },
+    "copy": {
+      "peek": "spell --next",
+      "submit": "[↵] 提交",
+      "hint": "[Tab] 提示",
+      "skip": "[Esc] 跳过",
+      "wrongTitle": "✗ FAIL",
+      "rightTitle": "✓ PASS",
+      "nextReview": "next_review: +{time}",
+      "continue": "press any key",
+      "trayNext": "next in ~{time}",
+      "trayToday": "today {n} · acc {rate}"
+    },
+    "layout": {
+      "titleBar": true,
+      "feedbackStyle": "diff",
+      "inputStyle": "prompt",
+      "contentAlign": "start",
+      "shortcutHintsInButtons": true
+    }
+  },
+  "paper": {
+    "name": "纸感词卡",
+    "scheme": "light",
+    "tokens": {
+      "--bg-backdrop": "#EDE6DA",
+      "--bg-card": "#FBF8F2",
+      "--bg-subtle": "#F4EEE3",
+      "--bg-sidebar": "#F4EEE3",
+      "--border": "#E2D8C7",
+      "--border-subtle": "#EAE1D2",
+      "--text": "#2A241C",
+      "--text-secondary": "#4A3F30",
+      "--text-muted": "#6B5E4B",
+      "--accent": "#1F3A5F",
+      "--accent-contrast": "#FBF8F2",
+      "--accent-soft": "#1F3A5F1A",
+      "--wrong": "#C2410C",
+      "--wrong-bg": "transparent",
+      "--right": "#1F3A5F",
+      "--right-bg": "transparent",
+      "--ai-badge": "#1F3A5F",
+      "--font-ui": "Inter, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+      "--font-term": "\"Source Serif 4\", Georgia, serif",
+      "--radius-card": "18px",
+      "--radius-control": "12px",
+      "--shadow-card": "0 14px 34px rgba(60,45,25,0.16)"
+    },
+    "copy": {
+      "peek": "一张新词卡",
+      "submit": "翻面 ↵",
+      "hint": "提示",
+      "skip": "跳过",
+      "wrongTitle": "卡片背面",
+      "rightTitle": "记住了",
+      "nextReview": "{time}后再见",
+      "continue": "按任意键继续",
+      "trayNext": "下一张卡 · 约 {time}",
+      "trayToday": "今日 {n} 张 · 正确率 {rate}"
+    },
+    "layout": {
+      "titleBar": false,
+      "feedbackStyle": "card",
+      "inputStyle": "underline",
+      "contentAlign": "center",
+      "shortcutHintsInButtons": false
+    }
+  }
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>A 设置 出题</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2563EB}a:hover{color:#1D4ED8}
+input:focus{outline:2px solid #93C5FD;outline-offset:1px}
+</style>
+</helmet>
+<div style="width: 1240px; height: 720px; box-sizing: border-box; padding: 48px; background: #E9EBEF; font-family: Inter, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #111827; display: flex; gap: 56px; align-items: flex-start">
+
+<div style="width: 820px; height: 624px; background: #FFFFFF; border: 1px solid #D9DCE1; border-radius: 14px; box-shadow: 0 16px 40px rgba(17,24,39,0.14); display: flex; flex-direction: column; overflow: hidden">
+<div style="height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #ECEEF1; font-size: 13px; font-weight: 600; color: #374151">设置</div>
+<div style="flex: 1; display: flex; min-height: 0">
+<nav style="width: 176px; flex: none; background: #F7F8FA; border-right: 1px solid #ECEEF1; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px">
+<button style="height: 40px; border: none; border-radius: 8px; background: transparent; text-align: left; padding: 0 12px; font-family: inherit; font-size: 14px; color: #374151; cursor: pointer">通用</button>
+<button style="height: 40px; border: none; border-radius: 8px; background: {{accentSoft}}; text-align: left; padding: 0 12px; font-family: inherit; font-size: 14px; font-weight: 600; color: {{accent}}; cursor: pointer">出题</button>
+<button style="height: 40px; border: none; border-radius: 8px; background: transparent; text-align: left; padding: 0 12px; font-family: inherit; font-size: 14px; color: #374151; cursor: pointer">词库与 AI</button>
+<button style="height: 40px; border: none; border-radius: 8px; background: transparent; text-align: left; padding: 0 12px; font-family: inherit; font-size: 14px; color: #374151; cursor: pointer">关于</button>
+</nav>
+<div style="flex: 1; padding: 24px 32px; display: flex; flex-direction: column; gap: 22px">
+
+<section style="display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">弹出节奏</h2>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 14px; color: #374151">间隔方式</span>
+<div role="group" aria-label="间隔方式" style="display: flex; background: #F3F4F6; border-radius: 9px; padding: 3px">
+<button style="height: 32px; padding: 0 14px; border: none; border-radius: 7px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(17,24,39,0.12); font-family: inherit; font-size: 13px; font-weight: 600; color: #111827; cursor: pointer">随机</button>
+<button style="height: 32px; padding: 0 14px; border: none; border-radius: 7px; background: transparent; font-family: inherit; font-size: 13px; color: #4B5563; cursor: pointer">固定</button>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 14px; color: #374151">间隔范围</span>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4B5563">
+<input type="number" value="15" aria-label="最短间隔（分钟）" style="width: 56px; height: 34px; box-sizing: border-box; border: 1px solid #D9DCE1; border-radius: 8px; padding: 0 8px; font-family: inherit; font-size: 14px; text-align: center">
+<span>到</span>
+<input type="number" value="45" aria-label="最长间隔（分钟）" style="width: 56px; height: 34px; box-sizing: border-box; border: 1px solid #D9DCE1; border-radius: 8px; padding: 0 8px; font-family: inherit; font-size: 14px; text-align: center">
+<span>分钟</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #374151"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: {{accent}}">只在工作时段弹出</label>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4B5563">
+<input type="time" value="09:00" aria-label="开始时间" style="height: 34px; box-sizing: border-box; border: 1px solid #D9DCE1; border-radius: 8px; padding: 0 8px; font-family: inherit; font-size: 14px">
+<span>–</span>
+<input type="time" value="18:00" aria-label="结束时间" style="height: 34px; box-sizing: border-box; border: 1px solid #D9DCE1; border-radius: 8px; padding: 0 8px; font-family: inherit; font-size: 14px">
+</div>
+</div>
+<div style="display: flex; gap: 24px">
+<label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #374151"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: {{accent}}">全屏时不弹</label>
+<label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #374151"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: {{accent}}">正在打字时延后</label>
+</div>
+</section>
+
+<div style="height: 1px; background: #ECEEF1"></div>
+
+<section style="display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">出题内容</h2>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #374151"><span>单词 : 句子</span><span style="font-weight: 600; color: #111827">7 : 3</span></div>
+<input type="range" min="0" max="10" value="7" aria-label="单词与句子比例" style="width: 100%; accent-color: {{accent}}">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #4B5563"><span>全是句子</span><span>全是单词</span></div>
+</div>
+<div style="font-size: 14px; color: #374151">题型</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<label style="display: flex; align-items: center; gap: 10px; height: 42px; padding: 0 12px; border: 1px solid #D9DCE1; border-radius: 10px; font-size: 14px"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: {{accent}}">看中文写英文</label>
+<label style="display: flex; align-items: center; gap: 10px; height: 42px; padding: 0 12px; border: 1px solid #D9DCE1; border-radius: 10px; font-size: 14px"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: {{accent}}">听发音拼写</label>
+<label style="display: flex; align-items: center; gap: 10px; height: 42px; padding: 0 12px; border: 1px solid #D9DCE1; border-radius: 10px; font-size: 14px"><input type="checkbox" checked style="width: 16px; height: 16px; accent-color: {{accent}}">例句挖空</label>
+<label style="display: flex; align-items: center; gap: 10px; height: 42px; padding: 0 12px; border: 1px solid #D9DCE1; border-radius: 10px; font-size: 14px"><input type="checkbox" style="width: 16px; height: 16px; accent-color: {{accent}}">整句听写</label>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px; width: 268px">
+<div style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: #4B5563">托盘菜单</div>
+<div role="menu" aria-label="托盘菜单" style="background: #FFFFFF; border: 1px solid #D9DCE1; border-radius: 12px; box-shadow: 0 12px 32px rgba(17,24,39,0.16); padding: 6px; display: flex; flex-direction: column">
+<div style="padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #ECEEF1; margin-bottom: 4px">
+<div style="font-size: 13px; font-weight: 600">下一题约 12 分钟后</div>
+<div style="font-size: 12px; color: #4B5563">今日 18 题 · 正确率 83%</div>
+</div>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border: none; border-radius: 7px; background: {{accent}}; font-family: inherit; font-size: 14px; color: #FFFFFF; cursor: pointer"><span>立即来一题</span><span style="font-size: 12px">⌘⇧E</span></button>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; padding: 0 12px; border: none; border-radius: 7px; background: transparent; font-family: inherit; font-size: 14px; color: #111827; cursor: pointer">暂停 1 小时</button>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; padding: 0 12px; border: none; border-radius: 7px; background: transparent; font-family: inherit; font-size: 14px; color: #111827; cursor: pointer">今天不再弹</button>
+<div style="height: 1px; background: #ECEEF1; margin: 4px 6px"></div>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border: none; border-radius: 7px; background: transparent; font-family: inherit; font-size: 14px; color: #111827; cursor: pointer"><span>加入生词…</span><span style="font-size: 12px; color: #4B5563">⌘⇧A</span></button>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border: none; border-radius: 7px; background: transparent; font-family: inherit; font-size: 14px; color: #111827; cursor: pointer"><span>设置…</span><span style="font-size: 12px; color: #4B5563">⌘,</span></button>
+<div style="height: 1px; background: #ECEEF1; margin: 4px 6px"></div>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; padding: 0 12px; border: none; border-radius: 7px; background: transparent; font-family: inherit; font-size: 14px; color: #111827; cursor: pointer">退出</button>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2563EB","options":["#2563EB","#0F766E","#7C3AED","#111827"]},"$preview":{"width":1240,"height":720}}'>
+class Component extends DCLogic {
+renderVals() {
+const accent = this.props.accent ?? '#2563EB';
+return { accent, accentSoft: accent + '1A' };
+}
+}
+</script>
+</body>
+</html>

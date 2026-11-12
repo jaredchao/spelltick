@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>B 设置 词库与 AI</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#7EE787}a:hover{color:#A5F0AC}
+input:focus{outline:1px solid #7EE787}
+</style>
+</helmet>
+<div style="width: 1240px; height: 720px; box-sizing: border-box; padding: 48px; background: #0B0D10; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace; color: #E6EDF3; display: flex; gap: 56px; align-items: flex-start">
+
+<div style="width: 820px; height: 624px; background: #14171C; border: 1px solid #262B33; border-radius: 8px; display: flex; flex-direction: column; overflow: hidden">
+<div style="height: 40px; flex: none; display: flex; align-items: center; gap: 6px; padding: 0 14px; border-bottom: 1px solid #262B33">
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #30363D"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #30363D"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #30363D"></span>
+<span style="flex: 1; text-align: center; font-size: 12px; color: #8B949E">~/.spell/config</span>
+</div>
+<div style="flex: 1; display: flex; min-height: 0">
+<nav style="width: 176px; flex: none; border-right: 1px solid #262B33; padding: 14px 10px; display: flex; flex-direction: column; gap: 2px">
+<button style="height: 38px; border: none; border-radius: 4px; background: transparent; text-align: left; padding: 0 10px; font-family: inherit; font-size: 13px; color: #8B949E; cursor: pointer">  general</button>
+<button style="height: 38px; border: none; border-radius: 4px; background: transparent; text-align: left; padding: 0 10px; font-family: inherit; font-size: 13px; color: #8B949E; cursor: pointer">  quiz</button>
+<button style="height: 38px; border: none; border-radius: 4px; background: #1C2128; text-align: left; padding: 0 10px; font-family: inherit; font-size: 13px; font-weight: 700; color: {{accent}}; cursor: pointer">❯ words + ai</button>
+<button style="height: 38px; border: none; border-radius: 4px; background: transparent; text-align: left; padding: 0 10px; font-family: inherit; font-size: 13px; color: #8B949E; cursor: pointer">  about</button>
+</nav>
+<div style="flex: 1; padding: 20px 28px; display: flex; flex-direction: column; gap: 18px; font-size: 13px">
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700; color: #8B949E">[词库]</h2>
+<div style="display: flex; align-items: center; gap: 14px; height: 40px; padding: 0 12px; border: 1px solid #262B33; border-radius: 6px">
+<input type="checkbox" checked aria-label="启用四六级核心词" style="width: 15px; height: 15px; accent-color: {{accent}}">
+<span style="flex: 1">四六级核心词 <span style="color: #8B949E">· builtin</span></span>
+<span style="color: #8B949E">312 / 4,500</span>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; height: 40px; padding: 0 12px; border: 1px solid #262B33; border-radius: 6px">
+<input type="checkbox" checked aria-label="启用程序员英语" style="width: 15px; height: 15px; accent-color: {{accent}}">
+<span style="flex: 1">程序员英语 <span style="color: #8B949E">· builtin</span></span>
+<span style="color: #8B949E">86 / 1,200</span>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; height: 40px; padding: 0 12px; border: 1px solid #262B33; border-radius: 6px">
+<input type="checkbox" checked aria-label="启用我的生词本" style="width: 15px; height: 15px; accent-color: {{accent}}">
+<span style="flex: 1">我的生词本 <span style="color: #8B949E">· imported</span></span>
+<span style="color: #8B949E">9 / 37</span>
+</div>
+<div style="display: flex; align-items: center; gap: 14px">
+<button style="height: 36px; padding: 0 14px; border: 1px solid {{accent}}; border-radius: 6px; background: transparent; font-family: inherit; font-size: 13px; color: {{accent}}; cursor: pointer">+ import .csv / .txt</button>
+<span style="font-size: 12px; color: #8B949E"># 英文, 中文释义, 例句(可选)</span>
+</div>
+</section>
+
+<div style="height: 1px; background: #262B33"></div>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700; color: #8B949E">[ai] <span style="font-weight: 400"># OpenAI 兼容接口，留空则隐藏 AI 功能</span></h2>
+<label style="display: flex; align-items: center; gap: 12px"><span style="width: 96px; color: #D2A8FF">base_url</span>
+<input value="https://api.deepseek.com/v1" style="flex: 1; height: 34px; box-sizing: border-box; border: 1px solid #30363D; border-radius: 4px; background: #0B0D10; padding: 0 10px; font-family: inherit; font-size: 13px; color: #E6EDF3"></label>
+<label style="display: flex; align-items: center; gap: 12px"><span style="width: 96px; color: #D2A8FF">api_key</span>
+<input type="password" value="sk-xxxxxxxxxxxxxxxx" style="flex: 1; height: 34px; box-sizing: border-box; border: 1px solid #30363D; border-radius: 4px; background: #0B0D10; padding: 0 10px; font-family: inherit; font-size: 13px; color: #E6EDF3"></label>
+<label style="display: flex; align-items: center; gap: 12px"><span style="width: 96px; color: #D2A8FF">model</span>
+<input value="deepseek-chat" style="flex: 1; height: 34px; box-sizing: border-box; border: 1px solid #30363D; border-radius: 4px; background: #0B0D10; padding: 0 10px; font-family: inherit; font-size: 13px; color: #E6EDF3"></label>
+<div style="display: flex; align-items: center; gap: 14px; padding-left: 108px">
+<button style="height: 34px; padding: 0 14px; border: 1px solid #30363D; border-radius: 4px; background: transparent; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer">test connection</button>
+<span style="color: {{accent}}">✓ ok · 412ms</span>
+</div>
+<div style="display: flex; gap: 20px; padding-left: 108px; color: #C9D1D9">
+<label style="display: flex; align-items: center; gap: 8px"><input type="checkbox" checked style="width: 15px; height: 15px; accent-color: {{accent}}">生成例句</label>
+<label style="display: flex; align-items: center; gap: 8px"><input type="checkbox" checked style="width: 15px; height: 15px; accent-color: {{accent}}">答错讲解</label>
+<label style="display: flex; align-items: center; gap: 8px"><input type="checkbox" style="width: 15px; height: 15px; accent-color: {{accent}}">错词出新题</label>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px; width: 268px">
+<div style="font-size: 12px; color: #8B949E">// 托盘菜单</div>
+<div role="menu" aria-label="托盘菜单" style="background: #14171C; border: 1px solid #262B33; border-radius: 8px; padding: 6px; display: flex; flex-direction: column; font-size: 13px">
+<div style="padding: 10px 10px 12px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #262B33; margin-bottom: 4px">
+<div style="color: {{accent}}">● next in ~12m</div>
+<div style="font-size: 12px; color: #8B949E">today 18 · acc 83%</div>
+</div>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: none; border-radius: 4px; background: #1C2128; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer"><span>立即来一题</span><span style="font-size: 11px; color: #8B949E">⌘⇧E</span></button>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; padding: 0 10px; border: none; border-radius: 4px; background: transparent; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer">暂停 1 小时</button>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; padding: 0 10px; border: none; border-radius: 4px; background: transparent; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer">今天不再弹</button>
+<div style="height: 1px; background: #262B33; margin: 4px 6px"></div>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: none; border-radius: 4px; background: transparent; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer"><span>加入生词…</span><span style="font-size: 11px; color: #8B949E">⌘⇧A</span></button>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: none; border-radius: 4px; background: transparent; font-family: inherit; font-size: 13px; color: #E6EDF3; cursor: pointer"><span>设置…</span><span style="font-size: 11px; color: #8B949E">⌘,</span></button>
+<div style="height: 1px; background: #262B33; margin: 4px 6px"></div>
+<button role="menuitem" style="height: 36px; display: flex; align-items: center; padding: 0 10px; border: none; border-radius: 4px; background: transparent; font-family: inherit; font-size: 13px; color: #FF7B72; cursor: pointer">退出</button>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#7EE787","options":["#7EE787","#79C0FF","#FFA657","#D2A8FF"]},"$preview":{"width":1240,"height":720}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#7EE787' };
+}
+}
+</script>
+</body>
+</html>
