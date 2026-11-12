@@ -1,0 +1,60 @@
+src-tauri/src/skin_copy.rs
+  s_3d4a31c4b54aa5::t_9fdf44e5cd7243 51,54,103
+  s_3d4a31c4b54aa5::t_d6e0716eacf8b2 53,56,102
+src-tauri/src/db/mod.rs
+  s_3d4a31c4b54aa5::t_bee51a80466ba2 5
+src/preview/main.tsx
+  s_3d4a31c4b54aa5::t_e1ab0f9d386933 38-53,108
+src-tauri/src/db/commands.rs
+  s_3d4a31c4b54aa5::t_bee51a80466ba2 46-54
+src/settingsWindow/HistoryTab.tsx
+  s_3d4a31c4b54aa5::t_78eeefa92fc8ab 1-18,21,29-113
+  s_3d4a31c4b54aa5::t_a20833a1fe7281 19-20,22-28
+src-tauri/src/tray.rs
+  s_3d4a31c4b54aa5::t_99ce0c10c27112 16,29,43,101,116,150-151
+src/core/historyFormat.test.ts
+  s_3d4a31c4b54aa5::t_2fd62bb7b69ce9 1-33
+src/settings/api.ts
+  s_3d4a31c4b54aa5::t_a20833a1fe7281 8-27,43-44
+src-tauri/src/settings_window.rs
+  s_3d4a31c4b54aa5::t_99ce0c10c27112 3,6-7,9-11,16-18,21-25,41-42
+src-tauri/src/db/history.rs
+  s_3d4a31c4b54aa5::t_99ce0c10c27112 3,70-72,131-132,206-209,211-218
+  s_3d4a31c4b54aa5::t_4e8585e4edfa46 1-2,4-69,73-111,113-130,133-205,210,219-252
+  s_3d4a31c4b54aa5::t_bee51a80466ba2 112
+src/settingsWindow/Settings.module.css
+  s_3d4a31c4b54aa5::t_a20833a1fe7281 454-527
+src/core/historyFormat.ts
+  s_3d4a31c4b54aa5::t_a20833a1fe7281 35
+  s_3d4a31c4b54aa5::t_00e7d89b9ee11b 1-34,36-39
+src/core/duration.test.ts
+  s_3d4a31c4b54aa5::t_9fdf44e5cd7243 10-13
+  s_3d4a31c4b54aa5::t_d6e0716eacf8b2 18-21
+src/settingsWindow/SettingsApp.tsx
+  s_3d4a31c4b54aa5::t_a20833a1fe7281 1-2,9,13,19,23-28,30-39,73
+src-tauri/src/lib.rs
+  s_3d4a31c4b54aa5::t_99ce0c10c27112 70
+src/core/duration.ts
+  s_3d4a31c4b54aa5::t_9fdf44e5cd7243 7-9
+  s_3d4a31c4b54aa5::t_d6e0716eacf8b2 10-11
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_8b5dbbc8d7ffca 108-119
+docs/SPEC.md
+  s_3d4a31c4b54aa5::t_1ea44aaccbe524 355-356
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a29a89c067f6651788a75acf8f9b3d1bdfd9ac35",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
