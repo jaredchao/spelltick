@@ -1,0 +1,40 @@
+src/popup/Card.module.css
+  s_3d4a31c4b54aa5::t_ed89b3a27af910 403-415
+src-tauri/src/popup.rs
+  s_3d4a31c4b54aa5::t_028b3a07ed87fb 108-111
+  s_3d4a31c4b54aa5::t_ebf27be0cd9e57 9-12,15-16,19-22,28-66,105-107,112-114,126-129,138-145,147-153,156,162-172,174
+  s_3d4a31c4b54aa5::t_9661f6c3075109 146,161
+docs/design/skins.json
+  s_3d4a31c4b54aa5::t_ed89b3a27af910 47,97
+src/popup/Feedback.tsx
+  s_3d4a31c4b54aa5::t_ed89b3a27af910 56,84-86
+src/popup/PopupApp.tsx
+  s_3d4a31c4b54aa5::t_ed89b3a27af910 15,51-52,82
+src-tauri/capabilities/default.json
+  s_3d4a31c4b54aa5::t_028b3a07ed87fb 8
+src/popup/useCardPointer.ts
+  s_3d4a31c4b54aa5::t_ff758715816d7f 1-61
+src/popup/usePopupTimers.ts
+  s_3d4a31c4b54aa5::t_c98017db252ecb 7-11,13,19
+src-tauri/src/geometry.rs
+  s_3d4a31c4b54aa5::t_230d19f958caf4 22-42,73-89
+  s_3d4a31c4b54aa5::t_b37ae59e33cb6c 90
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_6caa094138b4df 132-141
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a0c0f0eb3ff8c0e2147fe028a813b1a177f7b9e2",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
