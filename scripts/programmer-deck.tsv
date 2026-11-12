@@ -1,0 +1,307 @@
+# term	pos	phonetic	meaning	example
+# Drafted with AI and reviewed by a human on 2026-11-12 (SPEC 7.1).
+# Lines with a space in the term are sentences; leave pos/phonetic/example empty for them.
+deploy	v.	/dɪˈplɔɪ/	部署；展开	We deploy to production every Friday.
+release	n.	/rɪˈliːs/	发布；版本	The next release will ship next Monday.
+rollback	n.	/ˈroʊlbæk/	回滚	We did a rollback after the error rate spiked.
+merge	v.	/mɜːrdʒ/	合并	Please merge the branch after the checks pass.
+commit	n.	/kəˈmɪt/	提交	Split this commit into two smaller ones.
+branch	n.	/bræntʃ/	分支	Create a new branch for the hotfix.
+repository	n.	/rɪˈpɑːzətɔːri/	仓库；代码库	Clone the repository and run the setup script.
+dependency	n.	/dɪˈpendənsi/	依赖	This dependency has a known security issue.
+library	n.	/ˈlaɪbreri/	库	We replaced the old date library with a smaller one.
+framework	n.	/ˈfreɪmwɜːrk/	框架	The framework handles routing for us.
+module	n.	/ˈmɑːdʒuːl/	模块	Move the parser into its own module.
+package	n.	/ˈpækɪdʒ/	包；软件包	Publish the package after bumping the version.
+interface	n.	/ˈɪntərfeɪs/	接口；界面	The interface should hide the storage details.
+implementation	n.	/ˌɪmplɪmenˈteɪʃn/	实现	The current implementation is too slow for large files.
+abstraction	n.	/æbˈstrækʃn/	抽象	This abstraction leaks database details.
+parameter	n.	/pəˈræmɪtər/	参数	The second parameter is optional.
+argument	n.	/ˈɑːrɡjumənt/	实参；论点	Pass the file path as the first argument.
+variable	n.	/ˈveriəbl/	变量	Rename this variable so its purpose is clear.
+constant	n.	/ˈkɑːnstənt/	常量	Extract the timeout into a named constant.
+function	n.	/ˈfʌŋkʃn/	函数	This function does too many things.
+method	n.	/ˈmeθəd/	方法	Call the method before the view is rendered.
+property	n.	/ˈprɑːpərti/	属性	The property is read-only after creation.
+attribute	n.	/ˈætrɪbjuːt/	属性；特性	Add an alt attribute to every image.
+instance	n.	/ˈɪnstəns/	实例	Each request creates a new instance.
+object	n.	/ˈɑːbdʒekt/	对象	The config object is frozen after startup.
+array	n.	/əˈreɪ/	数组	The function returns an empty array on failure.
+string	n.	/strɪŋ/	字符串	Trim the string before you compare it.
+integer	n.	/ˈɪntɪdʒər/	整数	The ID is stored as a 64-bit integer.
+boolean	n.	/ˈbuːliən/	布尔值	The flag should be a boolean, not a string.
+null	n.	/nʌl/	空值	The API returns null when the user is not found.
+exception	n.	/ɪkˈsepʃn/	异常	Catch the exception and log the details.
+error	n.	/ˈerər/	错误	The error message should tell the user what to do.
+warning	n.	/ˈwɔːrnɪŋ/	警告	Fix the compiler warning before you merge.
+bug	n.	/bʌɡ/	缺陷；漏洞	We found the bug in the retry logic.
+issue	n.	/ˈɪʃuː/	问题；议题	I opened an issue to track this.
+patch	n.	/pætʃ/	补丁	Apply the security patch as soon as possible.
+hotfix	n.	/ˈhɑːtfɪks/	紧急修复	We shipped a hotfix for the login problem.
+feature	n.	/ˈfiːtʃər/	功能；特性	This feature is behind a flag for now.
+requirement	n.	/rɪˈkwaɪərmənt/	需求；要求	The requirement is still unclear to me.
+specification	n.	/ˌspesɪfɪˈkeɪʃn/	规格；规范	Check the specification before you change the format.
+documentation	n.	/ˌdɑːkjumenˈteɪʃn/	文档	Update the documentation along with the code.
+comment	n.	/ˈkɑːment/	注释；评论	Leave a comment explaining why this check exists.
+review	n.	/rɪˈvjuː/	评审；审查	Could you take a look at my review comments?
+reviewer	n.	/rɪˈvjuːər/	评审人	Add a second reviewer for the database change.
+approve	v.	/əˈpruːv/	批准；通过	She will approve the pull request after lunch.
+refactor	v.	/riːˈfæktər/	重构	Let's refactor this before we add more cases.
+rename	v.	/ˌriːˈneɪm/	重命名	Rename the file to match the component.
+optimize	v.	/ˈɑːptɪmaɪz/	优化	We need to optimize the query on the orders table.
+performance	n.	/pərˈfɔːrməns/	性能	Performance dropped after the last release.
+latency	n.	/ˈleɪtənsi/	延迟	Latency is higher in the Asia region.
+throughput	n.	/ˈθruːpʊt/	吞吐量	Batching doubled the throughput.
+bottleneck	n.	/ˈbɑːtlnek/	瓶颈	The database is the main bottleneck.
+scalable	adj.	/ˈskeɪləbl/	可扩展的	The design is not scalable beyond one server.
+reliable	adj.	/rɪˈlaɪəbl/	可靠的	The new queue is more reliable under load.
+robust	adj.	/roʊˈbʌst/	健壮的	Make the parser robust against bad input.
+compatible	adj.	/kəmˈpætəbl/	兼容的	The new API is backward compatible.
+deprecated	adj.	/ˈdeprəkeɪtɪd/	已弃用的	This endpoint is deprecated and will be removed.
+legacy	adj.	/ˈleɡəsi/	遗留的；旧的	The legacy system still handles billing.
+redundant	adj.	/rɪˈdʌndənt/	多余的；冗余的	This check is redundant after the earlier guard.
+duplicate	adj.	/ˈduːplɪkət/	重复的	Remove the duplicate entries before import.
+consistent	adj.	/kənˈsɪstənt/	一致的	Keep the naming consistent across files.
+explicit	adj.	/ɪkˈsplɪsɪt/	明确的；显式的	Make the dependency explicit in the constructor.
+implicit	adj.	/ɪmˈplɪsɪt/	隐式的	Avoid implicit type conversion here.
+asynchronous	adj.	/eɪˈsɪŋkrənəs/	异步的	The upload is asynchronous, so the UI stays responsive.
+synchronous	adj.	/ˈsɪŋkrənəs/	同步的	A synchronous call here would block the main thread.
+concurrent	adj.	/kənˈkɜːrənt/	并发的	Two concurrent writes caused the conflict.
+thread	n.	/θred/	线程	Do not block the main thread.
+process	n.	/ˈprɑːses/	进程；流程	The process exits after the job finishes.
+memory	n.	/ˈmeməri/	内存	The service uses too much memory at peak.
+cache	n.	/kæʃ/	缓存	Clear the cache after you change the config.
+buffer	n.	/ˈbʌfər/	缓冲区	Flush the buffer before you close the file.
+queue	n.	/kjuː/	队列	Jobs wait in the queue until a worker is free.
+database	n.	/ˈdeɪtəbeɪs/	数据库	Back up the database before the migration.
+migration	n.	/maɪˈɡreɪʃn/	迁移	Write a migration instead of editing the table.
+schema	n.	/ˈskiːmə/	模式；结构	The schema change needs a review from the data team.
+query	n.	/ˈkwɪri/	查询	This query scans the whole table.
+index	n.	/ˈɪndeks/	索引	Add an index on the created_at column.
+transaction	n.	/trænˈzækʃn/	事务；交易	Wrap both writes in one transaction.
+record	n.	/ˈrekərd/	记录	The record is deleted after thirty days.
+field	n.	/fiːld/	字段	The email field is required.
+column	n.	/ˈkɑːləm/	列	Add a new column for the status.
+server	n.	/ˈsɜːrvər/	服务器	The server restarts every night.
+client	n.	/ˈklaɪənt/	客户端；客户	The client retries the request three times.
+request	n.	/rɪˈkwest/	请求	The request timed out after ten seconds.
+response	n.	/rɪˈspɑːns/	响应；回复	The response includes a request ID.
+endpoint	n.	/ˈendpɔɪnt/	端点；接口地址	Call the new endpoint for user search.
+header	n.	/ˈhedər/	头部；标头	Send the token in the Authorization header.
+payload	n.	/ˈpeɪloʊd/	载荷；请求体	The payload is too large for the gateway.
+token	n.	/ˈtoʊkən/	令牌	The token expires after one hour.
+authentication	n.	/ɔːˌθentɪˈkeɪʃn/	身份验证	Authentication failed because the password changed.
+authorization	n.	/ˌɔːθərəˈzeɪʃn/	授权	Authorization is checked on every request.
+permission	n.	/pərˈmɪʃn/	权限	You do not have permission to edit this page.
+credential	n.	/krəˈdenʃl/	凭据	Never commit a credential to the repository.
+encrypt	v.	/ɪnˈkrɪpt/	加密	We encrypt the data at rest.
+vulnerability	n.	/ˌvʌlnərəˈbɪləti/	漏洞；弱点	The scanner found a vulnerability in an old package.
+firewall	n.	/ˈfaɪərwɔːl/	防火墙	The firewall blocks traffic on that port.
+network	n.	/ˈnetwɜːrk/	网络	The network was unstable during the test.
+bandwidth	n.	/ˈbændwɪdθ/	带宽；精力	I don't have the bandwidth for this task this week.
+protocol	n.	/ˈproʊtəkɔːl/	协议	The service talks to the device over a custom protocol.
+configuration	n.	/kənˌfɪɡjəˈreɪʃn/	配置	The configuration is loaded at startup.
+environment	n.	/ɪnˈvaɪrənmənt/	环境	The bug only happens in the staging environment.
+variable	n.	/ˈveriəbl/	变量	Set the environment variable before you run the script.
+container	n.	/kənˈteɪnər/	容器	The app runs in a container on the cluster.
+cluster	n.	/ˈklʌstər/	集群	We added three nodes to the cluster.
+instance	n.	/ˈɪnstəns/	实例	Scale the service to four instances.
+pipeline	n.	/ˈpaɪplaɪn/	流水线；管道	The pipeline failed at the test step.
+build	n.	/bɪld/	构建	The build takes about six minutes.
+compile	v.	/kəmˈpaɪl/	编译	The project does not compile on Windows.
+debug	v.	/diːˈbʌɡ/	调试	I spent the morning trying to debug the crash.
+log	n.	/lɔːɡ/	日志	Check the log for the stack trace.
+monitor	v.	/ˈmɑːnɪtər/	监控	We monitor the error rate after each deploy.
+alert	n.	/əˈlɜːrt/	告警	The alert fired at three in the morning.
+incident	n.	/ˈɪnsɪdənt/	事故；事件	We wrote a report after the incident.
+outage	n.	/ˈaʊtɪdʒ/	停机；故障	The outage lasted forty minutes.
+downtime	n.	/ˈdaʊntaɪm/	停机时间	The migration needs no downtime.
+backup	n.	/ˈbækʌp/	备份	Restore the backup to a test server first.
+restore	v.	/rɪˈstɔːr/	恢复；还原	We can restore the data from last night.
+recover	v.	/rɪˈkʌvər/	恢复	The service did not recover on its own.
+retry	v.	/ˌriːˈtraɪ/	重试	Retry the request with exponential backoff.
+timeout	n.	/ˈtaɪmaʊt/	超时	Increase the timeout for large uploads.
+threshold	n.	/ˈθreʃhoʊld/	阈值	The alert threshold is too low.
+metric	n.	/ˈmetrɪk/	指标	Which metric are we trying to improve?
+dashboard	n.	/ˈdæʃbɔːrd/	仪表盘；看板	The dashboard shows the daily active users.
+test	n.	/test/	测试	Add a test that covers the empty case.
+coverage	n.	/ˈkʌvərɪdʒ/	覆盖率	Test coverage dropped below eighty percent.
+assertion	n.	/əˈsɜːrʃn/	断言	The assertion fails when the list is empty.
+regression	n.	/rɪˈɡreʃn/	回归；倒退	This change caused a regression in search.
+reproduce	v.	/ˌriːprəˈduːs/	复现	I can't reproduce the bug on my machine.
+workaround	n.	/ˈwɜːrkəraʊnd/	变通办法；临时方案	Use this workaround until the fix is released.
+edge	n.	/edʒ/	边缘；边界	We missed an edge case with empty names.
+scenario	n.	/səˈnærioʊ/	场景	Let's walk through the failure scenario.
+validate	v.	/ˈvælɪdeɪt/	校验；验证	Validate the input on the server too.
+sanitize	v.	/ˈsænɪtaɪz/	清理；净化	Sanitize the user input before you render it.
+parse	v.	/pɑːrs/	解析	The function fails to parse dates with time zones.
+serialize	v.	/ˈsɪriəlaɪz/	序列化	Serialize the object to JSON before you send it.
+format	n.	/ˈfɔːrmæt/	格式	The export format is CSV.
+encoding	n.	/ɪnˈkoʊdɪŋ/	编码	Make sure the file encoding is UTF-8.
+template	n.	/ˈtemplət/	模板	Use the template for new service docs.
+component	n.	/kəmˈpoʊnənt/	组件	Split this component into smaller pieces.
+layout	n.	/ˈleɪaʊt/	布局	The layout breaks on small screens.
+responsive	adj.	/rɪˈspɑːnsɪv/	响应式的；反应快的	The page is not responsive on mobile.
+accessibility	n.	/əkˌsesəˈbɪləti/	无障碍；可访问性	Run an accessibility check before release.
+prototype	n.	/ˈproʊtətaɪp/	原型	I built a quick prototype to test the idea.
+iteration	n.	/ˌɪtəˈreɪʃn/	迭代	We will improve it in the next iteration.
+milestone	n.	/ˈmaɪlstoʊn/	里程碑	The first milestone is a working demo.
+deadline	n.	/ˈdedlaɪn/	截止日期	The deadline is the end of this month.
+priority	n.	/praɪˈɔːrəti/	优先级	This bug is a top priority.
+estimate	n.	/ˈestɪmət/	估算	My estimate is three days of work.
+scope	n.	/skoʊp/	范围	Let's keep the scope small for the first version.
+backlog	n.	/ˈbæklɔːɡ/	待办列表	Add it to the backlog for now.
+sprint	n.	/sprɪnt/	迭代周期；冲刺	We can pick this up next sprint.
+stakeholder	n.	/ˈsteɪkhoʊldər/	利益相关者	Share the plan with the stakeholders first.
+roadmap	n.	/ˈroʊdmæp/	路线图	The feature is on the roadmap for next quarter.
+proposal	n.	/prəˈpoʊzl/	提案；建议	I wrote a short proposal for the new cache.
+feedback	n.	/ˈfiːdbæk/	反馈	Thanks for the quick feedback.
+agenda	n.	/əˈdʒendə/	议程	I added two items to the agenda.
+minutes	n.	/ˈmɪnɪts/	会议纪要	Who will take the minutes today?
+schedule	v.	/ˈskedʒuːl/	安排；排期	Let's schedule a call for next week.
+postpone	v.	/poʊˈspoʊn/	推迟	We need to postpone the launch by a week.
+reschedule	v.	/ˌriːˈskedʒuːl/	重新安排	Can we reschedule the meeting to Thursday?
+attend	v.	/əˈtend/	参加；出席	I can't attend the standup tomorrow.
+clarify	v.	/ˈklærəfaɪ/	澄清；说明	Could you clarify what you mean by "fast"?
+confirm	v.	/kənˈfɜːrm/	确认	Please confirm the time works for you.
+mention	v.	/ˈmenʃn/	提到	As I mentioned yesterday, the API is changing.
+align	v.	/əˈlaɪn/	对齐；达成一致	Let's align on the plan before we start.
+discuss	v.	/dɪˈskʌs/	讨论	We can discuss the details offline.
+summarize	v.	/ˈsʌməraɪz/	总结	Let me summarize what we agreed on.
+follow	v.	/ˈfɑːloʊ/	跟进；遵循	I'll follow up with the design team.
+attach	v.	/əˈtætʃ/	附上	I've attached the report to this email.
+forward	v.	/ˈfɔːrwərd/	转发	Could you forward me the original email?
+reply	v.	/rɪˈplaɪ/	回复	Sorry for the late reply.
+appreciate	v.	/əˈpriːʃieɪt/	感激；欣赏	I appreciate your help on this.
+available	adj.	/əˈveɪləbl/	有空的；可用的	Are you available for a quick call?
+urgent	adj.	/ˈɜːrdʒənt/	紧急的	This is urgent, so please reply today.
+convenient	adj.	/kənˈviːniənt/	方便的	Let me know a convenient time for you.
+inconvenience	n.	/ˌɪnkənˈviːniəns/	不便	Sorry for any inconvenience this may cause.
+reminder	n.	/rɪˈmaɪndər/	提醒	Just a friendly reminder about the deadline.
+update	n.	/ˈʌpdeɪt/	更新；进展	Here is a quick update on the project.
+status	n.	/ˈsteɪtəs/	状态	What is the status of the migration?
+progress	n.	/ˈprɑːɡres/	进展	We made good progress this week.
+blocker	n.	/ˈblɑːkər/	阻碍；卡点	The missing API key is a blocker for us.
+dependency	n.	/dɪˈpendənsi/	依赖	The billing team is a dependency for this task.
+assign	v.	/əˈsaɪn/	分配；指派	I'll assign the ticket to you.
+ticket	n.	/ˈtɪkɪt/	工单	Please file a ticket with the steps to reproduce.
+owner	n.	/ˈoʊnər/	负责人	Who is the owner of this service?
+responsible	adj.	/rɪˈspɑːnsəbl/	负责的	Our team is responsible for the payment flow.
+handover	n.	/ˈhændoʊvər/	交接	We need a handover before you go on leave.
+onboarding	n.	/ˈɑːnbɔːrdɪŋ/	入职引导	The onboarding guide is out of date.
+trade-off	n.	/ˈtreɪd ɔːf/	权衡；取舍	There is a trade-off between speed and accuracy.
+constraint	n.	/kənˈstreɪnt/	约束；限制	Memory is the main constraint on the device.
+assumption	n.	/əˈsʌmpʃn/	假设	That assumption is no longer true.
+approach	n.	/əˈproʊtʃ/	方法；思路	I prefer the second approach.
+alternative	n.	/ɔːlˈtɜːrnətɪv/	替代方案	Is there an alternative to a full rewrite?
+solution	n.	/səˈluːʃn/	解决方案	We need a simple solution for now.
+impact	n.	/ˈɪmpækt/	影响	What is the impact on existing users?
+risk	n.	/rɪsk/	风险	The main risk is data loss during migration.
+mitigate	v.	/ˈmɪtɪɡeɪt/	缓解；减轻	We can mitigate the risk with a feature flag.
+root	n.	/ruːt/	根源	We still don't know the root cause.
+investigate	v.	/ɪnˈvestɪɡeɪt/	调查；排查	I'm still trying to investigate the issue.
+Could you take a look at this PR when you have a moment?			请你有空时看一下这个 PR。
+LGTM, feel free to merge.			看起来没问题，可以合并了。
+I left a few comments, mostly minor.			我留了几条评论，大多是小问题。
+This looks good to me overall.			整体上我觉得不错。
+Nice catch, I'll fix it.			发现得好，我来修。
+Can you add a test for this case?			能为这种情况加个测试吗？
+Let's keep this PR small and focused.			这个 PR 保持小而专注吧。
+I'd suggest extracting this into a helper function.			建议把这段提取成一个辅助函数。
+This change breaks backward compatibility.			这个改动破坏了向后兼容。
+What happens if the list is empty?			如果列表为空会怎样？
+Could you rebase on the latest main branch?			能基于最新的主分支变基吗？
+The build is failing on CI.			CI 上构建失败了。
+I can't reproduce this on my machine.			我在自己电脑上复现不了。
+It works on my machine.			在我电脑上是好的。
+Have you tried clearing the cache?			你试过清缓存吗？
+Let me know if you need anything else.			还需要什么请告诉我。
+I'll get back to you by the end of the day.			我今天下班前回复你。
+Sorry for the late reply.			抱歉回复晚了。
+Thanks for the heads up.			谢谢提醒。
+Just a quick reminder about tomorrow's meeting.			简单提醒一下明天的会议。
+Please find the report attached.			报告见附件。
+I'm following up on my previous email.			我想跟进一下之前那封邮件。
+Could you share your screen?			你能共享一下屏幕吗？
+Can everyone hear me?			大家能听到我说话吗？
+You're on mute.			你静音了。
+Let's take this offline.			这个我们会后单独聊。
+Let's circle back to this next week.			这个下周再回头讨论。
+Let's get started.			我们开始吧。
+Does anyone have any questions?			大家有什么问题吗？
+I have a hard stop at three.			我三点必须准时离开。
+Let's wrap up here.			我们就到这里吧。
+Could you repeat that, please?			能再说一遍吗？
+I didn't quite catch that.			我没太听清。
+Let me share some context first.			我先介绍一下背景。
+What's the timeline for this?			这件事的时间安排是怎样的？
+Who is the owner of this task?			这个任务谁负责？
+I'll take care of it.			我来处理。
+I'm blocked on the API change.			我卡在接口改动上了。
+We're on track for the release.			我们按计划推进发布。
+We're a bit behind schedule.			我们稍微落后于进度。
+Can we push the deadline to Friday?			截止日期能推到周五吗？
+That's out of scope for this sprint.			这超出了本次迭代的范围。
+Let's prioritize the critical bugs first.			先处理严重的缺陷。
+I'll create a ticket for this.			我来为这个建个工单。
+Please file a bug with the steps to reproduce.			请提交缺陷并写上复现步骤。
+The fix is already in production.			修复已经上线了。
+We rolled back the last deployment.			我们回滚了上一次部署。
+The service is down.			服务挂了。
+We're seeing a spike in errors.			我们看到错误量激增。
+I'm looking into it now.			我正在排查。
+The root cause was a missing index.			根本原因是缺少索引。
+We need to write a postmortem.			我们需要写一份事故复盘。
+Make sure you back up the database first.			先确保备份好数据库。
+Don't push directly to main.			不要直接推送到主分支。
+Please squash your commits before merging.			合并前请压缩你的提交。
+This function is doing too much.			这个函数做的事情太多了。
+The naming here is a bit confusing.			这里的命名有点让人困惑。
+Can we make this configurable?			这个能做成可配置的吗？
+Let's avoid premature optimization.			避免过早优化。
+We should handle this error gracefully.			我们应该妥善处理这个错误。
+This is a known issue.			这是一个已知问题。
+There's a workaround for now.			目前有一个临时解决办法。
+I'll update the documentation.			我会更新文档。
+The docs are out of date.			文档已经过时了。
+Can you walk me through the code?			你能带我过一遍代码吗？
+I'm not sure I follow.			我不太确定我理解了。
+What do you mean by that?			你这么说是什么意思？
+That makes sense.			有道理。
+I see your point, but I disagree.			我明白你的意思，但我不同意。
+Let's agree to try it and see.			我们先试试看吧。
+What are the trade-offs here?			这里的利弊权衡是什么？
+I'd like to get your input on this.			我想听听你对这个的意见。
+Do you have a minute to chat?			你有空聊一下吗？
+I'm out of office until Monday.			我周一前不在办公室。
+I'll be working from home tomorrow.			我明天在家办公。
+Please keep me in the loop.			请随时告知我进展。
+Feel free to reach out if you have questions.			有问题随时联系我。
+I'll loop in the design team.			我会把设计团队拉进来。
+Let's schedule a quick sync.			我们约个简短的同步会吧。
+Can we move the meeting to tomorrow?			会议能挪到明天吗？
+The meeting has been canceled.			会议已取消。
+I'll send out the meeting notes.			我会发出会议纪要。
+What are the next steps?			下一步是什么？
+Let's set up a call to discuss.			我们约个电话讨论一下。
+I'm happy to help.			我很乐意帮忙。
+Thanks for your patience.			感谢你的耐心。
+Apologies for the confusion.			抱歉造成了困惑。
+Good point, I hadn't thought of that.			说得好，我没想到这一点。
+This is ready for review.			这个可以评审了。
+I've addressed all the comments.			我已经处理了所有评论。
+The tests are passing now.			测试现在都通过了。
+Let's ship it.			发布吧。
+We need more data before we decide.			做决定前我们需要更多数据。
+Can you give me a rough estimate?			你能给个大概的估算吗？
+It should take about two days.			大约需要两天。
+I underestimated how long this would take.			我低估了这件事要花的时间。
+We'll revisit this after the release.			发布后我们再回头看这个。
+This is a good first step.			这是不错的第一步。
+Let's keep it simple for now.			目前先保持简单。
+fallback	n.	/ˈfɔːlbæk/	降级方案；后备	Use the cached value as a fallback when the API is down.
+snapshot	n.	/ˈsnæpʃɑːt/	快照	Take a snapshot of the disk before the upgrade.
+artifact	n.	/ˈɑːrtɪfækt/	构建产物	The pipeline uploads the build artifact to storage.
+throttle	v.	/ˈθrɑːtl/	限流；节流	We throttle requests to protect the database.
+rate	n.	/reɪt/	速率；比率	The error rate went back to normal after the fix.
+Can you double-check the numbers?			你能再核对一下这些数字吗？

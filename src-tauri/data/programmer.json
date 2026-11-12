@@ -1,0 +1,2112 @@
+{
+ "name": "程序员 / 职场英语",
+ "items": [
+  {
+   "term": "deploy",
+   "meaning": "部署；展开",
+   "phonetic": "/dɪˈplɔɪ/",
+   "pos": "v.",
+   "example": "We deploy to production every Friday."
+  },
+  {
+   "term": "release",
+   "meaning": "发布；版本",
+   "phonetic": "/rɪˈliːs/",
+   "pos": "n.",
+   "example": "The next release will ship next Monday."
+  },
+  {
+   "term": "rollback",
+   "meaning": "回滚",
+   "phonetic": "/ˈroʊlbæk/",
+   "pos": "n.",
+   "example": "We did a rollback after the error rate spiked."
+  },
+  {
+   "term": "merge",
+   "meaning": "合并",
+   "phonetic": "/mɜːrdʒ/",
+   "pos": "v.",
+   "example": "Please merge the branch after the checks pass."
+  },
+  {
+   "term": "commit",
+   "meaning": "提交",
+   "phonetic": "/kəˈmɪt/",
+   "pos": "n.",
+   "example": "Split this commit into two smaller ones."
+  },
+  {
+   "term": "branch",
+   "meaning": "分支",
+   "phonetic": "/bræntʃ/",
+   "pos": "n.",
+   "example": "Create a new branch for the hotfix."
+  },
+  {
+   "term": "repository",
+   "meaning": "仓库；代码库",
+   "phonetic": "/rɪˈpɑːzətɔːri/",
+   "pos": "n.",
+   "example": "Clone the repository and run the setup script."
+  },
+  {
+   "term": "dependency",
+   "meaning": "依赖",
+   "phonetic": "/dɪˈpendənsi/",
+   "pos": "n.",
+   "example": "This dependency has a known security issue."
+  },
+  {
+   "term": "library",
+   "meaning": "库",
+   "phonetic": "/ˈlaɪbreri/",
+   "pos": "n.",
+   "example": "We replaced the old date library with a smaller one."
+  },
+  {
+   "term": "framework",
+   "meaning": "框架",
+   "phonetic": "/ˈfreɪmwɜːrk/",
+   "pos": "n.",
+   "example": "The framework handles routing for us."
+  },
+  {
+   "term": "module",
+   "meaning": "模块",
+   "phonetic": "/ˈmɑːdʒuːl/",
+   "pos": "n.",
+   "example": "Move the parser into its own module."
+  },
+  {
+   "term": "package",
+   "meaning": "包；软件包",
+   "phonetic": "/ˈpækɪdʒ/",
+   "pos": "n.",
+   "example": "Publish the package after bumping the version."
+  },
+  {
+   "term": "interface",
+   "meaning": "接口；界面",
+   "phonetic": "/ˈɪntərfeɪs/",
+   "pos": "n.",
+   "example": "The interface should hide the storage details."
+  },
+  {
+   "term": "implementation",
+   "meaning": "实现",
+   "phonetic": "/ˌɪmplɪmenˈteɪʃn/",
+   "pos": "n.",
+   "example": "The current implementation is too slow for large files."
+  },
+  {
+   "term": "abstraction",
+   "meaning": "抽象",
+   "phonetic": "/æbˈstrækʃn/",
+   "pos": "n.",
+   "example": "This abstraction leaks database details."
+  },
+  {
+   "term": "parameter",
+   "meaning": "参数",
+   "phonetic": "/pəˈræmɪtər/",
+   "pos": "n.",
+   "example": "The second parameter is optional."
+  },
+  {
+   "term": "argument",
+   "meaning": "实参；论点",
+   "phonetic": "/ˈɑːrɡjumənt/",
+   "pos": "n.",
+   "example": "Pass the file path as the first argument."
+  },
+  {
+   "term": "variable",
+   "meaning": "变量",
+   "phonetic": "/ˈveriəbl/",
+   "pos": "n.",
+   "example": "Rename this variable so its purpose is clear."
+  },
+  {
+   "term": "constant",
+   "meaning": "常量",
+   "phonetic": "/ˈkɑːnstənt/",
+   "pos": "n.",
+   "example": "Extract the timeout into a named constant."
+  },
+  {
+   "term": "function",
+   "meaning": "函数",
+   "phonetic": "/ˈfʌŋkʃn/",
+   "pos": "n.",
+   "example": "This function does too many things."
+  },
+  {
+   "term": "method",
+   "meaning": "方法",
+   "phonetic": "/ˈmeθəd/",
+   "pos": "n.",
+   "example": "Call the method before the view is rendered."
+  },
+  {
+   "term": "property",
+   "meaning": "属性",
+   "phonetic": "/ˈprɑːpərti/",
+   "pos": "n.",
+   "example": "The property is read-only after creation."
+  },
+  {
+   "term": "attribute",
+   "meaning": "属性；特性",
+   "phonetic": "/ˈætrɪbjuːt/",
+   "pos": "n.",
+   "example": "Add an alt attribute to every image."
+  },
+  {
+   "term": "instance",
+   "meaning": "实例",
+   "phonetic": "/ˈɪnstəns/",
+   "pos": "n.",
+   "example": "Each request creates a new instance."
+  },
+  {
+   "term": "object",
+   "meaning": "对象",
+   "phonetic": "/ˈɑːbdʒekt/",
+   "pos": "n.",
+   "example": "The config object is frozen after startup."
+  },
+  {
+   "term": "array",
+   "meaning": "数组",
+   "phonetic": "/əˈreɪ/",
+   "pos": "n.",
+   "example": "The function returns an empty array on failure."
+  },
+  {
+   "term": "string",
+   "meaning": "字符串",
+   "phonetic": "/strɪŋ/",
+   "pos": "n.",
+   "example": "Trim the string before you compare it."
+  },
+  {
+   "term": "integer",
+   "meaning": "整数",
+   "phonetic": "/ˈɪntɪdʒər/",
+   "pos": "n.",
+   "example": "The ID is stored as a 64-bit integer."
+  },
+  {
+   "term": "boolean",
+   "meaning": "布尔值",
+   "phonetic": "/ˈbuːliən/",
+   "pos": "n.",
+   "example": "The flag should be a boolean, not a string."
+  },
+  {
+   "term": "null",
+   "meaning": "空值",
+   "phonetic": "/nʌl/",
+   "pos": "n.",
+   "example": "The API returns null when the user is not found."
+  },
+  {
+   "term": "exception",
+   "meaning": "异常",
+   "phonetic": "/ɪkˈsepʃn/",
+   "pos": "n.",
+   "example": "Catch the exception and log the details."
+  },
+  {
+   "term": "error",
+   "meaning": "错误",
+   "phonetic": "/ˈerər/",
+   "pos": "n.",
+   "example": "The error message should tell the user what to do."
+  },
+  {
+   "term": "warning",
+   "meaning": "警告",
+   "phonetic": "/ˈwɔːrnɪŋ/",
+   "pos": "n.",
+   "example": "Fix the compiler warning before you merge."
+  },
+  {
+   "term": "bug",
+   "meaning": "缺陷；漏洞",
+   "phonetic": "/bʌɡ/",
+   "pos": "n.",
+   "example": "We found the bug in the retry logic."
+  },
+  {
+   "term": "issue",
+   "meaning": "问题；议题",
+   "phonetic": "/ˈɪʃuː/",
+   "pos": "n.",
+   "example": "I opened an issue to track this."
+  },
+  {
+   "term": "patch",
+   "meaning": "补丁",
+   "phonetic": "/pætʃ/",
+   "pos": "n.",
+   "example": "Apply the security patch as soon as possible."
+  },
+  {
+   "term": "hotfix",
+   "meaning": "紧急修复",
+   "phonetic": "/ˈhɑːtfɪks/",
+   "pos": "n.",
+   "example": "We shipped a hotfix for the login problem."
+  },
+  {
+   "term": "feature",
+   "meaning": "功能；特性",
+   "phonetic": "/ˈfiːtʃər/",
+   "pos": "n.",
+   "example": "This feature is behind a flag for now."
+  },
+  {
+   "term": "requirement",
+   "meaning": "需求；要求",
+   "phonetic": "/rɪˈkwaɪərmənt/",
+   "pos": "n.",
+   "example": "The requirement is still unclear to me."
+  },
+  {
+   "term": "specification",
+   "meaning": "规格；规范",
+   "phonetic": "/ˌspesɪfɪˈkeɪʃn/",
+   "pos": "n.",
+   "example": "Check the specification before you change the format."
+  },
+  {
+   "term": "documentation",
+   "meaning": "文档",
+   "phonetic": "/ˌdɑːkjumenˈteɪʃn/",
+   "pos": "n.",
+   "example": "Update the documentation along with the code."
+  },
+  {
+   "term": "comment",
+   "meaning": "注释；评论",
+   "phonetic": "/ˈkɑːment/",
+   "pos": "n.",
+   "example": "Leave a comment explaining why this check exists."
+  },
+  {
+   "term": "review",
+   "meaning": "评审；审查",
+   "phonetic": "/rɪˈvjuː/",
+   "pos": "n.",
+   "example": "Could you take a look at my review comments?"
+  },
+  {
+   "term": "reviewer",
+   "meaning": "评审人",
+   "phonetic": "/rɪˈvjuːər/",
+   "pos": "n.",
+   "example": "Add a second reviewer for the database change."
+  },
+  {
+   "term": "approve",
+   "meaning": "批准；通过",
+   "phonetic": "/əˈpruːv/",
+   "pos": "v.",
+   "example": "She will approve the pull request after lunch."
+  },
+  {
+   "term": "refactor",
+   "meaning": "重构",
+   "phonetic": "/riːˈfæktər/",
+   "pos": "v.",
+   "example": "Let's refactor this before we add more cases."
+  },
+  {
+   "term": "rename",
+   "meaning": "重命名",
+   "phonetic": "/ˌriːˈneɪm/",
+   "pos": "v.",
+   "example": "Rename the file to match the component."
+  },
+  {
+   "term": "optimize",
+   "meaning": "优化",
+   "phonetic": "/ˈɑːptɪmaɪz/",
+   "pos": "v.",
+   "example": "We need to optimize the query on the orders table."
+  },
+  {
+   "term": "performance",
+   "meaning": "性能",
+   "phonetic": "/pərˈfɔːrməns/",
+   "pos": "n.",
+   "example": "Performance dropped after the last release."
+  },
+  {
+   "term": "latency",
+   "meaning": "延迟",
+   "phonetic": "/ˈleɪtənsi/",
+   "pos": "n.",
+   "example": "Latency is higher in the Asia region."
+  },
+  {
+   "term": "throughput",
+   "meaning": "吞吐量",
+   "phonetic": "/ˈθruːpʊt/",
+   "pos": "n.",
+   "example": "Batching doubled the throughput."
+  },
+  {
+   "term": "bottleneck",
+   "meaning": "瓶颈",
+   "phonetic": "/ˈbɑːtlnek/",
+   "pos": "n.",
+   "example": "The database is the main bottleneck."
+  },
+  {
+   "term": "scalable",
+   "meaning": "可扩展的",
+   "phonetic": "/ˈskeɪləbl/",
+   "pos": "adj.",
+   "example": "The design is not scalable beyond one server."
+  },
+  {
+   "term": "reliable",
+   "meaning": "可靠的",
+   "phonetic": "/rɪˈlaɪəbl/",
+   "pos": "adj.",
+   "example": "The new queue is more reliable under load."
+  },
+  {
+   "term": "robust",
+   "meaning": "健壮的",
+   "phonetic": "/roʊˈbʌst/",
+   "pos": "adj.",
+   "example": "Make the parser robust against bad input."
+  },
+  {
+   "term": "compatible",
+   "meaning": "兼容的",
+   "phonetic": "/kəmˈpætəbl/",
+   "pos": "adj.",
+   "example": "The new API is backward compatible."
+  },
+  {
+   "term": "deprecated",
+   "meaning": "已弃用的",
+   "phonetic": "/ˈdeprəkeɪtɪd/",
+   "pos": "adj.",
+   "example": "This endpoint is deprecated and will be removed."
+  },
+  {
+   "term": "legacy",
+   "meaning": "遗留的；旧的",
+   "phonetic": "/ˈleɡəsi/",
+   "pos": "adj.",
+   "example": "The legacy system still handles billing."
+  },
+  {
+   "term": "redundant",
+   "meaning": "多余的；冗余的",
+   "phonetic": "/rɪˈdʌndənt/",
+   "pos": "adj.",
+   "example": "This check is redundant after the earlier guard."
+  },
+  {
+   "term": "duplicate",
+   "meaning": "重复的",
+   "phonetic": "/ˈduːplɪkət/",
+   "pos": "adj.",
+   "example": "Remove the duplicate entries before import."
+  },
+  {
+   "term": "consistent",
+   "meaning": "一致的",
+   "phonetic": "/kənˈsɪstənt/",
+   "pos": "adj.",
+   "example": "Keep the naming consistent across files."
+  },
+  {
+   "term": "explicit",
+   "meaning": "明确的；显式的",
+   "phonetic": "/ɪkˈsplɪsɪt/",
+   "pos": "adj.",
+   "example": "Make the dependency explicit in the constructor."
+  },
+  {
+   "term": "implicit",
+   "meaning": "隐式的",
+   "phonetic": "/ɪmˈplɪsɪt/",
+   "pos": "adj.",
+   "example": "Avoid implicit type conversion here."
+  },
+  {
+   "term": "asynchronous",
+   "meaning": "异步的",
+   "phonetic": "/eɪˈsɪŋkrənəs/",
+   "pos": "adj.",
+   "example": "The upload is asynchronous, so the UI stays responsive."
+  },
+  {
+   "term": "synchronous",
+   "meaning": "同步的",
+   "phonetic": "/ˈsɪŋkrənəs/",
+   "pos": "adj.",
+   "example": "A synchronous call here would block the main thread."
+  },
+  {
+   "term": "concurrent",
+   "meaning": "并发的",
+   "phonetic": "/kənˈkɜːrənt/",
+   "pos": "adj.",
+   "example": "Two concurrent writes caused the conflict."
+  },
+  {
+   "term": "thread",
+   "meaning": "线程",
+   "phonetic": "/θred/",
+   "pos": "n.",
+   "example": "Do not block the main thread."
+  },
+  {
+   "term": "process",
+   "meaning": "进程；流程",
+   "phonetic": "/ˈprɑːses/",
+   "pos": "n.",
+   "example": "The process exits after the job finishes."
+  },
+  {
+   "term": "memory",
+   "meaning": "内存",
+   "phonetic": "/ˈmeməri/",
+   "pos": "n.",
+   "example": "The service uses too much memory at peak."
+  },
+  {
+   "term": "cache",
+   "meaning": "缓存",
+   "phonetic": "/kæʃ/",
+   "pos": "n.",
+   "example": "Clear the cache after you change the config."
+  },
+  {
+   "term": "buffer",
+   "meaning": "缓冲区",
+   "phonetic": "/ˈbʌfər/",
+   "pos": "n.",
+   "example": "Flush the buffer before you close the file."
+  },
+  {
+   "term": "queue",
+   "meaning": "队列",
+   "phonetic": "/kjuː/",
+   "pos": "n.",
+   "example": "Jobs wait in the queue until a worker is free."
+  },
+  {
+   "term": "database",
+   "meaning": "数据库",
+   "phonetic": "/ˈdeɪtəbeɪs/",
+   "pos": "n.",
+   "example": "Back up the database before the migration."
+  },
+  {
+   "term": "migration",
+   "meaning": "迁移",
+   "phonetic": "/maɪˈɡreɪʃn/",
+   "pos": "n.",
+   "example": "Write a migration instead of editing the table."
+  },
+  {
+   "term": "schema",
+   "meaning": "模式；结构",
+   "phonetic": "/ˈskiːmə/",
+   "pos": "n.",
+   "example": "The schema change needs a review from the data team."
+  },
+  {
+   "term": "query",
+   "meaning": "查询",
+   "phonetic": "/ˈkwɪri/",
+   "pos": "n.",
+   "example": "This query scans the whole table."
+  },
+  {
+   "term": "index",
+   "meaning": "索引",
+   "phonetic": "/ˈɪndeks/",
+   "pos": "n.",
+   "example": "Add an index on the created_at column."
+  },
+  {
+   "term": "transaction",
+   "meaning": "事务；交易",
+   "phonetic": "/trænˈzækʃn/",
+   "pos": "n.",
+   "example": "Wrap both writes in one transaction."
+  },
+  {
+   "term": "record",
+   "meaning": "记录",
+   "phonetic": "/ˈrekərd/",
+   "pos": "n.",
+   "example": "The record is deleted after thirty days."
+  },
+  {
+   "term": "field",
+   "meaning": "字段",
+   "phonetic": "/fiːld/",
+   "pos": "n.",
+   "example": "The email field is required."
+  },
+  {
+   "term": "column",
+   "meaning": "列",
+   "phonetic": "/ˈkɑːləm/",
+   "pos": "n.",
+   "example": "Add a new column for the status."
+  },
+  {
+   "term": "server",
+   "meaning": "服务器",
+   "phonetic": "/ˈsɜːrvər/",
+   "pos": "n.",
+   "example": "The server restarts every night."
+  },
+  {
+   "term": "client",
+   "meaning": "客户端；客户",
+   "phonetic": "/ˈklaɪənt/",
+   "pos": "n.",
+   "example": "The client retries the request three times."
+  },
+  {
+   "term": "request",
+   "meaning": "请求",
+   "phonetic": "/rɪˈkwest/",
+   "pos": "n.",
+   "example": "The request timed out after ten seconds."
+  },
+  {
+   "term": "response",
+   "meaning": "响应；回复",
+   "phonetic": "/rɪˈspɑːns/",
+   "pos": "n.",
+   "example": "The response includes a request ID."
+  },
+  {
+   "term": "endpoint",
+   "meaning": "端点；接口地址",
+   "phonetic": "/ˈendpɔɪnt/",
+   "pos": "n.",
+   "example": "Call the new endpoint for user search."
+  },
+  {
+   "term": "header",
+   "meaning": "头部；标头",
+   "phonetic": "/ˈhedər/",
+   "pos": "n.",
+   "example": "Send the token in the Authorization header."
+  },
+  {
+   "term": "payload",
+   "meaning": "载荷；请求体",
+   "phonetic": "/ˈpeɪloʊd/",
+   "pos": "n.",
+   "example": "The payload is too large for the gateway."
+  },
+  {
+   "term": "token",
+   "meaning": "令牌",
+   "phonetic": "/ˈtoʊkən/",
+   "pos": "n.",
+   "example": "The token expires after one hour."
+  },
+  {
+   "term": "authentication",
+   "meaning": "身份验证",
+   "phonetic": "/ɔːˌθentɪˈkeɪʃn/",
+   "pos": "n.",
+   "example": "Authentication failed because the password changed."
+  },
+  {
+   "term": "authorization",
+   "meaning": "授权",
+   "phonetic": "/ˌɔːθərəˈzeɪʃn/",
+   "pos": "n.",
+   "example": "Authorization is checked on every request."
+  },
+  {
+   "term": "permission",
+   "meaning": "权限",
+   "phonetic": "/pərˈmɪʃn/",
+   "pos": "n.",
+   "example": "You do not have permission to edit this page."
+  },
+  {
+   "term": "credential",
+   "meaning": "凭据",
+   "phonetic": "/krəˈdenʃl/",
+   "pos": "n.",
+   "example": "Never commit a credential to the repository."
+  },
+  {
+   "term": "encrypt",
+   "meaning": "加密",
+   "phonetic": "/ɪnˈkrɪpt/",
+   "pos": "v.",
+   "example": "We encrypt the data at rest."
+  },
+  {
+   "term": "vulnerability",
+   "meaning": "漏洞；弱点",
+   "phonetic": "/ˌvʌlnərəˈbɪləti/",
+   "pos": "n.",
+   "example": "The scanner found a vulnerability in an old package."
+  },
+  {
+   "term": "firewall",
+   "meaning": "防火墙",
+   "phonetic": "/ˈfaɪərwɔːl/",
+   "pos": "n.",
+   "example": "The firewall blocks traffic on that port."
+  },
+  {
+   "term": "network",
+   "meaning": "网络",
+   "phonetic": "/ˈnetwɜːrk/",
+   "pos": "n.",
+   "example": "The network was unstable during the test."
+  },
+  {
+   "term": "bandwidth",
+   "meaning": "带宽；精力",
+   "phonetic": "/ˈbændwɪdθ/",
+   "pos": "n.",
+   "example": "I don't have the bandwidth for this task this week."
+  },
+  {
+   "term": "protocol",
+   "meaning": "协议",
+   "phonetic": "/ˈproʊtəkɔːl/",
+   "pos": "n.",
+   "example": "The service talks to the device over a custom protocol."
+  },
+  {
+   "term": "configuration",
+   "meaning": "配置",
+   "phonetic": "/kənˌfɪɡjəˈreɪʃn/",
+   "pos": "n.",
+   "example": "The configuration is loaded at startup."
+  },
+  {
+   "term": "environment",
+   "meaning": "环境",
+   "phonetic": "/ɪnˈvaɪrənmənt/",
+   "pos": "n.",
+   "example": "The bug only happens in the staging environment."
+  },
+  {
+   "term": "container",
+   "meaning": "容器",
+   "phonetic": "/kənˈteɪnər/",
+   "pos": "n.",
+   "example": "The app runs in a container on the cluster."
+  },
+  {
+   "term": "cluster",
+   "meaning": "集群",
+   "phonetic": "/ˈklʌstər/",
+   "pos": "n.",
+   "example": "We added three nodes to the cluster."
+  },
+  {
+   "term": "pipeline",
+   "meaning": "流水线；管道",
+   "phonetic": "/ˈpaɪplaɪn/",
+   "pos": "n.",
+   "example": "The pipeline failed at the test step."
+  },
+  {
+   "term": "build",
+   "meaning": "构建",
+   "phonetic": "/bɪld/",
+   "pos": "n.",
+   "example": "The build takes about six minutes."
+  },
+  {
+   "term": "compile",
+   "meaning": "编译",
+   "phonetic": "/kəmˈpaɪl/",
+   "pos": "v.",
+   "example": "The project does not compile on Windows."
+  },
+  {
+   "term": "debug",
+   "meaning": "调试",
+   "phonetic": "/diːˈbʌɡ/",
+   "pos": "v.",
+   "example": "I spent the morning trying to debug the crash."
+  },
+  {
+   "term": "log",
+   "meaning": "日志",
+   "phonetic": "/lɔːɡ/",
+   "pos": "n.",
+   "example": "Check the log for the stack trace."
+  },
+  {
+   "term": "monitor",
+   "meaning": "监控",
+   "phonetic": "/ˈmɑːnɪtər/",
+   "pos": "v.",
+   "example": "We monitor the error rate after each deploy."
+  },
+  {
+   "term": "alert",
+   "meaning": "告警",
+   "phonetic": "/əˈlɜːrt/",
+   "pos": "n.",
+   "example": "The alert fired at three in the morning."
+  },
+  {
+   "term": "incident",
+   "meaning": "事故；事件",
+   "phonetic": "/ˈɪnsɪdənt/",
+   "pos": "n.",
+   "example": "We wrote a report after the incident."
+  },
+  {
+   "term": "outage",
+   "meaning": "停机；故障",
+   "phonetic": "/ˈaʊtɪdʒ/",
+   "pos": "n.",
+   "example": "The outage lasted forty minutes."
+  },
+  {
+   "term": "downtime",
+   "meaning": "停机时间",
+   "phonetic": "/ˈdaʊntaɪm/",
+   "pos": "n.",
+   "example": "The migration needs no downtime."
+  },
+  {
+   "term": "backup",
+   "meaning": "备份",
+   "phonetic": "/ˈbækʌp/",
+   "pos": "n.",
+   "example": "Restore the backup to a test server first."
+  },
+  {
+   "term": "restore",
+   "meaning": "恢复；还原",
+   "phonetic": "/rɪˈstɔːr/",
+   "pos": "v.",
+   "example": "We can restore the data from last night."
+  },
+  {
+   "term": "recover",
+   "meaning": "恢复",
+   "phonetic": "/rɪˈkʌvər/",
+   "pos": "v.",
+   "example": "The service did not recover on its own."
+  },
+  {
+   "term": "retry",
+   "meaning": "重试",
+   "phonetic": "/ˌriːˈtraɪ/",
+   "pos": "v.",
+   "example": "Retry the request with exponential backoff."
+  },
+  {
+   "term": "timeout",
+   "meaning": "超时",
+   "phonetic": "/ˈtaɪmaʊt/",
+   "pos": "n.",
+   "example": "Increase the timeout for large uploads."
+  },
+  {
+   "term": "threshold",
+   "meaning": "阈值",
+   "phonetic": "/ˈθreʃhoʊld/",
+   "pos": "n.",
+   "example": "The alert threshold is too low."
+  },
+  {
+   "term": "metric",
+   "meaning": "指标",
+   "phonetic": "/ˈmetrɪk/",
+   "pos": "n.",
+   "example": "Which metric are we trying to improve?"
+  },
+  {
+   "term": "dashboard",
+   "meaning": "仪表盘；看板",
+   "phonetic": "/ˈdæʃbɔːrd/",
+   "pos": "n.",
+   "example": "The dashboard shows the daily active users."
+  },
+  {
+   "term": "test",
+   "meaning": "测试",
+   "phonetic": "/test/",
+   "pos": "n.",
+   "example": "Add a test that covers the empty case."
+  },
+  {
+   "term": "coverage",
+   "meaning": "覆盖率",
+   "phonetic": "/ˈkʌvərɪdʒ/",
+   "pos": "n.",
+   "example": "Test coverage dropped below eighty percent."
+  },
+  {
+   "term": "assertion",
+   "meaning": "断言",
+   "phonetic": "/əˈsɜːrʃn/",
+   "pos": "n.",
+   "example": "The assertion fails when the list is empty."
+  },
+  {
+   "term": "regression",
+   "meaning": "回归；倒退",
+   "phonetic": "/rɪˈɡreʃn/",
+   "pos": "n.",
+   "example": "This change caused a regression in search."
+  },
+  {
+   "term": "reproduce",
+   "meaning": "复现",
+   "phonetic": "/ˌriːprəˈduːs/",
+   "pos": "v.",
+   "example": "I can't reproduce the bug on my machine."
+  },
+  {
+   "term": "workaround",
+   "meaning": "变通办法；临时方案",
+   "phonetic": "/ˈwɜːrkəraʊnd/",
+   "pos": "n.",
+   "example": "Use this workaround until the fix is released."
+  },
+  {
+   "term": "edge",
+   "meaning": "边缘；边界",
+   "phonetic": "/edʒ/",
+   "pos": "n.",
+   "example": "We missed an edge case with empty names."
+  },
+  {
+   "term": "scenario",
+   "meaning": "场景",
+   "phonetic": "/səˈnærioʊ/",
+   "pos": "n.",
+   "example": "Let's walk through the failure scenario."
+  },
+  {
+   "term": "validate",
+   "meaning": "校验；验证",
+   "phonetic": "/ˈvælɪdeɪt/",
+   "pos": "v.",
+   "example": "Validate the input on the server too."
+  },
+  {
+   "term": "sanitize",
+   "meaning": "清理；净化",
+   "phonetic": "/ˈsænɪtaɪz/",
+   "pos": "v.",
+   "example": "Sanitize the user input before you render it."
+  },
+  {
+   "term": "parse",
+   "meaning": "解析",
+   "phonetic": "/pɑːrs/",
+   "pos": "v.",
+   "example": "The function fails to parse dates with time zones."
+  },
+  {
+   "term": "serialize",
+   "meaning": "序列化",
+   "phonetic": "/ˈsɪriəlaɪz/",
+   "pos": "v.",
+   "example": "Serialize the object to JSON before you send it."
+  },
+  {
+   "term": "format",
+   "meaning": "格式",
+   "phonetic": "/ˈfɔːrmæt/",
+   "pos": "n.",
+   "example": "The export format is CSV."
+  },
+  {
+   "term": "encoding",
+   "meaning": "编码",
+   "phonetic": "/ɪnˈkoʊdɪŋ/",
+   "pos": "n.",
+   "example": "Make sure the file encoding is UTF-8."
+  },
+  {
+   "term": "template",
+   "meaning": "模板",
+   "phonetic": "/ˈtemplət/",
+   "pos": "n.",
+   "example": "Use the template for new service docs."
+  },
+  {
+   "term": "component",
+   "meaning": "组件",
+   "phonetic": "/kəmˈpoʊnənt/",
+   "pos": "n.",
+   "example": "Split this component into smaller pieces."
+  },
+  {
+   "term": "layout",
+   "meaning": "布局",
+   "phonetic": "/ˈleɪaʊt/",
+   "pos": "n.",
+   "example": "The layout breaks on small screens."
+  },
+  {
+   "term": "responsive",
+   "meaning": "响应式的；反应快的",
+   "phonetic": "/rɪˈspɑːnsɪv/",
+   "pos": "adj.",
+   "example": "The page is not responsive on mobile."
+  },
+  {
+   "term": "accessibility",
+   "meaning": "无障碍；可访问性",
+   "phonetic": "/əkˌsesəˈbɪləti/",
+   "pos": "n.",
+   "example": "Run an accessibility check before release."
+  },
+  {
+   "term": "prototype",
+   "meaning": "原型",
+   "phonetic": "/ˈproʊtətaɪp/",
+   "pos": "n.",
+   "example": "I built a quick prototype to test the idea."
+  },
+  {
+   "term": "iteration",
+   "meaning": "迭代",
+   "phonetic": "/ˌɪtəˈreɪʃn/",
+   "pos": "n.",
+   "example": "We will improve it in the next iteration."
+  },
+  {
+   "term": "milestone",
+   "meaning": "里程碑",
+   "phonetic": "/ˈmaɪlstoʊn/",
+   "pos": "n.",
+   "example": "The first milestone is a working demo."
+  },
+  {
+   "term": "deadline",
+   "meaning": "截止日期",
+   "phonetic": "/ˈdedlaɪn/",
+   "pos": "n.",
+   "example": "The deadline is the end of this month."
+  },
+  {
+   "term": "priority",
+   "meaning": "优先级",
+   "phonetic": "/praɪˈɔːrəti/",
+   "pos": "n.",
+   "example": "This bug is a top priority."
+  },
+  {
+   "term": "estimate",
+   "meaning": "估算",
+   "phonetic": "/ˈestɪmət/",
+   "pos": "n.",
+   "example": "My estimate is three days of work."
+  },
+  {
+   "term": "scope",
+   "meaning": "范围",
+   "phonetic": "/skoʊp/",
+   "pos": "n.",
+   "example": "Let's keep the scope small for the first version."
+  },
+  {
+   "term": "backlog",
+   "meaning": "待办列表",
+   "phonetic": "/ˈbæklɔːɡ/",
+   "pos": "n.",
+   "example": "Add it to the backlog for now."
+  },
+  {
+   "term": "sprint",
+   "meaning": "迭代周期；冲刺",
+   "phonetic": "/sprɪnt/",
+   "pos": "n.",
+   "example": "We can pick this up next sprint."
+  },
+  {
+   "term": "stakeholder",
+   "meaning": "利益相关者",
+   "phonetic": "/ˈsteɪkhoʊldər/",
+   "pos": "n.",
+   "example": "Share the plan with the stakeholders first."
+  },
+  {
+   "term": "roadmap",
+   "meaning": "路线图",
+   "phonetic": "/ˈroʊdmæp/",
+   "pos": "n.",
+   "example": "The feature is on the roadmap for next quarter."
+  },
+  {
+   "term": "proposal",
+   "meaning": "提案；建议",
+   "phonetic": "/prəˈpoʊzl/",
+   "pos": "n.",
+   "example": "I wrote a short proposal for the new cache."
+  },
+  {
+   "term": "feedback",
+   "meaning": "反馈",
+   "phonetic": "/ˈfiːdbæk/",
+   "pos": "n.",
+   "example": "Thanks for the quick feedback."
+  },
+  {
+   "term": "agenda",
+   "meaning": "议程",
+   "phonetic": "/əˈdʒendə/",
+   "pos": "n.",
+   "example": "I added two items to the agenda."
+  },
+  {
+   "term": "minutes",
+   "meaning": "会议纪要",
+   "phonetic": "/ˈmɪnɪts/",
+   "pos": "n.",
+   "example": "Who will take the minutes today?"
+  },
+  {
+   "term": "schedule",
+   "meaning": "安排；排期",
+   "phonetic": "/ˈskedʒuːl/",
+   "pos": "v.",
+   "example": "Let's schedule a call for next week."
+  },
+  {
+   "term": "postpone",
+   "meaning": "推迟",
+   "phonetic": "/poʊˈspoʊn/",
+   "pos": "v.",
+   "example": "We need to postpone the launch by a week."
+  },
+  {
+   "term": "reschedule",
+   "meaning": "重新安排",
+   "phonetic": "/ˌriːˈskedʒuːl/",
+   "pos": "v.",
+   "example": "Can we reschedule the meeting to Thursday?"
+  },
+  {
+   "term": "attend",
+   "meaning": "参加；出席",
+   "phonetic": "/əˈtend/",
+   "pos": "v.",
+   "example": "I can't attend the standup tomorrow."
+  },
+  {
+   "term": "clarify",
+   "meaning": "澄清；说明",
+   "phonetic": "/ˈklærəfaɪ/",
+   "pos": "v.",
+   "example": "Could you clarify what you mean by \"fast\"?"
+  },
+  {
+   "term": "confirm",
+   "meaning": "确认",
+   "phonetic": "/kənˈfɜːrm/",
+   "pos": "v.",
+   "example": "Please confirm the time works for you."
+  },
+  {
+   "term": "mention",
+   "meaning": "提到",
+   "phonetic": "/ˈmenʃn/",
+   "pos": "v.",
+   "example": "As I mentioned yesterday, the API is changing."
+  },
+  {
+   "term": "align",
+   "meaning": "对齐；达成一致",
+   "phonetic": "/əˈlaɪn/",
+   "pos": "v.",
+   "example": "Let's align on the plan before we start."
+  },
+  {
+   "term": "discuss",
+   "meaning": "讨论",
+   "phonetic": "/dɪˈskʌs/",
+   "pos": "v.",
+   "example": "We can discuss the details offline."
+  },
+  {
+   "term": "summarize",
+   "meaning": "总结",
+   "phonetic": "/ˈsʌməraɪz/",
+   "pos": "v.",
+   "example": "Let me summarize what we agreed on."
+  },
+  {
+   "term": "follow",
+   "meaning": "跟进；遵循",
+   "phonetic": "/ˈfɑːloʊ/",
+   "pos": "v.",
+   "example": "I'll follow up with the design team."
+  },
+  {
+   "term": "attach",
+   "meaning": "附上",
+   "phonetic": "/əˈtætʃ/",
+   "pos": "v.",
+   "example": "I've attached the report to this email."
+  },
+  {
+   "term": "forward",
+   "meaning": "转发",
+   "phonetic": "/ˈfɔːrwərd/",
+   "pos": "v.",
+   "example": "Could you forward me the original email?"
+  },
+  {
+   "term": "reply",
+   "meaning": "回复",
+   "phonetic": "/rɪˈplaɪ/",
+   "pos": "v.",
+   "example": "Sorry for the late reply."
+  },
+  {
+   "term": "appreciate",
+   "meaning": "感激；欣赏",
+   "phonetic": "/əˈpriːʃieɪt/",
+   "pos": "v.",
+   "example": "I appreciate your help on this."
+  },
+  {
+   "term": "available",
+   "meaning": "有空的；可用的",
+   "phonetic": "/əˈveɪləbl/",
+   "pos": "adj.",
+   "example": "Are you available for a quick call?"
+  },
+  {
+   "term": "urgent",
+   "meaning": "紧急的",
+   "phonetic": "/ˈɜːrdʒənt/",
+   "pos": "adj.",
+   "example": "This is urgent, so please reply today."
+  },
+  {
+   "term": "convenient",
+   "meaning": "方便的",
+   "phonetic": "/kənˈviːniənt/",
+   "pos": "adj.",
+   "example": "Let me know a convenient time for you."
+  },
+  {
+   "term": "inconvenience",
+   "meaning": "不便",
+   "phonetic": "/ˌɪnkənˈviːniəns/",
+   "pos": "n.",
+   "example": "Sorry for any inconvenience this may cause."
+  },
+  {
+   "term": "reminder",
+   "meaning": "提醒",
+   "phonetic": "/rɪˈmaɪndər/",
+   "pos": "n.",
+   "example": "Just a friendly reminder about the deadline."
+  },
+  {
+   "term": "update",
+   "meaning": "更新；进展",
+   "phonetic": "/ˈʌpdeɪt/",
+   "pos": "n.",
+   "example": "Here is a quick update on the project."
+  },
+  {
+   "term": "status",
+   "meaning": "状态",
+   "phonetic": "/ˈsteɪtəs/",
+   "pos": "n.",
+   "example": "What is the status of the migration?"
+  },
+  {
+   "term": "progress",
+   "meaning": "进展",
+   "phonetic": "/ˈprɑːɡres/",
+   "pos": "n.",
+   "example": "We made good progress this week."
+  },
+  {
+   "term": "blocker",
+   "meaning": "阻碍；卡点",
+   "phonetic": "/ˈblɑːkər/",
+   "pos": "n.",
+   "example": "The missing API key is a blocker for us."
+  },
+  {
+   "term": "assign",
+   "meaning": "分配；指派",
+   "phonetic": "/əˈsaɪn/",
+   "pos": "v.",
+   "example": "I'll assign the ticket to you."
+  },
+  {
+   "term": "ticket",
+   "meaning": "工单",
+   "phonetic": "/ˈtɪkɪt/",
+   "pos": "n.",
+   "example": "Please file a ticket with the steps to reproduce."
+  },
+  {
+   "term": "owner",
+   "meaning": "负责人",
+   "phonetic": "/ˈoʊnər/",
+   "pos": "n.",
+   "example": "Who is the owner of this service?"
+  },
+  {
+   "term": "responsible",
+   "meaning": "负责的",
+   "phonetic": "/rɪˈspɑːnsəbl/",
+   "pos": "adj.",
+   "example": "Our team is responsible for the payment flow."
+  },
+  {
+   "term": "handover",
+   "meaning": "交接",
+   "phonetic": "/ˈhændoʊvər/",
+   "pos": "n.",
+   "example": "We need a handover before you go on leave."
+  },
+  {
+   "term": "onboarding",
+   "meaning": "入职引导",
+   "phonetic": "/ˈɑːnbɔːrdɪŋ/",
+   "pos": "n.",
+   "example": "The onboarding guide is out of date."
+  },
+  {
+   "term": "trade-off",
+   "meaning": "权衡；取舍",
+   "phonetic": "/ˈtreɪd ɔːf/",
+   "pos": "n.",
+   "example": "There is a trade-off between speed and accuracy."
+  },
+  {
+   "term": "constraint",
+   "meaning": "约束；限制",
+   "phonetic": "/kənˈstreɪnt/",
+   "pos": "n.",
+   "example": "Memory is the main constraint on the device."
+  },
+  {
+   "term": "assumption",
+   "meaning": "假设",
+   "phonetic": "/əˈsʌmpʃn/",
+   "pos": "n.",
+   "example": "That assumption is no longer true."
+  },
+  {
+   "term": "approach",
+   "meaning": "方法；思路",
+   "phonetic": "/əˈproʊtʃ/",
+   "pos": "n.",
+   "example": "I prefer the second approach."
+  },
+  {
+   "term": "alternative",
+   "meaning": "替代方案",
+   "phonetic": "/ɔːlˈtɜːrnətɪv/",
+   "pos": "n.",
+   "example": "Is there an alternative to a full rewrite?"
+  },
+  {
+   "term": "solution",
+   "meaning": "解决方案",
+   "phonetic": "/səˈluːʃn/",
+   "pos": "n.",
+   "example": "We need a simple solution for now."
+  },
+  {
+   "term": "impact",
+   "meaning": "影响",
+   "phonetic": "/ˈɪmpækt/",
+   "pos": "n.",
+   "example": "What is the impact on existing users?"
+  },
+  {
+   "term": "risk",
+   "meaning": "风险",
+   "phonetic": "/rɪsk/",
+   "pos": "n.",
+   "example": "The main risk is data loss during migration."
+  },
+  {
+   "term": "mitigate",
+   "meaning": "缓解；减轻",
+   "phonetic": "/ˈmɪtɪɡeɪt/",
+   "pos": "v.",
+   "example": "We can mitigate the risk with a feature flag."
+  },
+  {
+   "term": "root",
+   "meaning": "根源",
+   "phonetic": "/ruːt/",
+   "pos": "n.",
+   "example": "We still don't know the root cause."
+  },
+  {
+   "term": "investigate",
+   "meaning": "调查；排查",
+   "phonetic": "/ɪnˈvestɪɡeɪt/",
+   "pos": "v.",
+   "example": "I'm still trying to investigate the issue."
+  },
+  {
+   "term": "Could you take a look at this PR when you have a moment?",
+   "meaning": "请你有空时看一下这个 PR。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "LGTM, feel free to merge.",
+   "meaning": "看起来没问题，可以合并了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I left a few comments, mostly minor.",
+   "meaning": "我留了几条评论，大多是小问题。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "This looks good to me overall.",
+   "meaning": "整体上我觉得不错。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Nice catch, I'll fix it.",
+   "meaning": "发现得好，我来修。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can you add a test for this case?",
+   "meaning": "能为这种情况加个测试吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's keep this PR small and focused.",
+   "meaning": "这个 PR 保持小而专注吧。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'd suggest extracting this into a helper function.",
+   "meaning": "建议把这段提取成一个辅助函数。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "This change breaks backward compatibility.",
+   "meaning": "这个改动破坏了向后兼容。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "What happens if the list is empty?",
+   "meaning": "如果列表为空会怎样？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Could you rebase on the latest main branch?",
+   "meaning": "能基于最新的主分支变基吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The build is failing on CI.",
+   "meaning": "CI 上构建失败了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I can't reproduce this on my machine.",
+   "meaning": "我在自己电脑上复现不了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "It works on my machine.",
+   "meaning": "在我电脑上是好的。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Have you tried clearing the cache?",
+   "meaning": "你试过清缓存吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let me know if you need anything else.",
+   "meaning": "还需要什么请告诉我。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll get back to you by the end of the day.",
+   "meaning": "我今天下班前回复你。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Sorry for the late reply.",
+   "meaning": "抱歉回复晚了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Thanks for the heads up.",
+   "meaning": "谢谢提醒。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Just a quick reminder about tomorrow's meeting.",
+   "meaning": "简单提醒一下明天的会议。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Please find the report attached.",
+   "meaning": "报告见附件。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'm following up on my previous email.",
+   "meaning": "我想跟进一下之前那封邮件。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Could you share your screen?",
+   "meaning": "你能共享一下屏幕吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can everyone hear me?",
+   "meaning": "大家能听到我说话吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "You're on mute.",
+   "meaning": "你静音了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's take this offline.",
+   "meaning": "这个我们会后单独聊。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's circle back to this next week.",
+   "meaning": "这个下周再回头讨论。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's get started.",
+   "meaning": "我们开始吧。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Does anyone have any questions?",
+   "meaning": "大家有什么问题吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I have a hard stop at three.",
+   "meaning": "我三点必须准时离开。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's wrap up here.",
+   "meaning": "我们就到这里吧。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Could you repeat that, please?",
+   "meaning": "能再说一遍吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I didn't quite catch that.",
+   "meaning": "我没太听清。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let me share some context first.",
+   "meaning": "我先介绍一下背景。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "What's the timeline for this?",
+   "meaning": "这件事的时间安排是怎样的？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Who is the owner of this task?",
+   "meaning": "这个任务谁负责？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll take care of it.",
+   "meaning": "我来处理。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'm blocked on the API change.",
+   "meaning": "我卡在接口改动上了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We're on track for the release.",
+   "meaning": "我们按计划推进发布。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We're a bit behind schedule.",
+   "meaning": "我们稍微落后于进度。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can we push the deadline to Friday?",
+   "meaning": "截止日期能推到周五吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "That's out of scope for this sprint.",
+   "meaning": "这超出了本次迭代的范围。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's prioritize the critical bugs first.",
+   "meaning": "先处理严重的缺陷。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll create a ticket for this.",
+   "meaning": "我来为这个建个工单。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Please file a bug with the steps to reproduce.",
+   "meaning": "请提交缺陷并写上复现步骤。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The fix is already in production.",
+   "meaning": "修复已经上线了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We rolled back the last deployment.",
+   "meaning": "我们回滚了上一次部署。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The service is down.",
+   "meaning": "服务挂了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We're seeing a spike in errors.",
+   "meaning": "我们看到错误量激增。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'm looking into it now.",
+   "meaning": "我正在排查。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The root cause was a missing index.",
+   "meaning": "根本原因是缺少索引。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We need to write a postmortem.",
+   "meaning": "我们需要写一份事故复盘。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Make sure you back up the database first.",
+   "meaning": "先确保备份好数据库。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Don't push directly to main.",
+   "meaning": "不要直接推送到主分支。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Please squash your commits before merging.",
+   "meaning": "合并前请压缩你的提交。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "This function is doing too much.",
+   "meaning": "这个函数做的事情太多了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The naming here is a bit confusing.",
+   "meaning": "这里的命名有点让人困惑。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can we make this configurable?",
+   "meaning": "这个能做成可配置的吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's avoid premature optimization.",
+   "meaning": "避免过早优化。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We should handle this error gracefully.",
+   "meaning": "我们应该妥善处理这个错误。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "This is a known issue.",
+   "meaning": "这是一个已知问题。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "There's a workaround for now.",
+   "meaning": "目前有一个临时解决办法。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll update the documentation.",
+   "meaning": "我会更新文档。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The docs are out of date.",
+   "meaning": "文档已经过时了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can you walk me through the code?",
+   "meaning": "你能带我过一遍代码吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'm not sure I follow.",
+   "meaning": "我不太确定我理解了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "What do you mean by that?",
+   "meaning": "你这么说是什么意思？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "That makes sense.",
+   "meaning": "有道理。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I see your point, but I disagree.",
+   "meaning": "我明白你的意思，但我不同意。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's agree to try it and see.",
+   "meaning": "我们先试试看吧。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "What are the trade-offs here?",
+   "meaning": "这里的利弊权衡是什么？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'd like to get your input on this.",
+   "meaning": "我想听听你对这个的意见。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Do you have a minute to chat?",
+   "meaning": "你有空聊一下吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'm out of office until Monday.",
+   "meaning": "我周一前不在办公室。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll be working from home tomorrow.",
+   "meaning": "我明天在家办公。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Please keep me in the loop.",
+   "meaning": "请随时告知我进展。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Feel free to reach out if you have questions.",
+   "meaning": "有问题随时联系我。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll loop in the design team.",
+   "meaning": "我会把设计团队拉进来。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's schedule a quick sync.",
+   "meaning": "我们约个简短的同步会吧。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can we move the meeting to tomorrow?",
+   "meaning": "会议能挪到明天吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The meeting has been canceled.",
+   "meaning": "会议已取消。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'll send out the meeting notes.",
+   "meaning": "我会发出会议纪要。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "What are the next steps?",
+   "meaning": "下一步是什么？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's set up a call to discuss.",
+   "meaning": "我们约个电话讨论一下。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I'm happy to help.",
+   "meaning": "我很乐意帮忙。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Thanks for your patience.",
+   "meaning": "感谢你的耐心。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Apologies for the confusion.",
+   "meaning": "抱歉造成了困惑。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Good point, I hadn't thought of that.",
+   "meaning": "说得好，我没想到这一点。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "This is ready for review.",
+   "meaning": "这个可以评审了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I've addressed all the comments.",
+   "meaning": "我已经处理了所有评论。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "The tests are passing now.",
+   "meaning": "测试现在都通过了。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's ship it.",
+   "meaning": "发布吧。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We need more data before we decide.",
+   "meaning": "做决定前我们需要更多数据。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Can you give me a rough estimate?",
+   "meaning": "你能给个大概的估算吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "It should take about two days.",
+   "meaning": "大约需要两天。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "I underestimated how long this would take.",
+   "meaning": "我低估了这件事要花的时间。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "We'll revisit this after the release.",
+   "meaning": "发布后我们再回头看这个。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "This is a good first step.",
+   "meaning": "这是不错的第一步。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "Let's keep it simple for now.",
+   "meaning": "目前先保持简单。",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  },
+  {
+   "term": "fallback",
+   "meaning": "降级方案；后备",
+   "phonetic": "/ˈfɔːlbæk/",
+   "pos": "n.",
+   "example": "Use the cached value as a fallback when the API is down."
+  },
+  {
+   "term": "snapshot",
+   "meaning": "快照",
+   "phonetic": "/ˈsnæpʃɑːt/",
+   "pos": "n.",
+   "example": "Take a snapshot of the disk before the upgrade."
+  },
+  {
+   "term": "artifact",
+   "meaning": "构建产物",
+   "phonetic": "/ˈɑːrtɪfækt/",
+   "pos": "n.",
+   "example": "The pipeline uploads the build artifact to storage."
+  },
+  {
+   "term": "throttle",
+   "meaning": "限流；节流",
+   "phonetic": "/ˈθrɑːtl/",
+   "pos": "v.",
+   "example": "We throttle requests to protect the database."
+  },
+  {
+   "term": "rate",
+   "meaning": "速率；比率",
+   "phonetic": "/reɪt/",
+   "pos": "n.",
+   "example": "The error rate went back to normal after the fix."
+  },
+  {
+   "term": "Can you double-check the numbers?",
+   "meaning": "你能再核对一下这些数字吗？",
+   "phonetic": null,
+   "pos": null,
+   "example": null
+  }
+ ]
+}
