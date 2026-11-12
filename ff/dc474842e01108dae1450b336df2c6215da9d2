@@ -1,0 +1,26 @@
+src-tauri/data/programmer.json
+  s_3d4a31c4b54aa5::t_4fc7dffb159de5 1-2067,2110-2112
+  s_3d4a31c4b54aa5::t_7b3248beb8ede8 2068-2109
+scripts/programmer-deck.tsv
+  s_3d4a31c4b54aa5::t_7b3248beb8ede8 302-307
+  s_3d4a31c4b54aa5::t_e349a77544d61d 1-202
+  s_3d4a31c4b54aa5::t_4fc7dffb159de5 203-301
+docs/DECISIONS.md
+  s_3d4a31c4b54aa5::t_dc5063bd0368cf 44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ffdc474842e01108dae1450b336df2c6215da9d2",
+  "prompts": {},
+  "sessions": {
+    "s_3d4a31c4b54aa5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c8b6dca-4a96-460c-a6ee-1f5e395f76f1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
