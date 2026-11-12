@@ -17,6 +17,10 @@ interface CompletionResponse {
     readonly finish_reason?: string;
   }[];
   readonly error?: { readonly message?: string };
+  readonly usage?: {
+    readonly completion_tokens?: number;
+    readonly completion_tokens_details?: { readonly reasoning_tokens?: number };
+  };
 }
 
 /** Write a diagnostic line to the local log (no secrets). */
@@ -59,6 +63,14 @@ export async function chat(
     }
     const choice = data.choices?.[0];
     const content = choice?.message?.content;
+    // Record whether the model spent tokens thinking (reasoning models).
+    const reasoningChars = choice?.message?.reasoning_content?.length ?? 0;
+    const reasoningTokens = data.usage?.completion_tokens_details?.reasoning_tokens ?? 0;
+    logAi(
+      `model=${config.model} thinking=${reasoningChars > 0 || reasoningTokens > 0 ? "yes" : "no"}` +
+        ` reasoning_tokens=${reasoningTokens} reasoning_chars=${reasoningChars}` +
+        ` completion_tokens=${data.usage?.completion_tokens ?? "?"}`,
+    );
     if (typeof content !== "string" || content.trim() === "") {
       const reasoning = choice?.message?.reasoning_content ? "，只有推理内容" : "";
       throw new Error(`回复内容为空（finish_reason=${choice?.finish_reason ?? "无"}${reasoning}）`);
