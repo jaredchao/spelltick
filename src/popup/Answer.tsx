@@ -5,6 +5,8 @@ import { useSkin } from "../skin/SkinContext";
 import styles from "./Card.module.css";
 import { CardHeader } from "./CardHeader";
 import { QuizPrompt } from "./QuizPrompt";
+import { SlotInput } from "./SlotInput";
+import { playKey } from "./sound";
 import { speak } from "./speech";
 
 interface AnswerProps {
@@ -13,6 +15,7 @@ interface AnswerProps {
   readonly hintLevel: number;
   readonly focusToken: number;
   readonly showFirstLetter: boolean;
+  readonly soundEnabled: boolean;
   readonly dispatch: Dispatch<PopupEvent>;
 }
 
@@ -21,7 +24,15 @@ const isListening = (q: Question) =>
 
 const cx = (...names: (string | false | undefined)[]) => names.filter(Boolean).join(" ");
 
-export function Answer({ question, input, hintLevel, focusToken, showFirstLetter, dispatch }: AnswerProps) {
+export function Answer({
+  question,
+  input,
+  hintLevel,
+  focusToken,
+  showFirstLetter,
+  soundEnabled,
+  dispatch,
+}: AnswerProps) {
   const { copy, layout } = useSkin();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -49,21 +60,10 @@ export function Answer({ question, input, hintLevel, focusToken, showFirstLetter
     }
   };
 
-  const field = (
-    <input
-      ref={inputRef}
-      className={cx(styles.input, styles[`input_${layout.inputStyle}`])}
-      value={input}
-      aria-label="输入拼写"
-      autoFocus
-      spellCheck={false}
-      autoCapitalize="off"
-      autoCorrect="off"
-      autoComplete="off"
-      onChange={(event) => dispatch({ type: "input", value: event.target.value })}
-      onKeyDown={onKeyDown}
-    />
-  );
+  const onInput = (value: string) => {
+    if (soundEnabled && value !== input) playKey(value.length < input.length);
+    dispatch({ type: "input", value });
+  };
 
   const textButtons = layout.shortcutHintsInButtons;
   const secondary = textButtons ? styles.textButton : styles.secondary;
@@ -76,19 +76,17 @@ export function Answer({ question, input, hintLevel, focusToken, showFirstLetter
         onSpeak={() => speak(question.item.term)}
       />
       <div className={cx(styles.body, layout.contentAlign === "center" && styles.centered)}>
-        <QuizPrompt question={question} hintLevel={hintLevel} showFirstLetter={showFirstLetter} />
+        <QuizPrompt question={question} showFirstLetter={showFirstLetter} />
 
-        {layout.inputStyle === "prompt" ? (
-          <label className={styles.promptField}>
-            <span aria-hidden="true">❯</span>
-            {field}
-          </label>
-        ) : (
-          <label className={styles.field}>
-            输入拼写
-            {field}
-          </label>
-        )}
+        <SlotInput
+          ref={inputRef}
+          item={question.item}
+          value={input}
+          hintLevel={hintLevel}
+          centered={layout.contentAlign === "center"}
+          onChange={onInput}
+          onKeyDown={onKeyDown}
+        />
 
         <div className={textButtons ? styles.textActions : styles.actions}>
           <button type="button" className={secondary} tabIndex={-1} onClick={() => dispatch({ type: "hint" })}>

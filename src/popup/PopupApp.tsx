@@ -11,6 +11,7 @@ import { usePopupWindow } from "./usePopupWindow";
 import type { Settings } from "../settings/types";
 import { useAiConfig } from "../ai/useAiConfig";
 import { usePopupAi } from "./usePopupAi";
+import { playFailure, playSuccess } from "./sound";
 import type { AiQuizOptions } from "./questionSource";
 
 export function PopupApp({ settings }: { settings: Settings }) {
@@ -57,6 +58,11 @@ export function PopupApp({ settings }: { settings: Settings }) {
     if (!attempt || attempt.seq === savedSeq.current) return;
     savedSeq.current = attempt.seq;
     void recordAttempt(attempt);
+    // Submitted answers get a sound; skips (no outcome shown) stay silent.
+    if (settings.soundEnabled && state.phase === "feedback") {
+      if (attempt.correct) playSuccess();
+      else playFailure();
+    }
   }, [state.attempt]);
 
   // Tell the scheduler when and why the popup closed, exactly once per close.
@@ -82,6 +88,7 @@ export function PopupApp({ settings }: { settings: Settings }) {
           hintLevel={state.hintLevel}
           focusToken={state.focusToken}
           showFirstLetter={settings.quiz.showFirstLetter}
+          soundEnabled={settings.soundEnabled}
           dispatch={dispatch}
         />
       )}

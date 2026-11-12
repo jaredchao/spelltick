@@ -90,7 +90,19 @@ function PopupPreview() {
   return (
     <div style={page}>
       <Peek shortcut={settings.summonShortcut} onOpen={() => undefined} />
-      <Answer question={zh2en} input="deplo" hintLevel={2} focusToken={0} showFirstLetter dispatch={noop} />
+      <Answer question={zh2en} input="dep" hintLevel={5} focusToken={0} showFirstLetter soundEnabled={false} dispatch={noop} />
+      <Answer
+        question={{
+          item: makeItem({ id: 9, kind: "sentence", term: "Let's take this offline.", meaning: "这个我们会后单独聊。", phonetic: null, example: null }),
+          quizType: "zh2en",
+        }}
+        input="Let's ta"
+        hintLevel={0}
+        focusToken={0}
+        showFirstLetter
+        soundEnabled={false}
+        dispatch={noop}
+      />
       <Feedback
         question={zh2en}
         outcome={wrong}

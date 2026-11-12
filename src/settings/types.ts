@@ -36,6 +36,7 @@ export interface Settings {
   readonly summonShortcut: string;
   readonly addWordShortcut: string;
   readonly autostart: boolean;
+  readonly soundEnabled: boolean;
   readonly schedule: ScheduleSettings;
   readonly quiz: QuizSettings;
   readonly ai: AiSettings;
@@ -61,6 +62,7 @@ export const DEFAULT_SETTINGS: Settings = {
   summonShortcut: "CommandOrControl+Shift+E",
   addWordShortcut: "CommandOrControl+Shift+A",
   autostart: true,
+  soundEnabled: true,
   schedule: {
     mode: "random",
     minMinutes: 15,

@@ -22,7 +22,6 @@ export interface SkinCopy {
 export interface SkinLayout {
   readonly titleBar: boolean;
   readonly feedbackStyle: "highlight" | "diff" | "card";
-  readonly inputStyle: "box" | "prompt" | "underline";
   readonly contentAlign: "start" | "center";
   readonly shortcutHintsInButtons: boolean;
   readonly peekMarker: "dot" | "chevron" | "tile";

@@ -1,0 +1,91 @@
+.wrap {
+  position: relative;
+  padding: 4px 0 2px;
+  cursor: text;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 18px;
+}
+
+.centered .row {
+  justify-content: center;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.phonetic {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.line {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 34px;
+  padding: 0 2px 4px;
+  border-bottom: 2px solid var(--border);
+  font-family: var(--font-term);
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  white-space: pre;
+}
+
+.lineActive {
+  border-bottom-color: var(--accent);
+}
+
+.hinted {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.caret {
+  width: 2px;
+  height: 22px;
+  margin-left: 1px;
+  background: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}
+
+/* The real input covers the slots so clicks focus it and the IME window
+   opens next to the text, but it draws nothing itself. */
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 22px;
+  outline: none;
+}
+
+.input::selection {
+  background: transparent;
+}

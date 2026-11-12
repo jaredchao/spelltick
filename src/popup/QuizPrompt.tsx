@@ -1,4 +1,3 @@
-import { hintMask } from "../core/hint";
 import type { Question } from "../core/question";
 import { clozeText } from "../core/quizType";
 import styles from "./Card.module.css";
@@ -16,12 +15,11 @@ function auxLine(question: Question, showFirstLetter: boolean): string {
 
 interface QuizPromptProps {
   readonly question: Question;
-  readonly hintLevel: number;
   readonly showFirstLetter: boolean;
 }
 
 /** The question body; differs by quiz type (SPEC section 4). */
-export function QuizPrompt({ question, hintLevel, showFirstLetter }: QuizPromptProps) {
+export function QuizPrompt({ question, showFirstLetter }: QuizPromptProps) {
   const { item, quizType } = question;
   return (
     <div className={styles.prompt}>
@@ -41,7 +39,6 @@ export function QuizPrompt({ question, hintLevel, showFirstLetter }: QuizPromptP
       )}
 
       <div className={styles.aux}>{auxLine(question, showFirstLetter)}</div>
-      {hintLevel > 0 && <div className={styles.hint}>{hintMask(item.term, hintLevel)}</div>}
     </div>
   );
 }

@@ -127,12 +127,19 @@ export function GeneralTab({ settings, update }: Props) {
 
       <div className={styles.divider} />
 
-      <Section title="启动与数据">
+      <Section title="启动、声音与数据">
         <Row label="开机自动启动">
           <Check
             label=""
             checked={settings.autostart}
             onChange={(autostart) => void update({ ...settings, autostart })}
+          />
+        </Row>
+        <Row label="音效（打字、答对、答错）">
+          <Check
+            label=""
+            checked={settings.soundEnabled}
+            onChange={(soundEnabled) => void update({ ...settings, soundEnabled })}
           />
         </Row>
         <Row label="学习进度（换电脑时用）">
