@@ -1,0 +1,75 @@
+src-tauri/icons/source/tray.svg
+  s_52cd1af15a8326::t_8aa7eca92346bc 1
+INSTALL.md
+  s_52cd1af15a8326::t_8aa7eca92346bc 1,14-18,26,41-43,96,125,131
+  s_52cd1af15a8326::t_fb934acfcfc89d 33
+  s_52cd1af15a8326::t_a65ae09d2191bb 3
+src-tauri/src/tray.rs
+  s_52cd1af15a8326::t_8aa7eca92346bc 137,167
+.github/workflows/release-macos.yml
+  s_52cd1af15a8326::t_248df5167a6749 1-125
+docs/DECISIONS.md
+  s_52cd1af15a8326::t_8aa7eca92346bc 151-159
+src-tauri/tauri.conf.json
+  s_52cd1af15a8326::t_8aa7eca92346bc 3-4
+  s_52cd1af15a8326::t_a65ae09d2191bb 28
+  s_52cd1af15a8326::t_6dc0648992ab72 49-52
+src/settingsWindow/GeneralTab.tsx
+  s_52cd1af15a8326::t_8aa7eca92346bc 49
+index.html
+  s_52cd1af15a8326::t_8aa7eca92346bc 6
+src-tauri/icons/source/icon.svg
+  s_52cd1af15a8326::t_8aa7eca92346bc 1
+src-tauri/src/selection.rs
+  s_52cd1af15a8326::t_8aa7eca92346bc 10
+docs/SPEC.md
+  s_52cd1af15a8326::t_8aa7eca92346bc 1
+src-tauri/icons/source/icon-macos.svg
+  s_52cd1af15a8326::t_8aa7eca92346bc 1
+package.json
+  s_52cd1af15a8326::t_8aa7eca92346bc 2
+.gitignore
+  s_52cd1af15a8326::t_248df5167a6749 28-31
+src-tauri/icons/source/icon-small.svg
+  s_52cd1af15a8326::t_8aa7eca92346bc 1
+src/addWord/AddWordApp.tsx
+  s_52cd1af15a8326::t_8aa7eca92346bc 95
+src-tauri/src/popup.rs
+  s_52cd1af15a8326::t_8aa7eca92346bc 91
+src-tauri/src/main.rs
+  s_52cd1af15a8326::t_8aa7eca92346bc 5
+scripts/verify-macos-bundle.py
+  s_52cd1af15a8326::t_248df5167a6749 1-33
+CLAUDE.md
+  s_52cd1af15a8326::t_8aa7eca92346bc 21,63-68
+  s_52cd1af15a8326::t_a65ae09d2191bb 4,39
+  s_52cd1af15a8326::t_248df5167a6749 69-73
+src/settingsWindow/AboutTab.tsx
+  s_52cd1af15a8326::t_8aa7eca92346bc 15
+src-tauri/Cargo.toml
+  s_52cd1af15a8326::t_8aa7eca92346bc 2,4,11
+README.md
+  s_52cd1af15a8326::t_248df5167a6749 1-66
+package-lock.json
+  s_52cd1af15a8326::t_b8e8ad982ac700 2,8
+src-tauri/Cargo.lock
+  s_52cd1af15a8326::t_49ba635e91b0cc 4021-4046
+src-tauri/data/LICENSE-ECDICT
+  s_52cd1af15a8326::t_503c15a7655365 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "40543655f410f710f704ef77a91649bef127a3fd",
+  "prompts": {},
+  "sessions": {
+    "s_52cd1af15a8326": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1d2a7-e90c-7313-9f4f-84660c305141",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "muluo <mengchao1027@gmail.com>"
+    }
+  }
+}
