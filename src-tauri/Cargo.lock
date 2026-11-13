@@ -1042,32 +1042,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "66b7e2430c6dff6a955451e2cfc438f09cea1965a9d6f87f7e3b90decc014099"
 
 [[package]]
-name = "english-spell"
-version = "0.1.0"
-dependencies = [
- "arboard",
- "chrono",
- "core-foundation 0.10.1",
- "core-graphics",
- "fastrand",
- "keyring",
- "objc2",
- "objc2-app-kit",
- "objc2-foundation",
- "rusqlite",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-dialog",
- "tauri-plugin-global-shortcut",
- "tauri-plugin-http",
- "tauri-plugin-single-instance",
- "windows-sys 0.59.0",
-]
-
-[[package]]
 name = "enumflags2"
 version = "0.7.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4042,6 +4016,32 @@ dependencies = [
  "gobject-sys",
  "libc",
  "system-deps",
+]
+
+[[package]]
+name = "spelltick"
+version = "0.1.0"
+dependencies = [
+ "arboard",
+ "chrono",
+ "core-foundation 0.10.1",
+ "core-graphics",
+ "fastrand",
+ "keyring",
+ "objc2",
+ "objc2-app-kit",
+ "objc2-foundation",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-dialog",
+ "tauri-plugin-global-shortcut",
+ "tauri-plugin-http",
+ "tauri-plugin-single-instance",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]

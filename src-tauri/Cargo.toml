@@ -1,14 +1,14 @@
 [package]
-name = "english-spell"
+name = "spelltick"
 version = "0.1.0"
-description = "English spelling popup"
+description = "Spelltick spelling reminders"
 authors = ["muluo"]
 edition = "2024"
 
 [lib]
 # The `_lib` suffix avoids a name clash between lib and bin on Windows.
 # See https://github.com/rust-lang/cargo/issues/8519
-name = "english_spell_lib"
+name = "spelltick_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

@@ -92,7 +92,7 @@ export function AddWordApp({ settings }: { settings: Settings }) {
       {pending.needsPermission && (
         <div className={styles.notice}>
           <div>读取选中的文字需要「辅助功能」权限。</div>
-          <div>在系统设置里勾选「英语拼写」后，再按一次快捷键。现在也可以手动输入。</div>
+          <div>在系统设置里勾选「拼刻 Spelltick」后，再按一次快捷键。现在也可以手动输入。</div>
           <button type="button" className={styles.link} onClick={() => void invoke("accessibility_open_settings")}>
             打开系统设置
           </button>

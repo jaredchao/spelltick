@@ -46,7 +46,7 @@ export function GeneralTab({ settings, update }: Props) {
 
   const exportProgress = async () => {
     const path = await save({
-      defaultPath: "english-spell-progress.json",
+      defaultPath: "spelltick-progress.json",
       filters: [{ name: "学习进度", extensions: ["json"] }],
     });
     if (!path) return;

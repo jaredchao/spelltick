@@ -134,7 +134,7 @@ pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
     });
 
     let builder = TrayIconBuilder::with_id(TRAY_ID)
-        .tooltip("英语拼写")
+        .tooltip("拼刻 Spelltick")
         .menu(&menu)
         .on_menu_event(handle_menu_event);
 
@@ -164,7 +164,7 @@ fn with_platform_icon<R: Runtime>(
     _app: &AppHandle<R>,
     builder: TrayIconBuilder<R>,
 ) -> tauri::Result<TrayIconBuilder<R>> {
-    let icon = tauri::image::Image::from_bytes(include_bytes!("../icons/tray-template.png"))?;
+    let icon = tauri::image::Image::from_bytes(include_bytes!("../icons/tray-template@2x.png"))?;
     Ok(builder.icon(icon).icon_as_template(true))
 }
 

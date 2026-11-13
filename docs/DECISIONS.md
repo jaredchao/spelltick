@@ -148,3 +148,12 @@
 | 10.2 | 怎么关 | 按 Base URL 域名加参数：DeepSeek、智谱、Kimi、豆包用 `"thinking": {"type": "disabled"}`，通义（DashScope）用 `"enable_thinking": false` |
 | 10.3 | 不加参数的情况 | OpenAI（旧模型不认 `none`，会报错）、未知域名、模型名里带 `thinking` 的（本身关不掉） |
 | 10.4 | 参数被拒绝 | 返回 400 时去掉参数重试一次，本次运行对这个接口不再发送 |
+
+## 追加 · 拼刻 Spelltick 品牌（2026-11-13）
+
+| # | 问题 | 决定 |
+|---|---|---|
+| 11.1 | 应用与仓库名称 | 显示名「拼刻 Spelltick」；npm 包、Rust 包、可执行文件和本地仓库目录名均为 `spelltick`，Rust 库名为 `spelltick_lib` |
+| 11.2 | 图标 | 使用作者提供的 `pinke-icons.zip`。保留包内 ICNS、ICO、PNG 与托盘模板；其余桌面尺寸从同包 1024 PNG 生成，源文件入库 |
+| 11.3 | 已有数据兼容 | 保留 `com.muluo.englishspell` 系统 identifier 和钥匙串 service；保留进度 JSON 的 `english-spell-progress` format。导出文件默认名改为 `spelltick-progress.json` |
+| 11.4 | 旧安装升级 | 安装新包前退出旧版；若旧版已启用开机自启，先在旧版设置里关闭，再启用新版，避免遗留旧的登录项 |

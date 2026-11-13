@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 ## 项目
-英语拼写弹窗：macOS + Windows 的常驻桌面小工具，办公时不定时弹出小卡片让用户拼写英文单词或句子。
+拼刻 Spelltick：macOS + Windows 的常驻桌面小工具，办公时不定时弹出小卡片让用户拼写英文单词或句子。
 
 - 完整需求：`docs/SPEC.md`（**开始任何工作前先读它**）
 - 皮肤取值：`docs/design/skins.json`
@@ -18,7 +18,7 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - 类型检查：`npm run typecheck`
 - 打包 macOS：`npm run build:mac`（universal，同时支持 Apple 芯片和 Intel），产物在 `src-tauri/target/universal-apple-darwin/release/bundle/dmg/`
 - 打包 Windows：在 Windows 上运行 `npm run build:win`，产物在 `src-tauri/target/release/bundle/nsis/`（macOS 上无法生成 .exe）
-- 注意：正式包第一次启动会按设置开启开机自启，在开发机上试运行后记得删掉 `~/Library/LaunchAgents/英语拼写.plist`
+- 注意：正式包第一次启动会按设置开启开机自启，在开发机上试运行后记得删掉 `~/Library/LaunchAgents/拼刻 Spelltick.plist`
 - 重建四六级词库：`node scripts/build-ecdict.mjs`（首次会下载 ECDICT 到 `.cache/`）
 - 重建程序员词库：改 `scripts/programmer-deck.tsv` 后运行 `node scripts/build-programmer.mjs`；改了内置词库要把 `src-tauri/src/db/seed.rs` 里对应的 `version` 加 1
 - 开发数据库：`~/Library/Application Support/com.muluo.englishspell/spell.db`
@@ -36,7 +36,7 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 - `src-tauri/src/popup.rs`：弹窗窗口的显示、定位、焦点（改这里前先读文件头注释）
 - `src-tauri/src/tray.rs`：托盘图标与原生菜单
 - `src-tauri/src/platform/`：`macos.rs` / `windows.rs`
-- `src-tauri/icons/tray-template.png`：macOS 托盘单色占位图标（Windows 用应用图标）
+- `src-tauri/icons/tray-template.png`：macOS 托盘单色模板图标；`tray-template@2x.png` 用于高清显示。Windows 用应用图标
 
 ## 版本约束
 - React 固定 18.x（模板默认是 19，不要升级）
@@ -60,3 +60,14 @@ Tauri 2 · React 18 · TypeScript · Vite · SQLite · CSS 变量（不用 Tailw
 
 ## 最重要的一条
 弹窗出现时**绝对不能抢走焦点**。任何改动 popup 窗口的代码，都要确认用户在别的应用里打字时，输入不会跑进弹窗。
+
+## 品牌与兼容
+
+- 显示名为「拼刻 Spelltick」，npm 包、Rust 包、可执行文件和仓库目录名为 `spelltick`。
+- 保留系统 identifier `com.muluo.englishspell`、钥匙串 service 和进度文件 format `english-spell-progress`，以兼容已有数据和导出文件。
+- 图标源文件在 `src-tauri/icons/source/`；桌面图标使用平台专用资源，macOS 托盘使用单色 template。
+
+## 发布
+
+- GitHub Actions 发布入口：`.github/workflows/release-macos.yml`。发布方式和版本约束见 `README.md`「GitHub 自动发布」。
+- Mac 包校验：`python3 scripts/verify-macos-bundle.py`。

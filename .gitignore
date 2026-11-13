@@ -25,3 +25,7 @@ dist-ssr
 
 # Downloaded sources for build scripts
 .cache
+
+# Release staging files
+release-assets/
+release-notes.md

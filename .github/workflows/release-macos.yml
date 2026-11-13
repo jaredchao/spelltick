@@ -1,0 +1,125 @@
+name: Release macOS
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing version tag to build (for example v0.1.0)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-macos-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Test, build and publish universal DMG
+    runs-on: macos-15
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.tag || github.ref_name }}
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Check release version
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const readJson = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
+          const version = readJson('package.json').version;
+          const cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
+          const rustVersion = cargo.match(/^version = "([^"]+)"/m)?.[1];
+          if (!/^v\d+\.\d+\.\d+$/.test(process.env.RELEASE_TAG) ||
+              process.env.RELEASE_TAG !== `v${version}` ||
+              readJson('src-tauri/tauri.conf.json').version !== version ||
+              readJson('package-lock.json').version !== version || rustVersion !== version) {
+            throw new Error('Tag, npm, Rust and Tauri versions must match.');
+          }
+          fs.appendFileSync(process.env.GITHUB_ENV, `RELEASE_VERSION=${version}\n`);
+          NODE
+          git show-ref --verify "refs/tags/$RELEASE_TAG"
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
+        with:
+          toolchain: '1.92.0'
+          components: clippy
+          targets: aarch64-apple-darwin,x86_64-apple-darwin
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+        with:
+          workspaces: src-tauri -> target
+          key: macos-universal
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Check frontend
+        run: |
+          npm run typecheck
+          npm test
+
+      - name: Check Rust
+        working-directory: src-tauri
+        run: |
+          cargo test --locked
+          cargo clippy --locked --all-targets -- -D warnings
+
+      - name: Build macOS universal application
+        run: npm run build:mac -- --ci --bundles app,dmg -- --locked
+
+      - name: Verify bundle and prepare release assets
+        run: |
+          python3 scripts/verify-macos-bundle.py
+          mkdir -p release-assets
+          cp "src-tauri/target/universal-apple-darwin/release/bundle/dmg/拼刻 Spelltick_${RELEASE_VERSION}_universal.dmg" \
+            "release-assets/spelltick_${RELEASE_VERSION}_universal.dmg"
+          hdiutil verify "release-assets/spelltick_${RELEASE_VERSION}_universal.dmg"
+          cp INSTALL.md release-assets/INSTALL.md
+          cd release-assets
+          shasum -a 256 *.dmg INSTALL.md > SHA256SUMS
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cat > release-notes.md <<'NOTES'
+          ## 拼刻 Spelltick
+
+          办公时弹出词卡的英语拼写工具。包含内置词库、间隔复习、三套皮肤、学习记录和可选 AI 讲解。
+
+          下载 `spelltick_*_universal.dmg`，适用于 macOS 11 及更新版本，同时支持 Apple 芯片和 Intel。
+
+          安装方式见附件 `INSTALL.md`。应用尚未签名和公证，首次打开需在「系统设置 → 隐私与安全性」中允许打开。
+
+          本安装包由 GitHub Actions 从对应版本标签构建。附件 `SHA256SUMS` 提供校验值。本次发布不含 Windows 安装包。
+          NOTES
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" release-assets/* --clobber
+          else
+            gh release create "$RELEASE_TAG" release-assets/* \
+              --verify-tag \
+              --title "拼刻 Spelltick $RELEASE_TAG" \
+              --notes-file release-notes.md
+          fi

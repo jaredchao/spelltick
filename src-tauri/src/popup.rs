@@ -88,7 +88,7 @@ const SCREEN_GAP: f64 = 24.0;
 
 pub fn create<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<WebviewWindow<R>> {
     WebviewWindowBuilder::new(app, LABEL, WebviewUrl::App("index.html".into()))
-        .title("英语拼写")
+        .title("拼刻 Spelltick")
         .inner_size(260.0, 56.0)
         .decorations(false)
         .transparent(true)

@@ -7,7 +7,7 @@ use arboard::Clipboard;
 
 use crate::platform;
 
-const SENTINEL_PREFIX: &str = "\u{2063}english-spell-selection-probe-";
+const SENTINEL_PREFIX: &str = "\u{2063}spelltick-selection-probe-";
 const WAIT_STEP: Duration = Duration::from_millis(25);
 const WAIT_MAX: Duration = Duration::from_millis(500);
 
